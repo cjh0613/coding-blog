@@ -47,7 +47,7 @@ top = _self;
 try {
     while (top != _self.top) top = top.parent.document ? top.parent : _self.top;
 } catch (err) {
-    // console.log(err);
+    
     top = _self;
 }
 
