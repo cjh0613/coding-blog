@@ -1,0 +1,6 @@
+# robots.txt generated at http://tool.chinaz.com/robots/ 
+User-agent: *
+Disallow: 
+Disallow: /blog/page/
+Sitemap: /blog/sitemap.xml
+Sitemap: /blog/google-sitemap.xml
