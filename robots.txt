@@ -3,5 +3,5 @@ User-agent: *
 Disallow: 
 Disallow: /blog/page/
 Disallow: /blog/page/*.html
-Sitemap: /blog/sitemap.xml
-Sitemap: /blog/google-sitemap.xml
+Sitemap: https://cjh0613.gitee.io/blog/sitemap.xml
+Sitemap: https://cjh0613.gitee.io/blog/google-sitemap.xml
