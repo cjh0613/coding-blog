@@ -15,6 +15,7 @@ script:
   - cd ..
   - git add -A
   - git commit -m "更新网站`date +"% Y-% m-% d % H:% M"`Travis CI Auto Builder "
+  - git gc
   - git push -f "https://${TOKEN_USER}:${CODING_TOKEN}@e.coding.net/cjh0613/cs1.git" master:master
 
 
