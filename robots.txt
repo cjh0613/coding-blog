@@ -1,7 +1,6 @@
 User-agent: *
 Disallow: 
-Disallow: /blog/friends/index.html
 Disallow: /blog/page/
 Disallow: /blog/page/*.html
-Sitemap: https://cjh0613.gitee.io/blog/sitemap.xml
-Sitemap: https://cjh0613.gitee.io/blog/google-sitemap.xml
+Sitemap: https://cjh0613.github.io/blog/sitemap.xml
+Sitemap: https://cjh0613.github.io/blog/google-sitemap.xml
