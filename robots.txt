@@ -2,5 +2,6 @@ User-agent: *
 Disallow: 
 Disallow: /blog/page/
 Disallow: /blog/page/*.html
+Disallow: /redirect/wikipedia/*
 Sitemap: https://cjh0613.github.io/blog/sitemap.xml
 Sitemap: https://cjh0613.github.io/blog/google-sitemap.xml
