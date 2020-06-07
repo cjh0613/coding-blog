@@ -1,3 +1,9 @@
+User-agent: Baiduspider
+Disallow: 
+Disallow: /blog/page/
+Disallow: /blog/page/*.html
+Disallow: /redirect/wikipedia/*
+Disallow: /blog/20200601.html
 User-agent: *
 Disallow: 
 Disallow: /blog/page/
