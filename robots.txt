@@ -2,12 +2,14 @@ User-agent: Baiduspider
 Disallow: 
 Disallow: /blog/page/
 Disallow: /blog/page/*.html
+Disallow: /en/page/
+Disallow: /en/page/*.html
 Disallow: /redirect/wikipedia/*
 Disallow: /blog/20200601.html
 User-agent: *
 Disallow: 
 Disallow: /blog/page/
 Disallow: /blog/page/*.html
+Disallow: /en/page/
+Disallow: /en/page/*.html
 Disallow: /redirect/wikipedia/*
-Sitemap: https://cjh0613.github.io/blog/sitemap.xml
-Sitemap: https://cjh0613.github.io/blog/google-sitemap.xml
