@@ -17,7 +17,7 @@ script:
   - git commit -m "更新网站`date +"% Y-% m-% d % H:% M"`Travis CI Auto Builder "
   - git push -f "https://${USER_NAME}:${GITHUB_TOKEN}@github.com/cjh0613/coding-blog.git" master:master
   - git gc
-  - git push -f "https://${TOKEN_USER}:${CODING_TOKEN}@e.coding.net/cjh0613/cs1.git" master:master
+  - git push -f "https://${TOKEN_USER}:${CODING_TOKEN}@e.coding.net/cjh0613/cs1/cs1.git" master:master
 
 
 after_success:
