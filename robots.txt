@@ -6,11 +6,6 @@ Disallow: /en/page/
 Disallow: /en/page/*.html
 Disallow: /redirect/wikipedia/*
 Disallow: /blog/20200601.html
-Disallow: https://cjh0613.bitbucket.io/
-Disallow: https://cjh0613.now.sh/
-Disallow: https://cjh0613.gitee.io/
-Disallow: https://cjh0613.netlify.app/
-Disallow: https://carhq2.coding-pages.com/
 User-agent: *
 Disallow: 
 Disallow: /blog/page/
