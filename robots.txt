@@ -1,15 +1,6 @@
-User-agent: Baiduspider
-Disallow: 
-Disallow: /blog/page/
-Disallow: /blog/page/*.html
-Disallow: /en/page/
-Disallow: /en/page/*.html
-Disallow: /redirect/wikipedia/*
-Disallow: /blog/20200601.html
 User-agent: *
-Disallow: 
-Disallow: /blog/page/
-Disallow: /blog/page/*.html
-Disallow: /en/page/
+Disallow: /y/*
+Disallow: /RedEnvelope/*
+Disallow: /alipay/*
 Disallow: /en/page/*.html
 Disallow: /redirect/wikipedia/*
