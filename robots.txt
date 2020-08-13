@@ -4,3 +4,4 @@ Disallow: /RedEnvelope/*
 Disallow: /alipay/*
 Disallow: /en/page/*.html
 Disallow: /redirect/wikipedia/*
+Disallow: /blog/*
