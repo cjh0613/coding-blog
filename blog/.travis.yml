@@ -1,0 +1,37 @@
+
+before_install:
+  - export TZ='Asia/Shanghai'       # 更改时区
+
+
+install:
+  
+
+script:
+  - git config --global user.name ${USER_NAME}
+  - git config --global user.email ${USER_EMAIL}
+  - git clone https://github.com/cjh0613/cjh0613.github.io.git cjhtemp
+  - git clone https://github.com/cjh0613/blog.git cjhtemp/blog
+  - cd cjhtemp/blog
+  - rm -r -f .git
+  - cd ..
+  - git add -A
+  - git commit -m "更新网站`date +"% Y-% m-% d % H:% M"`Travis CI Auto Builder "
+  - git push -f "https://${USER_NAME}:${GITHUB_TOKEN}@github.com/cjh0613/coding-blog.git" master:master
+  - git gc
+  #- git push -f "https://${TOKEN_USER}:${CODING_TOKEN}@e.coding.net/cjh0613/cs1/cs1.git" master:master
+  - mv blog public
+  - git add -A
+  - git commit -m "更新网站`date +"% Y-% m-% d % H:% M"`Travis CI Auto Builder "
+  - git push -f "https://${USER_NAME}:${GITLAB_TOKEN}@gitlab.com/cjh0613/blog.git" master:master 
+
+
+after_success:
+
+branches:
+  only:
+    - master
+    
+notifications:
+  email:
+    - ${USER_EMAIL}
+  on_failure: always  

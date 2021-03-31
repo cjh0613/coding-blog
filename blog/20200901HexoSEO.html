@@ -1,0 +1,500 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="renderer" content="webkit"><meta name="force-rendering" content="webkit"><!----><script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><script src="https://cdn.staticfile.org/layer/3.1.1/layer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/boycott-ie/boycott-ie/boycott-ie.js"></script><!----><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" type="image/png" sizes="16x16"><link rel="icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" sizes="180x180"><link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" color="#54bcff"><meta name="msapplication-TileImage" content="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg"><meta name="msapplication-TileColor" content="#000000"><meta name="google-site-verification" content="WENVxYJ4LorKjirCAv6WnZEiM9vyEiZKmRIqaiTLOVw"><meta name="msvalidate.01" content="1995BB61A214C11B83C059025081A00C"><meta name="description" content="应 白小羊 请求，我撰写了本文。  本文简单介绍一些重要的 SEO 操作。它们经过了本站实践的检验。 但您请注意，一切 SEO ，都是为了让搜索引擎高效收录您的网页（那当然）。所以搜索引擎们的官方说明才是最重要的，而且它们最完整。如果您有时间，按照本文优化完毕后，请研读官方说明。国际看谷歌，内地看百度。快速传送： [转]搜索引擎优化[SEO]新手官方指南">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo搜索引擎优化[SEO]">
+<meta property="og:url" content="https://cjh0613.com/20200901HexoSEO.html">
+<meta property="og:site_name" content="峡州仙士之页">
+<meta property="og:description" content="应 白小羊 请求，我撰写了本文。  本文简单介绍一些重要的 SEO 操作。它们经过了本站实践的检验。 但您请注意，一切 SEO ，都是为了让搜索引擎高效收录您的网页（那当然）。所以搜索引擎们的官方说明才是最重要的，而且它们最完整。如果您有时间，按照本文优化完毕后，请研读官方说明。国际看谷歌，内地看百度。快速传送： [转]搜索引擎优化[SEO]新手官方指南">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cjh0613.com/images/pasted-57.png">
+<meta property="article:published_time" content="2020-09-01T00:42:00.000Z">
+<meta property="article:modified_time" content="2020-09-10T14:05:37.469Z">
+<meta property="article:author" content="峡州仙士">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cjh0613.com/images/pasted-57.png"><meta name="keywords" content="峡州仙士, 峡州仙士之页"><title>Hexo搜索引擎优化[SEO] | 峡州仙士之页</title><link ref="canonical" href="https://cjh0613.com/20200901HexoSEO.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="//cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="//cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="//cdn.staticfile.org/social-share.js/1.0.16/css/share.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/css/index.css?v=1.7.0"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://hm.baidu.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-168599388-1" async></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-168599388-1');
+}</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?3571f7725019f0e61870427684c3ce17';
+  hm.async = true;
+
+  if (false) {
+    hm.setAttribute('data-pjax', '');
+  }
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  post_widget: {"end_text":true},
+  night_mode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","word_wrap":false},
+  reward: true,
+  fancybox: true,
+  zoom_image: {"enable":true,"mask_color":"rgba(0,0,0,0.6)"},
+  gallery_waterfall: {"enable":true,"col_width":"220px","gap_x":"10px","gap_y":"10px"},
+  lazyload: {"enable":true,"placeholder":"gif"},
+  pjax: undefined,
+  external_link: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copy_button":"复制","copy_success":"复制成功","copy_error":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="https://en.cjh0613.com/index.html" target="_blank" rel="noopener"><span class="header-nav-menu-item__icon"><i class="fas fa-language"></i></span><span class="header-nav-menu-item__text">En</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-ellipsis-h"></i></span><span class="header-nav-menu-item__text">其他菜单项</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/about.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-user"></i></span><span class="header-nav-submenu-item__text">关于我</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/hot.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-paper-plane"></i></span><span class="header-nav-submenu-item__text">热门文章</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="https://suiji.cjh0613.com/" target="_blank" rel="external nofollow noopener noreferrer"><span class="header-nav-submenu-item__icon"><i class="fas fa-history"></i></span><span class="header-nav-submenu-item__text">随记</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/ask.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-question"></i></span><span class="header-nav-submenu-item__text">留言/提问</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/friends/index.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-users"></i></span><span class="header-nav-submenu-item__text">朋友</span></a></div></div></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">世上本没有路</div><div class="header-banner-info__subtitle">峡州仙士之页</div><!--br--><!--div.header-banner-info__btn--></div><div class="cjh-btn"><div class="cjh-btn__icon"><a class="cjh-btn-a" href="/index.html" target="_blank" rel="noopener">移步首页</a></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Hexo搜索引擎优化[SEO]</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表</span><span class="post-meta-item__value">2020-09-01</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新</span><span class="post-meta-item__value">2020-09-10</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数</span><span class="post-meta-item__value">1.4k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">预计阅读时长</span><span class="post-meta-item__value">7分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/hexo/">hexo</a></span></div></header><div class="post-body"><blockquote>
+<p>应 白小羊 请求，我撰写了本文。</p>
+</blockquote>
+<p>本文简单介绍一些重要的 SEO 操作。它们经过了本站实践的检验。</p>
+<p>但您请注意，一切 SEO ，都是为了<strong>让搜索引擎</strong>高效收录您的网页（那当然）。所以<strong>搜索引擎们的官方说明</strong>才是最重要的，而且它们最完整。如果您有时间，按照本文优化完毕后，请研读官方说明。国际看谷歌，内地看百度。快速传送： <a href="/20200611seo.html" title="[转]搜索引擎优化[SEO]新手官方指南">[转]搜索引擎优化[SEO]新手官方指南</a></p>
+<a id="more"></a>
+
+        <h2 id="url">
+          <span class="heading-link">url</span>
+        </h2>
+      
+<p>实际上，url 对网站权重影响很大。</p>
+
+        <h3 id="https">
+          <span class="heading-link">https</span>
+        </h3>
+      
+<p>一定要启用全站 https 。</p>
+
+        <h3 id="域名">
+          <span class="heading-link">域名</span>
+        </h3>
+      
+<p>强烈建议使用自己的域名。<code>github.io</code>（已被 DNS 污染，且进入工信部黑名单）,<code>gitee.io</code>等随时可能被墙，有自己的域名可以方便地更换服务商。确实没闲钱的做题家们可以使用 <a href="/20200822subdomain.html" title="免费子域名">免费子域名</a></p>
+<p>关于购买域名，我的建议：计划备案用<code>.cn</code>，便宜；不计划备案用<code>.com</code>等内地支持备案的域名。且尽量不使用中文域名。这是综合 SEO 效果、域名价格、域名政策、访客熟悉度等的结果。还有，万一您有一天想备案呢？</p>
+<p>内地搜索引擎偏好备案的网站，收录一般更快。毕竟方便追责，网站更“合法”。</p>
+<p>我没有备案的计划。域名注册、DNS 解析、服务器全走的国际服务。</p>
+
+        <h3 id="资源地址">
+          <span class="heading-link">资源地址</span>
+        </h3>
+      
+<p>请降低文章地址的层级。hexo 文章默认的资源地址采用多级时间分类存放（<code>https://xxx.github.io/2020/04/07/xxx/</code>），如此层级不利于搜索引擎爬取。将 hexo 的 _config.yml 中的属性修改为</p>
+<figure class="highlight yml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">:title.html</span></span><br></pre></td></tr></table></div></figure>
+<p>就可以得到文章 URL 如：<code>https://cjh0613.com/20200603HexoSubmitUrlsToSearchEngine.html</code></p>
+<p>更改后，最好能兼容一下旧版链接。推荐在 404.html 写 js 跳转。</p>
+<p>另外，部分搜索引擎还会从 URL 获取信息。如，上面这个链接被收录后，百度记录为是在 20200603 发布的。实际上，我是在 2020-07-06 发布的这篇文章，且网页中没有与六月三日相关的文字。</p>
+
+        <h2 id="向搜索引擎提交">
+          <span class="heading-link">向搜索引擎提交</span>
+        </h2>
+      
+
+        <h3 id="主动提交新链接">
+          <span class="heading-link">主动提交新链接</span>
+        </h3>
+      
+<p>我开发的：<a href="https://cjh0613.com/20200603HexoSubmitUrlsToSearchEngine.html">主动推送Hexo博客新链接至谷歌、必应、百度搜索引擎站长平台以提升网站收录质量和速度的插件<code>hexo-submit-urls-to-search-engine</code></a>完美实现这操作。</p>
+
+        <h3 id="sitemap">
+          <span class="heading-link">sitemap</span>
+        </h3>
+      
+<p>用插件生成针对谷歌、百度的 sitemap 并提交。在 hexo 官方网站插件大全页可以搜到很多生成 sitemap 的插件。一定要使用搜索引擎站长平台的抓取测试工具。抓取站点地图，确保能 100% 成功抓取，如不能，请排查是服务器原因还是搜索引擎的问题。是服务器的原因，请尽早更换，否则会因此被降权。</p>
+
+        <h2 id="html标签">
+          <span class="heading-link">html标签</span>
+        </h2>
+      
+<p>首先，请选用成熟的 Hexo 主题。它们会自动生成对 SEO 比较重要的 Html 标签。如果您的主题不会自动生成这些标签，请自行修改主题源码以支持。这里就不展开讲了，您可自行在<strong>搜索引擎们的官方说明</strong>使用页内搜索找到详细配置说明。</p>
+<p>这些重要的标签设置有：</p>
+<ul>
+<li>rel=“canonical”，选定的规范网页</li>
+<li>nofollow ，避免爬取站外链接传递权重，可用 hexo 插件实现，请不要给友情链接加此属性</li>
+<li>img alt ,图片说明</li>
+<li>Meta description，便于搜索引擎<strong>智能摘要</strong></li>
+<li>author</li>
+<li>property=“article:……”，便于搜索引擎<strong>智能摘要</strong></li>
+<li>property=“og:……”，便于搜索引擎<strong>智能摘要</strong></li>
+<li>……</li>
+</ul>
+
+        <h2 id="标题">
+          <span class="heading-link">标题</span>
+        </h2>
+      
+<p>百度偏好的标题字符使用：</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="/images/pasted-57.png" alt="百度偏好的标题">
+      </p>
+
+        <h2 id="服务器">
+          <span class="heading-link">服务器</span>
+        </h2>
+      
+<p>请选用稳定的服务器。</p>
+<p>请选用对搜索引擎友好的服务器托管您的站点。请注意，对搜索引擎友好对访问速度要求不太高。验证是否对搜索引擎友好的常用方法：使用搜索引擎站长平台的抓取测试功能。抓取网页，robots.txt，站点地图等。能 100% 成功抓取即可。</p>
+<p>实测 Gitee Page 屏蔽了访问 robots.txt，非常……不太友好</p>
+<!--## cdn-->
+
+        <h2 id="robotstxt">
+          <span class="heading-link">robots.txt</span>
+        </h2>
+      
+<p><span class="exturl"><a class="exturl__link" href="https://cjhredirect.now.sh/wikipedia/zh-cn.html?s=Robots.txt" target="_blank" rel="external nofollow noopener noreferrer">robots.txt</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被漫游器获取的。</p>
+<p>搜索引擎一定会尝试访问此文件。如果没有此文件，搜索引擎会等待至超时，有此文件一定比没有更好。您在 hexo source 文件夹下新建<code>robots.txt</code>并按规则编辑即可。</p>
+
+        <h2 id="引流">
+          <span class="heading-link">引流</span>
+        </h2>
+      
+<p>1、在知乎、CSDN、简书等权重较高的网站转载文章，并注明原文来自您的站点，放个链接。</p>
+<p>像微信公众号、头条号等搜索引擎都被拒的局域网站就不用管了。</p>
+<p>2、友情链接。</p>
+<p>欢迎交友交流，<a href="/friends/index.html">交换本站友情链接请点这里</a></p>
+
+        <h2 id="坚持更新">
+          <span class="heading-link">坚持更新</span>
+        </h2>
+      
+<p>内容是核心。</p>
+<p>坚持更新这一点非常重要。“我的一篇文章刚发布5分钟，即可在必应搜索到”的那段日子，我每天至少新发文一篇。</p>
+<p>当然，还是请不要在个人站上堆砌低质量文章。</p>
+
+        <h2 id="搜索引擎反馈">
+          <span class="heading-link">搜索引擎反馈</span>
+        </h2>
+      
+<p>谷歌、必应站长平台提供 SEO 优化建议。官方指导！！！请一定重视！！！</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="https://cjh0613.com">峡州仙士</a></span></div><div class="copyright-link"><span class="copyright-link__name">原文链接: </span><span class="copyright-link__value"><a href="https://cjh0613.com/20200901HexoSEO.html">https://cjh0613.com/20200901HexoSEO.html</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">声明: </span><span class="copyright-notice__value">如文章有更新，将先在本网站（峡州仙士之页）发布！（可百度）| 本网站所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/hexo/">hexo</a></span></div><div class="post-share"><div class="social-share" data-sites="qzone, qq, weibo, wechat, douban, linkedin, facebook, twitter, google">分享本文到: </div></div><div class="post-reward reward"><div class="reward-button">请我喝一杯凉虾~</div><div class="reward-qrcode"><a class="exturl__link" href="https://www.cjh0613.com/RedEnvelope" target="_blank" rel="external nofollow noopener noreferrer">（推荐）【免费打赏】手机用户点此一键领红包，您通过使用红包来支持站长</a><p>BTC地址（建议使用ETH）：3F7hk94nnBHrL4LuHZdtP4soPCefCV6CbU</p><p>ETH收款地址：0x2AdDE524665af970acE4CB3D50dE70136c88f90F</p><span class="reward-qrcode-alipay"><img class="reward-qrcode-alipay__img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/pasted-5.png"><div class="reward-qrcode-alipay__text">支付宝打赏</div></span><span class="reward-qrcode-wechat"><img class="reward-qrcode-wechat__img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/pasted-6.png"><div class="reward-qrcode-wechat__text">微信打赏</div></span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2020PyGoogleTranslate.html"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">python使用谷歌翻译API[免key]</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/20200830Electrotechnics2.html"><span class="paginator-prev__text">电工学2：电路的分析方法</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div><div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-3992225808017393" data-ad-slot="7938361938"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#url"><span class="toc-number">1.</span> <span class="toc-text">
+          url
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#https"><span class="toc-number">1.1.</span> <span class="toc-text">
+          https
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#域名"><span class="toc-number">1.2.</span> <span class="toc-text">
+          域名
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#资源地址"><span class="toc-number">1.3.</span> <span class="toc-text">
+          资源地址
+        </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向搜索引擎提交"><span class="toc-number">2.</span> <span class="toc-text">
+          向搜索引擎提交
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#主动提交新链接"><span class="toc-number">2.1.</span> <span class="toc-text">
+          主动提交新链接
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sitemap"><span class="toc-number">2.2.</span> <span class="toc-text">
+          sitemap
+        </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html标签"><span class="toc-number">3.</span> <span class="toc-text">
+          html标签
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标题"><span class="toc-number">4.</span> <span class="toc-text">
+          标题
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#服务器"><span class="toc-number">5.</span> <span class="toc-text">
+          服务器
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#robotstxt"><span class="toc-number">6.</span> <span class="toc-text">
+          robots.txt
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引流"><span class="toc-number">7.</span> <span class="toc-text">
+          引流
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#坚持更新"><span class="toc-number">8.</span> <span class="toc-text">
+          坚持更新
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搜索引擎反馈"><span class="toc-number">9.</span> <span class="toc-text">
+          搜索引擎反馈
+        </span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">这里也有我的痕迹(按排序)：</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="/20200402RSS.html" target="_blank" rel="noopener" data-popover="RSS订阅" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-rss"></i></span></a><a class="sidebar-ov-social-item" href="https://github.com/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.thingiverse.com/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Thingiverse" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-cube"></i></span></a><a class="sidebar-ov-social-item" href="http://sighttp.qq.com/authd?IDKEY=4d5d36c19d4b64b91e4074144124b486759e276fa30b8abc" target="_blank" rel="external nofollow noopener noreferrer" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a><a class="sidebar-ov-social-item" href="https://t.me/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Telegram" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-telegram"></i></span></a><a class="sidebar-ov-social-item" href="https://www.quora.com/profile/Bruce-Chen-199" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Quora" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-quora"></i></span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-question"></i></span></a><a class="sidebar-ov-social-item" href="/about.html" target="_blank" rel="noopener" data-popover="更多" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-ellipsis-h"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/index.html"><div class="sidebar-ov-state-item__count">131</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/index.html"><div class="sidebar-ov-state-item__count">6</div><div class="sidebar-ov-state-item__name">分类</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/index.html"><div class="sidebar-ov-state-item__count">75</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer" data-popover="知识共享" data-popover-pos="up"><img src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020~2021</span><span class="footer__icon"><i class="fas fa-code"></i></span><span>峡州仙士</span><span class="footer__devider">|</span><span>粤ICP备12009483号（Gitee站）</span></div><!----><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div>推荐使用电脑端访问本站</div><div class="webinfo-item"><span class="webinfo-runtime-name">本站持续运行时间 :</span><span class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="2020/2/26 00:00:00"></span></div><div style="display:none"><script type="text/javascript" src="https://js.users.51.la/20667167.js"></script><script src="https://s96.cnzz.com/z_stat.php?id=1277785770&amp;web_id=1277785770"></script></div><div><p><a class="exturl__link" href="/20200402RSS.html" target="_blank" rel="noopener">RSS</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://en.cjh0613.com/index.html" target="_blank" rel="noopener">English&emsp;I18N&emsp;国际站</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://status.cjh0613.com/" target="_blank" rel="external nofollow noopener noreferrer">峡州仙士之页状态监控</a><br><a class="exturl__link" href="https://suyin-blog.club/" target="_blank" rel="noopener">苏寅</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://www.avg.cx" target="_blank" rel="noopener">Yrh</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://www.v6g.cn/" target="_blank" rel="noopener">微6g资源网</a><br><a class="exturl__link" href="https://cjh0613.com/archives/index.html" target="_blank" rel="noopener">归档页</a>&nbsp;|&nbsp;
+sitemap（<a class="exturl__link" href="https://cjh0613.com/sitemap.xml" target="_blank" rel="noopener">1</a><a class="exturl__link" href="https://cjh0613.com/google-sitemap.xml" target="_blank" rel="noopener">2</a>）
+&nbsp;|&nbsp;<a class="exturl__link" href="/friends/index.html" target="_blank" rel="noopener">更多友情链接</a></p></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><script>//var btn = document.getElementById("cjh_search");
+function cjh_search(){
+var $input = $('.search-input input');var q = $input.val().toLowerCase().trim();
+var url = "https://www.baidu.com/s";
+var url = url + '?wd='+q+' "峡州仙士之页"';
+if(q){
+var tempwindow=window.open('_blank');
+tempwindow.location=url;
+}}
+function cjh_g_search(){
+var $input = $('.search-input input');var q = $input.val().toLowerCase().trim();
+var url = "https://www.sanzhima.com/search";
+var url = url + '?q='+q+' site:cjh0613.com';
+if(q){
+var tempwindow=window.open('_blank');
+tempwindow.location=url;
+}}
+</script><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"><div class="cjh-btn__icon" style="font-size:1rem"><a class="cjh-btn-a" href="javascript:;" onclick="cjh_g_search();return false;">谷歌搜索</a>&emsp;<a class="cjh-btn-a" id="cjh_search" href="javascript:;" onclick="cjh_search();return false;">备用搜索</a></div><div style="text-align: center"><p>（您还可以在<a class="exturl__link" href="/blog/archives/" target="_blank" rel="noopener">归档页</a>搜索文章标题）</p></div></div><div class="search-results"></div></div><script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><script src="//cdn.staticfile.org/velocity/1.5.2/velocity.min.js"></script><script src="//cdn.staticfile.org/velocity/1.5.2/velocity.ui.min.js"></script><script src="//cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script><script src="//cdn.staticfile.org/masonry/4.2.2/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script src="//cdn.staticfile.org/social-share.js/1.0.16/js/social-share.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keypress', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css('overflow', 'auto');
+  $('.search-popup')
+    .removeClass('show')
+    .velocity('stop')
+    .velocity('transition.expandOut', {
+      duration: 300
+    });
+  $('.search-mask')
+    .velocity('stop')
+    .velocity('transition.fadeOut', {
+      duration: 300
+    });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .addClass('show')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);</script><link href="https://cdn.staticfile.org/KaTeX/0.10.2/katex.min.css" rel="stylesheet" type="text/css"><link href="https://cdn.staticfile.org/KaTeX/0.10.2/contrib/copy-tex.css" rel="stylesheet" type="text/css"><script src="https://cdn.staticfile.org/KaTeX/0.10.2/contrib/copy-tex.min.js"></script><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="//cdn.staticfile.org/valine/1.4.14/Valine.min.js"></script><script>function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'GfE51gqBqbGNIbHPqoSHcPXD-MdYXbMMI',
+    appKey: 'JXCYM9TcWAOLRnxo2BWpEL8y',
+    notify: true,
+    verify: true,
+    placeholder: '点这里输入评论。如果您需要咨询，还可QQ联系。（请填写上方昵称与邮箱，邮箱不会公开显示。如果您有个人网站，也可以填写）【近期邮件提醒失效，回复较慢】',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: false,
+    recordIP: true,
+    lang: 'zh-cn' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+  
+if (false) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3992225808017393',
+  enable_page_level_ads: true
+});</script><script src="https://cjh0613.com/js/counttime.js"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/utils.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/stun-boot.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/scroll.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/header.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/sidebar.js?v=1.7.0"></script></body></html>

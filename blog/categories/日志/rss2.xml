@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title></title>
+        <link>https://cjh0613.com/</link>
+        <atom:link href="/categories/%E6%97%A5%E5%BF%97/rss2.xml" rel="self" type="application/rss+xml"/>
+        
+        <description></description>
+        <pubDate>Tue, 22 Sep 2020 02:19:55 GMT</pubDate>
+        <generator>http://hexo.io/</generator>
+        
+        <item>
+            <title>hexo嵌入flash[免插件]</title>
+            <link>https://cjh0613.com/20200922hexo-flash.html</link>
+            <guid>https://cjh0613.com/20200922hexo-flash.html</guid>
+            <pubDate>Mon, 21 Sep 2020 11:51:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;此方法免插件。实测其效果还好于使用插件。&lt;/p&gt;
+
+    &lt;div class=&quot;note-plugin success no-icon&quot;&gt;
+      &lt;p&gt;另外推荐一下&lt;a href=&quot;/20200603HexoSubmitUrlsToSearchEngine.html&quot;&gt;主动推送Hexo博客新链接至谷歌、必应、百度搜索引擎站长平台以提升网站收录质量和速度的插件&lt;code&gt;hexo-submit-urls-to-search-engine&lt;/code&gt;&lt;/a&gt;，现在我的一篇文章&lt;strong&gt;刚发布5分钟，即可在必应搜索到&lt;/strong&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  
+&lt;p&gt;回到主题。&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200922hexo-flash.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>python使用谷歌翻译API[免key]</title>
+            <link>https://cjh0613.com/2020PyGoogleTranslate.html</link>
+            <guid>https://cjh0613.com/2020PyGoogleTranslate.html</guid>
+            <pubDate>Thu, 03 Sep 2020 10:53:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;此法可在中国内地使用，还不需申请 API key 。速度可能略慢（请实际测试）。&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/2020PyGoogleTranslate.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>Hexo搜索引擎优化[SEO]</title>
+            <link>https://cjh0613.com/20200901HexoSEO.html</link>
+            <guid>https://cjh0613.com/20200901HexoSEO.html</guid>
+            <pubDate>Tue, 01 Sep 2020 00:42:00 GMT</pubDate>
+            <description>
+                
+                &lt;blockquote&gt;
+&lt;p&gt;应 白小羊 请求，我撰写了本文。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本文简单介绍一些重要的 SEO 操作。它们经过了本站实践的检验。&lt;/p&gt;
+&lt;p&gt;但您请注意，一切 SEO ，都是为了&lt;strong&gt;让搜索引擎&lt;/strong&gt;高效收录您的网页（那当然）。所以&lt;strong&gt;搜索引擎们的官方说明&lt;/strong&gt;才是最重要的，而且它们最完整。如果您有时间，按照本文优化完毕后，请研读官方说明。国际看谷歌，内地看百度。快速传送： &lt;a href=&quot;/20200611seo.html&quot; title=&quot;[转]搜索引擎优化[SEO]新手官方指南&quot;&gt;[转]搜索引擎优化[SEO]新手官方指南&lt;/a&gt;&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200901HexoSEO.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>多域名 hexo 静态网站处理</title>
+            <link>https://cjh0613.com/20200729DealWithHexoHosts.html</link>
+            <guid>https://cjh0613.com/20200729DealWithHexoHosts.html</guid>
+            <pubDate>Wed, 29 Jul 2020 07:19:00 GMT</pubDate>
+            <description>
+                
+                &lt;blockquote&gt;
+&lt;p&gt;应 LHY 的请求，我撰写了本文&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本文记载了我是如何处理多个域名对一个静态网站的情况下，多个访问域名不同的节点之间的关系。&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200729DealWithHexoHosts.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>[译]Raspberry Pi树莓派资源大全中文版</title>
+            <link>https://cjh0613.com/20200703pi.html</link>
+            <guid>https://cjh0613.com/20200703pi.html</guid>
+            <pubDate>Fri, 03 Jul 2020 13:04:00 GMT</pubDate>
+            <description>
+                
+                &lt;blockquote&gt;
+&lt;p&gt;2020.7.3译自 &lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot;   href=&quot;https://github.com/thibmaek/awesome-raspberry-pi&quot;  target=&quot;_blank&quot; rel=&quot;external nofollow noopener noreferrer&quot;&gt;https://github.com/thibmaek/awesome-raspberry-pi&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200703pi.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>将Arduino项目导入VScode进行开发</title>
+            <link>https://cjh0613.com/20200630VScode-Arduino.html</link>
+            <guid>https://cjh0613.com/20200630VScode-Arduino.html</guid>
+            <pubDate>Tue, 30 Jun 2020 13:27:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;为什么要用&lt;code&gt;VScode&lt;/code&gt;代替&lt;code&gt;Arduino&lt;/code&gt;？因为它是最好的进行arduino开发的利器，支持许多&lt;code&gt;Arduino IDE&lt;/code&gt;所没有的功能，其&lt;code&gt;Arduino&lt;/code&gt;插件由微软开发，十分稳定。支持&lt;strong&gt;代码高亮，代码补全，转到定义，文件跳转&lt;/strong&gt;等，有利于提高敲代码速度以及查看源码或者库文件。而且&lt;code&gt;VScode&lt;/code&gt;可以跨平台使用，&lt;code&gt;Windows&lt;/code&gt;，&lt;code&gt;MAC&lt;/code&gt;，&lt;code&gt;Linux&lt;/code&gt;都支持。而且没有&lt;code&gt;vs&lt;/code&gt;那样臃肿，其他比较好的c语言IDE如Clion（arduino插件由个人开发，相比vs系列，用户较少）的支持都不太好。&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200630VScode-Arduino.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>中国国家授时中心ntp网络授时服务的使用方法</title>
+            <link>https://cjh0613.com/20200613CNntp.html</link>
+            <guid>https://cjh0613.com/20200613CNntp.html</guid>
+            <pubDate>Sat, 13 Jun 2020 10:32:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;绝大多数情况下，系统默认内置的时间服务器地址都很可靠，但微软的时间服务器群集在中国大陆没有节点（目前最近的在香港），所以如果你的网络连接不畅或访问缓慢时，就可能造成 Windows时间同步失败。&lt;/p&gt;
+&lt;p&gt;而为了提高网络授时服务质量，中国国家授时中心搭建了一套网络授时服务系统，网络授时服务器的域名为&lt;code&gt;ntp.ntsc.ac.cn&lt;/code&gt;。使用方法请继续阅读。&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200613CNntp.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>一些用于一键分享的url</title>
+            <link>https://cjh0613.com/20200611shareAPI.html</link>
+            <guid>https://cjh0613.com/20200611shareAPI.html</guid>
+            <pubDate>Fri, 12 Jun 2020 05:14:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;一些一键分享API url
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200611shareAPI.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>[转]搜索引擎优化[SEO]新手官方指南</title>
+            <link>https://cjh0613.com/20200611seo.html</link>
+            <guid>https://cjh0613.com/20200611seo.html</guid>
+            <pubDate>Thu, 11 Jun 2020 09:13:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;Google 和 百度 搜索引擎优化 (SEO) 新手官方指南。&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200611seo.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>python主动推送链接至必应Bing平台</title>
+            <link>https://cjh0613.com/20200602pythonBingUrlPush.html</link>
+            <guid>https://cjh0613.com/20200602pythonBingUrlPush.html</guid>
+            <pubDate>Tue, 02 Jun 2020 04:38:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;前几天用requests库post一直报错：格式问题；今天发现问题所在：要用&lt;code&gt;json=data&lt;/code&gt;提交……然而我研究了requests的源码，也没有找到之前报错原因……&lt;/p&gt;
+&lt;p&gt;使用必应主动推送，收录速度贼快（2020.7.3更新，新网页刚出5分钟就被收录），可参考&lt;a href=&quot;/20200531seo.html&quot;&gt;curl主动推送链接给Bing-分分钟让必应收录你的网页&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我将其与&lt;a href=&quot;/20200529BaiduUrlsPush.html&quot;&gt;hexo更新网页百度站长平台的主动推送代码&lt;/a&gt;整合使用。&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200602pythonBingUrlPush.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>Google Indexing API的那些坑</title>
+            <link>https://cjh0613.com/20200601googleIndexAPIissue.html</link>
+            <guid>https://cjh0613.com/20200601googleIndexAPIissue.html</guid>
+            <pubDate>Mon, 01 Jun 2020 11:58:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;最近研究了一下百度、Bing站长平台主动推送API，今天发现Google也有类似功能，只不过不是站长平台提供的，而是隶属google developers谷歌开发平台。于是尝试一下……一坑过后一坑来，最终依然没有解决，权先记下。&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200601googleIndexAPIissue.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>curl主动推送链接给Bing分分钟让必应收录你的网页</title>
+            <link>https://cjh0613.com/20200531seo.html</link>
+            <guid>https://cjh0613.com/20200531seo.html</guid>
+            <pubDate>Sun, 31 May 2020 09:20:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;前几天写了个&lt;a href=&quot;/20200529BaiduUrlsPush.html&quot;&gt;hexo更新网页百度站长平台的主动推送代码&lt;/a&gt;，今天查看Bing站长平台时发现Bing也有类似API。于是开始……
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200531seo.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>数量级及中文词头</title>
+            <link>https://cjh0613.com/20200523.html</link>
+            <guid>https://cjh0613.com/20200523.html</guid>
+            <pubDate>Sat, 30 May 2020 10:51:00 GMT</pubDate>
+            <description>
+                
+                &lt;div class=&quot;table-container&quot;&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;strong&gt;倍数和分数&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;s
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200523.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>python从sitemap获更新主动推送链接至百度站长平台</title>
+            <link>https://cjh0613.com/20200529BaiduUrlsPush.html</link>
+            <guid>https://cjh0613.com/20200529BaiduUrlsPush.html</guid>
+            <pubDate>Fri, 29 May 2020 02:34:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;百度站长平台对github.io上存放的sitemap.xml不太友好，经常抓取失败，添加sitemap有被降权的风险；近期自动推送js也停用了；那就只有手动提交或程序主动推送了。&lt;/p&gt;
+&lt;p&gt;网上已有hexo博客站点自动推送sitemap.xml中全部网页链接至百度的代码。但是每次提交没必要全部链接，而且重复提交页面没有变动的链接可能会被百度降权。因此我写了这个只推送有更新的页面链接的代码。只有10min内更新过的页面才会被推送。（可以修改）&lt;/p&gt;
+&lt;p&gt;另外，虽然已有hexo百度推送插件，但配置繁琐。这个代码也适用与其他能自动生成google格式sitemap的网站、博客。&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200529BaiduUrlsPush.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>使用防盗链图片失败的解决办法（如何避免被防盗链）</title>
+            <link>https://cjh0613.com/20200522imgLink.html</link>
+            <guid>https://cjh0613.com/20200522imgLink.html</guid>
+            <pubDate>Fri, 22 May 2020 12:26:00 GMT</pubDate>
+            <description>
+                
+                &lt;div class=&quot;note-plugin warning no-icon&quot;&gt;
+      &lt;p&gt;&lt;strong&gt;警告&lt;/strong&gt;&lt;br&gt;这个操作可能导致贵站统计代码失效。&lt;br&gt;建议只针对少数必要的网页添加此代码。&lt;/p&gt;
+    &lt;/div&gt;
+  
+&lt;p&gt;在网站head里面加入下面这条代码即可&lt;/p&gt;
+&lt;figure class=&quot;highlight html&quot;&gt;&lt;div class=&quot;table-container&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;referrer&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;content&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;never&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+&lt;p&gt;一般网站后台在设置图片防盗链时就是通过判断http请求头中的referer来判断该条请求是否是本网站域名发起的请求，如果不是的话就拦截请求。&lt;/p&gt;
+&lt;p&gt;上述的代码含义代表在发送http请求的时候删除掉请求头中的referer信息，如果网站没有设置对空referer也做出拦截的话，我们就能正常的收取图片。&lt;/p&gt;
+&lt;p&gt;如果配置&lt;code&gt;name=referrer&lt;/code&gt;的话&lt;code&gt;content&lt;/code&gt;的可选项还有如下几个:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;never 删除请求头中的&lt;code&gt;referer&lt;/code&gt;信息&lt;/li&gt;
+&lt;li&gt;origin 只发送请求路径的origin部分&lt;/li&gt;
+&lt;li&gt;always 不改变请求头中的&lt;code&gt;referer&lt;/code&gt;的值&lt;/li&gt;
+&lt;li&gt;default 如果当前页面使用的是&lt;code&gt;https&lt;/code&gt;协议，而正要加载的资源是普通的&lt;code&gt;http&lt;/code&gt;协议，那么将&lt;code&gt;http&lt;/code&gt;请求投中的&lt;code&gt;referer&lt;/code&gt;置空&lt;/li&gt;
+&lt;/ul&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200522imgLink.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>智能问答——小i机器人的pythonAPI调用</title>
+            <link>https://cjh0613.com/20200521xiaoiAPI.html</link>
+            <guid>https://cjh0613.com/20200521xiaoiAPI.html</guid>
+            <pubDate>Thu, 21 May 2020 05:13:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;首先，登陆&lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot;   href=&quot;http://open.xiaoi.com&quot;  target=&quot;_blank&quot; rel=&quot;external nofollow noopener noreferrer&quot;&gt;http://open.xiaoi.com&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt;，左侧开发者中心，客服API，得到&lt;code&gt;Key&lt;/code&gt;和&lt;code&gt;Secret&lt;/code&gt;&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200521xiaoiAPI.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>【转】PyCharm 文件译文：Tip of the Day （快捷操作说明 1 ）</title>
+            <link>https://cjh0613.com/20200519pycharmTip.html</link>
+            <guid>https://cjh0613.com/20200519pycharmTip.html</guid>
+            <pubDate>Tue, 19 May 2020 03:39:00 GMT</pubDate>
+            <description>
+                
+                &lt;blockquote&gt;
+&lt;p&gt;转自 &lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot;   href=&quot;https://blog.csdn.net/qq_39720249/article/details/90442968&quot;  target=&quot;_blank&quot; rel=&quot;external nofollow noopener noreferrer&quot;&gt;https://blog.csdn.net/qq_39720249/article/details/90442968&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200519pycharmTip.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>删除windows10历史记录C:\Users\CJH\AppData\Roaming\Microsoft\Windows\Recent</title>
+            <link>https://cjh0613.com/20200515DelWinRecord.html</link>
+            <guid>https://cjh0613.com/20200515DelWinRecord.html</guid>
+            <pubDate>Fri, 15 May 2020 11:34:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;键盘win+i，打开windows设置-搜索-权限和历史记录&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200515DelWinRecord.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>对比网站常用外部评论系统服务</title>
+            <link>https://cjh0613.com/20200515comment.html</link>
+            <guid>https://cjh0613.com/20200515comment.html</guid>
+            <pubDate>Fri, 15 May 2020 10:47:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;（未完成……敬请期待……）&lt;br&gt;
+对比一下常用评论系统服务。&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200515comment.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>记录一次服务器不稳定事件</title>
+            <link>https://cjh0613.com/20200509giteeServiceDown.html</link>
+            <guid>https://cjh0613.com/20200509giteeServiceDown.html</guid>
+            <pubDate>Sat, 09 May 2020 02:04:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;托管于Gitee的峡州仙士之页大中华地区服务器自2020.5.3起疑似遭到大规模DDOS攻击。一直断断续续。&lt;/p&gt;
+&lt;p&gt;发现近期coding、gitee等网站托管平台被大规模攻击，coding后恢复。&lt;/p&gt;
+&lt;p&gt;于是决定将cjh0613.gitee.io重定向至 &lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot;   href=&quot;https://cjh0613.github.io/redirect/down/cjh.html?s=/blog&quot;  target=&quot;_blank&quot; rel=&quot;external nofollow noopener noreferrer&quot;&gt;https://cjh0613.github.io/redirect/down/cjh.html?s=/blog&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-external-link-alt&quot;&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200509giteeServiceDown.html#disqus_thread</comments>
+        </item>
+        
+    </channel>
+</rss>

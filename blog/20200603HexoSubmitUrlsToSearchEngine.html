@@ -1,0 +1,869 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="renderer" content="webkit"><meta name="force-rendering" content="webkit"><!----><script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><script src="https://cdn.staticfile.org/layer/3.1.1/layer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/boycott-ie/boycott-ie/boycott-ie.js"></script><!----><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" type="image/png" sizes="16x16"><link rel="icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" sizes="180x180"><link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" color="#54bcff"><meta name="msapplication-TileImage" content="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg"><meta name="msapplication-TileColor" content="#000000"><meta name="google-site-verification" content="WENVxYJ4LorKjirCAv6WnZEiM9vyEiZKmRIqaiTLOVw"><meta name="msvalidate.01" content="1995BB61A214C11B83C059025081A00C"><meta name="description" content="English Documentation                     序                 hexo使用hexo-submit-urls-to-search-engine插件后，可主动推送Hexo博客新链接至谷歌、必应、百度搜索引擎站长平台以提升网站收录质量和速度。本插件允许你向各大搜索引擎发送纯天然、植物饲养的索引编制请求，一劳永逸。 比如，现在我的一篇文章有时刚发布">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo-submit-urls-to-search-engine 中文文档">
+<meta property="og:url" content="https://cjh0613.com/20200603HexoSubmitUrlsToSearchEngine.html">
+<meta property="og:site_name" content="峡州仙士之页">
+<meta property="og:description" content="English Documentation                     序                 hexo使用hexo-submit-urls-to-search-engine插件后，可主动推送Hexo博客新链接至谷歌、必应、百度搜索引擎站长平台以提升网站收录质量和速度。本插件允许你向各大搜索引擎发送纯天然、植物饲养的索引编制请求，一劳永逸。 比如，现在我的一篇文章有时刚发布">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cjh0613.com/images/pasted-56.png">
+<meta property="og:image" content="https://cjh0613.com/images/20210323114420.jpg">
+<meta property="og:image" content="https://cjh0613.com/images/20200805181854.jpg">
+<meta property="og:image" content="https://cjh0613.com/images/20200805182136.jpg">
+<meta property="og:image" content="https://cjh0613.com/images/20200805182258.jpg">
+<meta property="og:image" content="https://cjh0613.com/images/bingWebmasterAPI.jpg">
+<meta property="og:image" content="https://cjh0613.com/images/20200810181120.jpg">
+<meta property="og:image" content="https://cjh0613.com/images/20200727084305.jpg">
+<meta property="og:image" content="https://cjh0613.com/images/20200727085643.jpg">
+<meta property="og:image" content="https://cjh0613.com/images/20200727090448.jpg">
+<meta property="article:published_time" content="2020-07-06T02:20:00.000Z">
+<meta property="article:modified_time" content="2021-03-23T03:48:48.299Z">
+<meta property="article:author" content="峡州仙士">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="搜索">
+<meta property="article:tag" content="nodejs">
+<meta property="article:tag" content="api">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cjh0613.com/images/pasted-56.png"><meta name="keywords" content="峡州仙士, 峡州仙士之页"><title>hexo-submit-urls-to-search-engine 中文文档 | 峡州仙士之页</title><link ref="canonical" href="https://cjh0613.com/20200603HexoSubmitUrlsToSearchEngine.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="//cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="//cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="//cdn.staticfile.org/social-share.js/1.0.16/css/share.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/css/index.css?v=1.7.0"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://hm.baidu.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-168599388-1" async></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-168599388-1');
+}</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?3571f7725019f0e61870427684c3ce17';
+  hm.async = true;
+
+  if (false) {
+    hm.setAttribute('data-pjax', '');
+  }
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  post_widget: {"end_text":true},
+  night_mode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","word_wrap":false},
+  reward: true,
+  fancybox: true,
+  zoom_image: {"enable":true,"mask_color":"rgba(0,0,0,0.6)"},
+  gallery_waterfall: {"enable":true,"col_width":"220px","gap_x":"10px","gap_y":"10px"},
+  lazyload: {"enable":true,"placeholder":"gif"},
+  pjax: undefined,
+  external_link: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copy_button":"复制","copy_success":"复制成功","copy_error":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="https://en.cjh0613.com/index.html" target="_blank" rel="noopener"><span class="header-nav-menu-item__icon"><i class="fas fa-language"></i></span><span class="header-nav-menu-item__text">En</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-ellipsis-h"></i></span><span class="header-nav-menu-item__text">其他菜单项</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/about.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-user"></i></span><span class="header-nav-submenu-item__text">关于我</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/hot.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-paper-plane"></i></span><span class="header-nav-submenu-item__text">热门文章</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="https://suiji.cjh0613.com/" target="_blank" rel="external nofollow noopener noreferrer"><span class="header-nav-submenu-item__icon"><i class="fas fa-history"></i></span><span class="header-nav-submenu-item__text">随记</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/ask.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-question"></i></span><span class="header-nav-submenu-item__text">留言/提问</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/friends/index.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-users"></i></span><span class="header-nav-submenu-item__text">朋友</span></a></div></div></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">世上本没有路</div><div class="header-banner-info__subtitle">峡州仙士之页</div><!--br--><!--div.header-banner-info__btn--></div><div class="cjh-btn"><div class="cjh-btn__icon"><a class="cjh-btn-a" href="/index.html" target="_blank" rel="noopener">移步首页</a></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">hexo-submit-urls-to-search-engine 中文文档</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表</span><span class="post-meta-item__value">2020-07-06</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新</span><span class="post-meta-item__value">2021-03-23</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数</span><span class="post-meta-item__value">5k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">预计阅读时长</span><span class="post-meta-item__value">32分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/hexo/">hexo</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/搜索/">搜索</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/nodejs/">nodejs</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/api/">api</a></span></div></header><div class="post-body"><p><span class="exturl"><a class="exturl__link" href="https://en.cjh0613.com/20200603HexoSubmitUrlsToSearchEngine.html" target="_blank" rel="noopener noreferrer">English Documentation</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+
+        <h2 id="序">
+          <span class="heading-link">序</span>
+        </h2>
+      
+<p>hexo使用<code>hexo-submit-urls-to-search-engine</code>插件后，可主动推送Hexo博客新链接至谷歌、必应、百度搜索引擎站长平台以<strong>提升网站收录质量和速度</strong>。本插件允许你向各大搜索引擎发送<strong>纯天然、植物饲养</strong>的索引编制请求，一劳永逸。</p>
+<p>比如，现在我的一篇文章<strong>有时刚发布 5 分钟，即可在必应搜索到</strong>（这是最佳情况，不保证长期稳定）。看吧，这就是 <code>hexo-submit-urls-to-search-engine</code> 的威力。百度与谷歌略慢一筹。</p>
+<p>这三大搜索引擎已占据 97% 的全球搜索引擎市场份额（包括<span class="exturl"><a class="exturl__link" href="https://cjhredirect.now.sh/wikipedia/zh-cn.html?s=%E5%85%83%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E" target="_blank" rel="external nofollow noopener noreferrer">元搜索引擎</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 多吉、Duckduckgo 等；使用 Bing 索引的雅虎、 Ecosia 等）。后期可能会加入向 Yandex（官方现仅开通重点页面提交）、360（目前官方没开通）提交链接的功能。另外我已向 360 、Yandex 提交了关于<code>增加 API 提交接口</code>的建议。它们的反馈：</p>
+<ul>
+<li>360，2020.7.3：感谢您的支持，我们记录下您的建议，转给给相关工作人员查看评估下</li>
+<li>Yandex，2020.8.15：Thank you for contacting and sharing your thoughts with us. I’ve added your suggestion to the list of ideas considered by our developers.</li>
+</ul>
+
+    <div class="note-plugin danger no-icon">
+      <p><strong>警告</strong><br>非专业使用其他类似的推送代码可能会导致危险的副作用，包括但不限于：安全缺陷症、冗余代码症、重新发明轮子症、啃文档症、怀疑人生、抑郁、头疼，甚至死亡、魂飞魄散、湮灭。</p>
+    </div>
+  
+<p><span class="exturl"><a class="exturl__link" href="https://github.com/cjh0613/hexo-submit-urls-to-search-engine" target="_blank" rel="external nofollow noopener noreferrer">Github地址</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>官方交流 QQ 群：<span class="exturl"><a class="exturl__link" href="https://qm.qq.com/cgi-bin/qm/qr?k=POn3F_D9aGvz3sBLO-qwUkaQT7kWzwkC&amp;jump_from=webapi" target="_blank" rel="external nofollow noopener noreferrer">1079685183 点击打开 QQ 凑人数</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>Telegram group： <span class="exturl"><a class="exturl__link" href="https://t.me/hexoseo" target="_blank" rel="external nofollow noopener noreferrer">https://t.me/hexoseo</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<a id="more"></a>
+<p>目录：<!--re [0-9].[ ][ ]--></p>
+<ul>
+<li><a href="#%E5%BA%8F">1. 序</a></li>
+<li><a href="#%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4">2. 操作步骤</a></li>
+<li><a href="#%E8%8E%B7%E5%8F%96%E7%AB%99%E9%95%BF%E5%B9%B3%E5%8F%B0%E5%AF%86%E9%92%A5">3. 获取站长平台密钥</a>
+<ul>
+<li><a href="#%E7%99%BE%E5%BA%A6">3.1. 百度</a></li>
+<li><a href="#%E5%BF%85%E5%BA%94">3.2. 必应</a></li>
+<li><a href="#%E8%B0%B7%E6%AD%8C">3.3. 谷歌</a></li>
+</ul>
+</li>
+<li><a href="#%E9%85%8D%E7%BD%AEhexo">4. 配置hexo</a>
+<ul>
+<li><a href="#%E5%AE%89%E8%A3%85%E6%9C%AC%E6%8F%92%E4%BB%B6">4.1. 安装本插件</a></li>
+<li><a href="#%E7%BC%96%E8%BE%91hexo%E7%9A%84_configyml">4.2. 编辑hexo的_config.yml</a>
+<ul>
+<li><a href="#hexo-submit-urls-to-search-engine">4.2.1. hexo-submit-urls-to-search-engine</a></li>
+<li><a href="#deploy">4.2.2. deploy</a></li>
+<li><a href="#%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E6%94%AF%E6%8C%81">4.2.3. 持续集成支持</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E6%8F%92%E4%BB%B6%E5%8D%87%E7%BA%A7">5. 插件升级</a>
+<ul>
+<li><a href="#%E6%8F%92%E4%BB%B6%E5%8D%87%E7%BA%A7%E6%8F%90%E9%86%92">5.1. 插件升级提醒</a></li>
+<li><a href="#%E5%8D%87%E7%BA%A7%E6%93%8D%E4%BD%9C">5.2. 升级操作</a></li>
+<li><a href="#%E4%B8%8D%E5%85%BC%E5%AE%B9%E5%8D%87%E7%BA%A7">5.3. 不兼容升级</a></li>
+</ul>
+</li>
+<li><a href="#%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF">6. 返回信息</a>
+<ul>
+<li><a href="#%E6%88%90%E5%8A%9F%E6%8E%A8%E9%80%81%E4%BF%A1%E6%81%AF">6.1. 成功推送信息</a>
+<ul>
+<li><a href="#%E5%BF%85%E5%BA%94-2">6.1.1. 必应</a></li>
+<li><a href="#%E7%99%BE%E5%BA%A6-2">6.1.2. 百度</a></li>
+<li><a href="#%E8%B0%B7%E6%AD%8C-2">6.1.3. 谷歌</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%B6%E4%BB%96">6.2. 其他</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C">7. 查询结果</a>
+<ul>
+<li><a href="#%E6%9F%A5%E8%AF%A2%E7%B4%A2%E5%BC%95">7.1. 查询索引</a></li>
+<li><a href="#%E6%9F%A5%E8%AF%A2%E6%8E%A8%E9%80%81%E8%AE%B0%E5%BD%95">7.2. 查询推送记录</a>
+<ul>
+<li><a href="#%E5%BF%85%E5%BA%94-3">7.2.1. 必应</a></li>
+<li><a href="#%E7%99%BE%E5%BA%A6-3">7.2.2. 百度</a></li>
+<li><a href="#%E8%B0%B7%E6%AD%8C-3">7.2.3. 谷歌</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E8%81%94%E7%B3%BB%E6%88%91">8. 联系我</a></li>
+<li><a href="#%E6%88%91%E5%BC%80%E5%8F%91%E7%9A%84%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">9. 我开发的参考资料</a></li>
+</ul>
+
+        <h2 id="操作步骤">
+          <span class="heading-link">操作步骤</span>
+        </h2>
+      
+<p>快速入门：</p>
+<ol>
+<li>获取各站长平台密钥</li>
+<li>安装并配置<code>hexo-submit-urls-to-search-engine</code>插件</li>
+<li><code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>，并查询推送结果</li>
+<li>如果推送成功，前往 <span class="exturl"><a class="exturl__link" href="https://github.com/cjh0613/hexo-submit-urls-to-search-engine" target="_blank" rel="external nofollow noopener noreferrer">Github 地址</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>点击 Star 按钮以支持</li>
+<li><a href="#%E6%8F%92%E4%BB%B6%E5%8D%87%E7%BA%A7%E6%8F%90%E9%86%92">顺便 watch Github 项目获取插件升级提醒</a></li>
+<li>还可以<span class="exturl"><a class="exturl__link" href="https://www.cjh0613.com/" target="_blank" rel="external nofollow noopener noreferrer">点此去打赏</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+</ol>
+
+        <h2 id="获取站长平台密钥">
+          <span class="heading-link">获取站长平台密钥</span>
+        </h2>
+      
+<p>本节所“记下”的密匙均填写至 hexo 的 <code>_config.yml</code> ，格式在后文给出。</p>
+<p>关于验证网站：有的 Hexo 主题支持添加站长平台 html 验证标签，填写有关设置后<code>hexo g &amp;&amp; hexo d</code>即可验证。通用详细操作步骤请自行 谷歌 / 百度 ：<code>hexo 站长平台 验证</code></p>
+
+        <h3 id="百度">
+          <span class="heading-link">百度</span>
+        </h3>
+      
+<ol>
+<li>注册、登陆百度搜索资源平台（ <span class="exturl"><a class="exturl__link" href="https://ziyuan.baidu.com/" target="_blank" rel="external nofollow noopener noreferrer">https://ziyuan.baidu.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> ）</li>
+<li>用户中心，站点管理，添加网站</li>
+<li>搜索服务，普通收录，API提交，记下下方接口调用地址的【百度站长平台中注册的域名，密匙】：<code>http://data.zz.baidu.com/urls?site=https://cjh0613.github.io&amp;token=密匙</code>，这里即【 <span class="exturl"><a class="exturl__link" href="https://cjh0613.github.io" target="_blank" rel="external nofollow noopener noreferrer">https://cjh0613.github.io</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> ，密匙】</li>
+</ol>
+
+    <div class="note-plugin info no-icon">
+      <p><strong>提示</strong><br>如果网站使用 github page 发布，建议<strong>删掉百度站长平台的 sitemap</strong> ，用 API 主动提交，我从 5 月底开始百度索引掉了一半，最后发现是当时加 sitemap ，但百度对 github 托管的 sitemap 不友好，动不动抓取失败，影响网站权重。删并用 API 推送后，索引量迅速回升</p>
+    </div>
+  
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="/images/pasted-56.png" alt="我建站以来索引量变化">
+      </p>
+<p>另外，<code>github.io</code>  2020.9月前就被特殊照顾了，建议自行购买顶级域名使用。</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="/images/20210323114420.jpg" alt="github.io 状态">
+      </p>
+
+        <h3 id="必应">
+          <span class="heading-link">必应</span>
+        </h3>
+      
+<p>必应站长平台有新旧之分。</p>
+<ol>
+<li>注册、登陆必应新站长平台（ <span class="exturl"><a class="exturl__link" href="https://www.bing.com/webmasters" target="_blank" rel="external nofollow noopener noreferrer">https://www.bing.com/webmasters</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> ）</li>
+<li>添加网站</li>
+<li>进入网站管理页面，设置，API 访问，API 密钥 ，记下 API 密匙</li>
+</ol>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="/images/20200805181854.jpg" alt="从 URL 提交打开设置">
+      </p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="/images/20200805182136.jpg" alt="API 访问界面">
+      </p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="/images/20200805182258.jpg" alt="从必应新站长平台获取 API 密匙">
+      </p>
+<p>（近期必应站长平台升级，服务器、版面不稳定，如果无法显示 token ，可以过段时间再试）</p>
+<p>这是从必应旧站长平台获取的示意图：</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="/images/bingWebmasterAPI.jpg" alt="从必应旧站长平台获取必应网站管理员 API 密匙">
+      </p>
+
+        <h3 id="谷歌">
+          <span class="heading-link">谷歌</span>
+        </h3>
+      
+
+    <div class="note-plugin info no-icon">
+      <p><strong>提示</strong><br>需要科学上网。不仅访问谷歌站长平台时需要，而且部署 hexo 的计算机也需要。实测中国内地 ssV4.1.8 科学上网的 windows 无法使用 googleapis ，也无法使用本插件向Google提交的功能。<br>我使用境外 <span class="exturl"><a class="exturl__link" href="https://cjhredirect.now.sh/wikipedia/zh-cn.html?s=%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88" target="_blank" rel="external nofollow noopener noreferrer">持续集成</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>服务 <span class="exturl"><a class="exturl__link" href="https://cjhredirect.now.sh/wikipedia/zh-cn.html?s=Travis_CI" target="_blank" rel="external nofollow noopener noreferrer">Travis_CI</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>，解决了这个问题<br>【您可以在文末将您的有关解决方案留言，以便大家参考，谢谢】</p>
+    </div>
+  
+<p>谷歌站长平台也有新旧之分，但两站关系没有必应处理得好。另外，我们使用的 Google Indexing API 不是站长平台提供的，而是隶属 google developers 谷歌开发平台。过程中，您可参考<span class="exturl"><a class="exturl__link" href="https://developers.google.cn/search/apis/indexing-api/v3/prereqs" target="_blank" rel="external nofollow noopener noreferrer">官方文档（中国内地可访问）</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>进行配置。</p>
+<p>使用步骤：</p>
+<ol>
+<li>打开<span class="exturl"><a class="exturl__link" href="https://developers.google.cn/search/apis/indexing-api/v3/prereqs" target="_blank" rel="external nofollow noopener noreferrer">官方文档</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>，按提示创建项目、创建服务帐号。只需要按提示<strong>在网站</strong>进行配置操作即可，不需要完成获取访问令牌等后续操作</li>
+<li>您仅按谷歌官方文档在 Google <strong>新的搜索控制台</strong> 中添加权限邮箱还是会提示<strong>无权限</strong>。请转到 <a href="https://www.google.com/webmasters/verification/home" target="_blank" rel="external nofollow noopener noreferrer"><strong>旧的网站站长工具</strong> </a> ，点击您的网站，把邮箱地址添加到其中</li>
+<li>将获取到的 json 密匙文件放于 hexo 根目录（与hexo _config.yml文件位置相同）</li>
+</ol>
+<p>另外，其官方文档中有如下提示，请根据实际情况决定是否启用向谷歌提交链接的功能：</p>
+<blockquote><p>目前，Indexing API 只能用于抓取包含 <a href="https://developers.google.cn/search/docs/data-types/job-posting" target="_blank" rel="external nofollow noopener noreferrer"><code>JobPosting</code></a> 或 <a href="https://developers.google.cn/search/docs/data-types/video#broadcast-event" target="_blank" rel="external nofollow noopener noreferrer"><code>BroadcastEvent</code>（嵌套于 <code>VideoObject</code>）</a>的网页。对于包含很多短效网页（如招聘信息或直播视频）的网站，Indexing API 会通过为不同的内容分别推送更新，使搜索结果中的内容保持最新状态。</p>
+<footer><strong>Google Indexing API官方文档</strong><cite><span class="exturl"><a class="exturl__link" href="https://developers.google.cn/search/apis/indexing-api/v3/quickstart" target="_blank" rel="external nofollow noopener noreferrer">Indexing API 快速入门</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></cite></footer></blockquote>
+
+    <div class="note-plugin info no-icon">
+      <p>反正我提交了。谷歌不抓怎么知道您的网页不包含<code>招聘信息或直播视频</code>呢？既然抓了，即使没发现<code>招聘信息或直播视频</code>，又有什么原因浪费资源、把已抓取的信息弃之不用呢？既然用，我们的目的就达到了。实际使用过程中，谷歌好像也没有对此进行降权。也许是谷歌忘了改文档？我目前就发现这个文档中有两处多年未改的严重错误。</p>
+    </div>
+  
+
+        <h2 id="配置hexo">
+          <span class="heading-link">配置hexo</span>
+        </h2>
+      
+
+    <div class="note-plugin success no-icon">
+      <p><strong>提示</strong><br>推荐使用境外 <span class="exturl"><a class="exturl__link" href="https://cjhredirect.now.sh/wikipedia/zh-cn.html?s=%E6%8C%81%E7%BA%8C%E6%95%B4%E5%90%88" target="_blank" rel="external nofollow noopener noreferrer">CI (持续集成)</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>服务，如 Github Action、Travis，这样可以顺利推送至谷歌。本插件支持<a href="#%E5%85%AC%E5%85%B1%E4%BB%93%E5%BA%93%E4%B8%8E%E5%AF%86%E9%92%A5%E5%A4%84%E7%90%86">利用 CI 的环境变量设置记录密匙</a></p>
+    </div>
+  
+
+        <h3 id="安装本插件">
+          <span class="heading-link">安装本插件</span>
+        </h3>
+      
+<p>请在 hexo 根目录运行：</p>
+<blockquote>
+<p>当然，在大中华地区使用<code>cnpm</code>下载速度更快</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-submit-urls-to-search-engine</span><br></pre></td></tr></table></div></figure>
+<p>本插件也支持<code>yarn</code>安装：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add hexo-submit-urls-to-search-engine</span><br></pre></td></tr></table></div></figure>
+
+        <h3 id="编辑hexo的_configyml">
+          <span class="heading-link">编辑hexo的_config.yml</span>
+        </h3>
+      
+
+        <h4 id="hexo-submit-urls-to-search-engine">
+          <span class="heading-link">hexo-submit-urls-to-search-engine</span>
+        </h4>
+      
+<p>配置 <code>hexo-submit-urls-to-search-engine</code> 插件，将下方粘贴至 hexo 的<code>_config.yml</code>。</p>
+
+    <div class="note-plugin success no-icon">
+      <p><strong>提示</strong><br>您当然可以<a href="#%E5%85%AC%E5%85%B1%E4%BB%93%E5%BA%93%E4%B8%8E%E5%AF%86%E9%92%A5%E5%A4%84%E7%90%86">利用 CI 的环境变量设置记录密匙</a>，这样即使源码放在公开仓库，也不会泄露秘钥</p>
+    </div>
+  
+<figure class="highlight yaml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">hexo_submit_urls_to_search_engine:</span></span><br><span class="line">  <span class="attr">submit_condition:</span> <span class="string">count</span> <span class="comment">#链接被提交的条件，可选值：count | period 现仅支持count</span></span><br><span class="line">  <span class="attr">count:</span> <span class="number">10</span> <span class="comment"># 提交最新的10个链接</span></span><br><span class="line">  <span class="attr">period:</span> <span class="number">900</span> <span class="comment"># 提交修改时间在 900 秒内的链接</span></span><br><span class="line">  <span class="attr">google:</span> <span class="number">0</span> <span class="comment"># 是否向Google提交，可选值：1 | 0（0：否；1：是）</span></span><br><span class="line">  <span class="attr">bing:</span> <span class="number">1</span> <span class="comment"># 是否向bing提交，可选值：1 | 0（0：否；1：是）</span></span><br><span class="line">  <span class="attr">baidu:</span> <span class="number">1</span> <span class="comment"># 是否向baidu提交，可选值：1 | 0（0：否；1：是）</span></span><br><span class="line">  <span class="attr">txt_path:</span> <span class="string">submit_urls.txt</span> <span class="comment">## 文本文档名， 需要推送的链接会保存在此文本文档里</span></span><br><span class="line">  <span class="attr">baidu_host:</span> <span class="string">https://cjh0613.github.io</span> <span class="comment">## 在百度站长平台中注册的域名</span></span><br><span class="line">  <span class="attr">baidu_token:</span> <span class="string">请按照文档说明获取</span> <span class="comment">## 请注意这是您的秘钥， 所以请不要把它直接发布在公众仓库里!</span></span><br><span class="line">  <span class="attr">bing_host:</span> <span class="string">https://cjh0613.github.io</span> <span class="comment">## 在bing站长平台中注册的域名</span></span><br><span class="line">  <span class="attr">bing_token:</span> <span class="string">请按照文档说明获取</span> <span class="comment">## 请注意这是您的秘钥， 所以请不要把它直接发布在公众仓库里!</span></span><br><span class="line">  <span class="attr">google_host:</span> <span class="string">https://cjh0613.github.io</span> <span class="comment">## 在google站长平台中注册的域名</span></span><br><span class="line">  <span class="attr">google_key_file:</span> <span class="string">Project.json</span> <span class="comment">#存放google key的json文件，放于网站根目录（与hexo _config.yml文件位置相同），请不要把json文件内容直接发布在公众仓库里!</span></span><br><span class="line">  <span class="attr">replace:</span> <span class="number">0</span>  <span class="comment"># 是否替换链接中的部分字符串，可选值：1 | 0（0：否；1：是）</span></span><br><span class="line">  <span class="attr">find_what:</span> <span class="string">http://cjh0613.github.io/blog</span></span><br><span class="line">  <span class="attr">replace_with:</span> <span class="string">https://cjh0613.com</span></span><br></pre></td></tr></table></div></figure>
+
+    <div class="note-plugin danger no-icon">
+      <p><strong>将密钥公开的后果</strong><br>您的“冤家”、有自我意识的人工智能、恐怖分子可能使用您的密钥向搜索引擎推送不存在的页面链接。既消耗您的配额让您无法正常推送，又因推送死链导致网站权重下降</p>
+    </div>
+  
+
+    <div class="note-plugin info no-icon">
+      <p><strong>注释</strong></p><ul><li>submit_condition：支持两种是否提交链接的判断方式，即 count | period 。分别应用下方 count | period 配置项</li><li>period：一段时间，单位秒，若文章更新时间与本插件运行时间之差小于这个数值，其链接会被提交。例如：有两个文件 a.html 和 b.html，分别对应 <code>https://yoursite.com/a.html</code> 和 <code>https://yoursite.com/b.html</code>，其更新时间与本插件运行时间之差分别为 800s 和 1000s（period 字段设为 900），则 <code>https://yoursite.com/a.html</code> 会被提交，<code>https://yoursite.com/b.html</code> 不会</li><li>replace: 部分链接可能生成不正确（如中文域名，首页位于<code>http://cjh0613.github.io/blog</code>等情况）。这是一个简单粗暴的替换功能，将生成的全部链接中的指定字符串以替换。示例中将 <code>http://cjh0613.github.io/blog</code> 替换为 <code>https://cjh0613.com</code>。也可将中文域名替换为转码后的域名。</li></ul>
+    </div>
+  
+<blockquote>
+<p>2020.7.12更新本节注释，感谢 liuyib 提供建议</p>
+</blockquote>
+<p>完成上述配置后，你在 Hexo 根目录下运行 <code>hexo generate</code> 指令时，会生成一个 <code>.txt</code> 文件来存储要推送的链接。</p>
+<p>您可以打开此文件查看链接是否正确，如不正确，请访问 hexo 的 <code>_config.yml</code> 进行配置。您也可以手动修改此 <code>.txt</code> 文件后再推送链接。</p>
+
+        <h4 id="deploy">
+          <span class="heading-link">deploy</span>
+        </h4>
+      
+<p>如果您之前没有添加过 <code>deploy:</code> 配置项，直接将下方粘贴至 hexo 的 <code>_config.yml</code> ，覆盖默认的 <code>deploy:</code> 配置项。</p>
+<figure class="highlight yaml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">cjh_google_url_submitter</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">cjh_bing_url_submitter</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">cjh_baidu_url_submitter</span></span><br></pre></td></tr></table></div></figure>
+<p>完成这一步之后，运行 <code>hexo deploy</code> 命令时就可以自动推送链接至搜索引擎了。</p>
+<ul>
+<li>您必须运行 <code>hexo deploy</code> 或 <code>hexo d</code> 命令以触发推送，无论您之前是否使用这条命令进行部署。</li>
+</ul>
+<p>当然此前您需要运行 <code>hexo generate</code> 生成最新的 .txt 文件来存储要推送的链接。</p>
+<p>如果可以推送成功，烦请至<span class="exturl"><a class="exturl__link" href="https://github.com/cjh0613/hexo-submit-urls-to-search-engine" target="_blank" rel="external nofollow noopener noreferrer">Github</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>仓库 <strong>Star 支持一下</strong>，谢谢！</p>
+<p>如果已设置过 <code>deploy:</code> 配置项，直接粘贴上述代码块会提示 <strong>配置冲突</strong>，直接在已有 <code>deploy:</code> 配置项下添加即可。如：</p>
+<figure class="highlight yaml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> </span><br><span class="line">    <span class="attr">coding:</span> <span class="string">git@xxx</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span> </span><br><span class="line">  </span><br><span class="line">  <span class="comment">#添加本插件的配置项：</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">cjh_google_url_submitter</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">cjh_bing_url_submitter</span></span><br><span class="line"><span class="bullet">-</span> <span class="attr">type:</span> <span class="string">cjh_baidu_url_submitter</span></span><br></pre></td></tr></table></div></figure>
+<p>注意：上面每个 <code>type:</code> 前都有 <code>-</code></p>
+
+        <h4 id="持续集成支持">
+          <span class="heading-link">持续集成支持</span>
+        </h4>
+      
+<p>本节为 hexo 存放于公开仓库，且使用 CI （持续集成，如 Github action, travis, coding-ci, netlify 等）编译发布的部署方式提供参考。</p>
+<blockquote>
+<p>百度、必应可利用环境变量记录密匙，谷歌有其他解决办法，参见下文</p>
+</blockquote>
+
+    <div class="note-plugin info no-icon">
+      <p>请注意，如果您使用 CI 自动部署，请务必在每个页面的 Front-matter （<code>.md</code>文件最上方以 <code>---</code> 分隔的区域，用于指定个别文件的变量）中添加<code>updated:</code>来告知 Hexo 修正“文章最后修改时间”，举例来说：</p><figure class="highlight yaml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hello</span> <span class="string">World</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2013</span><span class="string">/7/13</span> <span class="number">20</span><span class="string">:46:25</span></span><br><span class="line"><span class="attr">updated:</span> <span class="number">2020</span><span class="number">-08</span><span class="number">-25</span> <span class="number">9</span><span class="string">:36:00</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></div></figure><p>这是因为，文件放在本地计算机上时，如果没有<code>updated:</code>，Hexo 会读取文件属性，使用“文件最后修改时间”作为“文章最后修改时间”，可以正常判断并提交最新的 10 个链接；而 CI 自动部署时，由于 Hexo 资源都是才 clone 到服务器上的，如果没有添加<code>updated:</code>，Hexo 同样会读取文件属性，但此时属性中最后修改时间是完全相同的 git clone 的时间，Hexo 得到错误的“文章最后修改时间”，就无法正常判断并提交最新的链接了。</p>
+    </div>
+  
+<ol>
+<li>请先在<code>hexo_submit_urls_to_search_engine:</code>的配置项<code>baidu_token:</code>与<code>bing_token:</code>处填写<code>0</code></li>
+<li>设置环境变量<code>BAIDU_TOKEN</code>，<code>BING_TOKEN</code>，值为已获取的<code>token</code></li>
+<li>如果您使用 Github Action ，还需在 <code>yml</code> 文件中设置环境变量，下方有例子</li>
+<li><code>hexo clean &amp;&amp; hexo generate &amp;&amp; hexo deploy</code>享受生活</li>
+</ol>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="/images/20200810181120.jpg" alt="设置环境变量">
+      </p>
+<p>参考：</p>
+<figure class="highlight yaml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">hexo_submit_urls_to_search_engine:</span></span><br><span class="line">  <span class="attr">submit_condition:</span> <span class="string">count</span> <span class="comment">#链接被提交的条件，可选值：count | period 现仅支持count</span></span><br><span class="line">  <span class="attr">count:</span> <span class="number">10</span> <span class="comment"># 提交最新的10个链接</span></span><br><span class="line">  <span class="attr">period:</span> <span class="number">900</span> <span class="comment"># 提交修改时间在 900 秒内的链接</span></span><br><span class="line">  <span class="attr">google:</span> <span class="number">1</span> <span class="comment"># 是否向Google提交，可选值：1 | 0（0：否；1：是）</span></span><br><span class="line">  <span class="attr">bing:</span> <span class="number">1</span> <span class="comment"># 是否向bing提交，可选值：1 | 0（0：否；1：是）</span></span><br><span class="line">  <span class="attr">baidu:</span> <span class="number">1</span> <span class="comment"># 是否向baidu提交，可选值：1 | 0（0：否；1：是）</span></span><br><span class="line">  <span class="attr">txt_path:</span> <span class="string">submit_urls.txt</span> <span class="comment">## 文本文档名， 需要推送的链接会保存在此文本文档里</span></span><br><span class="line">  <span class="attr">baidu_host:</span> <span class="string">https://en.cjh0613.com</span> <span class="comment">## 在百度站长平台中注册的域名</span></span><br><span class="line">  <span class="attr">baidu_token:</span> <span class="number">0</span> <span class="comment">## 请注意这是您的秘钥， 所以请不要把它直接发布在公众仓库里!</span></span><br><span class="line">  <span class="attr">bing_host:</span> <span class="string">https://en.cjh0613.com</span> <span class="comment">## 在bing站长平台中注册的域名</span></span><br><span class="line">  <span class="attr">bing_token:</span> <span class="number">0</span> <span class="comment">## 请注意这是您的秘钥， 所以请不要把它直接发布在公众仓库里!</span></span><br><span class="line">  <span class="attr">google_host:</span> <span class="string">https://en.cjh0613.com</span> <span class="comment">## 在google站长平台中注册的域名</span></span><br><span class="line">  <span class="attr">google_key_file:</span> <span class="string">Project.json</span> <span class="comment">#存放google key的json文件，放于网站根目录（与hexo _config.yml文件位置相同），请不要把json文件内容直接发布在公众仓库里!</span></span><br><span class="line">  <span class="attr">replace:</span> <span class="number">0</span>  <span class="comment"># 是否替换链接中的部分字符串，可选值：1 | 0（0：否；1：是）</span></span><br><span class="line">  <span class="attr">find_what:</span> <span class="string">http://cjh0613.github.io/blog</span></span><br><span class="line">  <span class="attr">replace_with:</span> <span class="string">https://cjh0613.com</span></span><br></pre></td></tr></table></div></figure>
+<p>Github Action ，还需在 <code>yml</code> 文件中设置环境变量：</p>
+<figure class="highlight yaml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">xxxx</span> <span class="comment">#随便填</span></span><br><span class="line">  <span class="attr">env:</span></span><br><span class="line">    <span class="attr">BAIDU_TOKEN:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.BAIDU_TOKEN</span> <span class="string">&#125;&#125;</span> <span class="comment"># 注意这里，其他的都是浮云</span></span><br><span class="line">    <span class="attr">BING_TOKEN:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.BING_TOKEN</span> <span class="string">&#125;&#125;</span> <span class="comment"># 注意这里，其他的都是浮云</span></span><br><span class="line">  <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line">    <span class="string">npm</span> <span class="string">i</span> <span class="string">-g</span> <span class="string">hexo-cli</span> <span class="comment"># 安装hexo</span></span><br><span class="line">    <span class="string">npm</span> <span class="string">i</span></span><br><span class="line">    <span class="string">……</span></span><br><span class="line">    <span class="string">hexo</span> <span class="string">deploy</span></span><br></pre></td></tr></table></div></figure>
+<p>至于用境外 CI 推送链接至谷歌，<code>json</code>密钥文件里信息那么多，复制粘贴设置环境变量……咳咳。我将<code>json</code>密钥文件放入一个私有仓库， 再 clone ，复制到根目录下解决。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">git clone https:&#x2F;&#x2F;cjh0613:$&#123;Token&#125;@github.com&#x2F;cjh0613&#x2F;存放密钥文件的私有仓库.git tem</span><br><span class="line">cp .&#x2F;tem&#x2F;Project.json Project.json</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></div></figure>
+<p>完美！</p>
+
+        <h2 id="插件升级">
+          <span class="heading-link">插件升级</span>
+        </h2>
+      
+
+        <h3 id="插件升级提醒">
+          <span class="heading-link">插件升级提醒</span>
+        </h3>
+      
+<p>您安装本插件后，请从 <span class="exturl"><a class="exturl__link" href="https://github.com/cjh0613/hexo-submit-urls-to-search-engine" target="_blank" rel="external nofollow noopener noreferrer">Github</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <strong>watch 本项目</strong>，以<strong>获得插件升级提示</strong>（<strong>选择 Releases only 仅获取升级提示</strong>，选择 Watching 还会推送 Issues ，Pull requests 等，<strong>通过电子邮件发送</strong>）</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="/images/20200727084305.jpg" alt="选择 Releases only">
+      </p>
+
+        <h3 id="升级操作">
+          <span class="heading-link">升级操作</span>
+        </h3>
+      
+<p>请在 hexo 根目录运行：</p>
+<blockquote>
+<p>当然，在大中华地区使用<code>cnpm</code>下载速度更快</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-submit-urls-to-search-engine@版本</span><br></pre></td></tr></table></div></figure>
+<p>我之前给出的是另一个命令：<code>npm update --save hexo-submit-urls-to-search-engine</code>，但我实测时出现了问题。</p>
+<p><code>yarn</code>升级：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add hexo-submit-urls-to-search-engine@版本</span><br></pre></td></tr></table></div></figure>
+
+        <h3 id="不兼容升级">
+          <span class="heading-link">不兼容升级</span>
+        </h3>
+      
+
+    <div class="note-plugin danger no-icon">
+      <p><strong>警告</strong><br>有时，插件升级不向下兼容，可能会需要您修改 hexo 的<code>_config.yml</code>中与本插件有关的配置项，或作其他修改。<br>此情况一般伴随 版本号中第一个小数点前的数字增加 出现。如 <code>^1.0.0</code> 升级至 <code>^2.0.0</code> 。</p>
+    </div>
+  
+<p><strong>1.x.x升级至2.x.x：</strong></p>
+<p>您需要给<code>hexo_submit_urls_to_search_engine:</code>配置项添加以下三个配置项：</p>
+<figure class="highlight yaml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">replace:</span> <span class="number">0</span>  <span class="comment"># 是否替换链接中的部分字符串，可选值：1 | 0（0：否；1：是）</span></span><br><span class="line"><span class="attr">find_what:</span> <span class="string">http://cjh0613.github.io/blog</span></span><br><span class="line"><span class="attr">replace_with:</span> <span class="string">https://cjh0613.com</span></span><br></pre></td></tr></table></div></figure>
+<blockquote>
+<p>好吧，我发现这次升级是向下兼容的，即使没有这三个配置项也不会报错……</p>
+</blockquote>
+
+        <h2 id="返回信息">
+          <span class="heading-link">返回信息</span>
+        </h2>
+      
+
+        <h3 id="成功推送信息">
+          <span class="heading-link">成功推送信息</span>
+        </h3>
+      
+
+        <h4 id="必应-2">
+          <span class="heading-link">必应</span>
+        </h4>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bing response:  &#123; d: null &#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h4 id="百度-2">
+          <span class="heading-link">百度</span>
+        </h4>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Baidu response:  &#123;&quot;remain&quot;:2999,&quot;success&quot;:1&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h4 id="谷歌-2">
+          <span class="heading-link">谷歌</span>
+        </h4>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Google response:  &#123; urlNotificationMetadata:</span><br><span class="line">   &#123; url:</span><br><span class="line">      &#39;https:&#x2F;&#x2F;cjh0613.github.io&#39;,</span><br><span class="line">     latestUpdate:</span><br><span class="line">      &#123; url:</span><br><span class="line">         &#39;https:&#x2F;&#x2F;cjh0613.github.io&#39;,</span><br><span class="line">        type: &#39;URL_UPDATED&#39;,</span><br><span class="line">        notifyTime: &#39;2020-06-12T05:37:25.701779228Z&#39; &#125; &#125; &#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h3 id="其他">
+          <span class="heading-link">其他</span>
+        </h3>
+      
+<p>其他返回可参考它们的官方文档，但一般翻译一下返回就知道原因了。</p>
+<p>有时是因为搜索引擎每天只允许提交一定数量的链接。可登陆它们的官网查询。我站点域名<code>cjh0613.github.io</code>换为 <a href="http://cjh0613.com">cjh0613.com</a> 后，必应配额 10 条，连续推送 10 天后，配额突然从 10 变为 10000。</p>
+<p>若部分链接推送失败请人工处理：根据反馈来修改保存提交链接的 txt （一般把成功推送的链接去掉），然后只运行 <code>hexo deploy</code> 重新推送，不必重新生成网站。</p>
+
+        <h2 id="查询结果">
+          <span class="heading-link">查询结果</span>
+        </h2>
+      
+
+        <h3 id="查询索引">
+          <span class="heading-link">查询索引</span>
+        </h3>
+      
+<p>以查询本站索引为例，打开任一搜索引擎，输入 <code>site:域名</code> ，这里即：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">site:cjh0613.github.io</span><br></pre></td></tr></table></div></figure>
+<p>搜索即可。</p>
+<p>新站索引量 0→1 需要的时间可能很长，也许一个月……请耐心等待</p>
+<p>实际收录速度还与其他因素有关，网上 SEO 资料很多，但都是以官方说明为中心的，可参考 <a href="/20200611seo.html" title="[转]搜索引擎优化[SEO]新手官方指南">[转]搜索引擎优化[SEO]新手官方指南</a>，我也写了一篇 <a href="/20200901HexoSEO.html" title="Hexo搜索引擎优化[SEO]">Hexo搜索引擎优化[SEO]</a></p>
+
+        <h3 id="查询推送记录">
+          <span class="heading-link">查询推送记录</span>
+        </h3>
+      
+
+        <h4 id="必应-3">
+          <span class="heading-link">必应</span>
+        </h4>
+      
+<p>可登陆<strong>必应新站长平台</strong>查到详细的推送链接列表（实时更新）：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;www.bing.com&#x2F;webmasters&#x2F;submiturl?siteUrl&#x3D;你的网站链接</span><br></pre></td></tr></table></div></figure>
+<blockquote>
+<p>也可以从<strong>必应旧站长平台</strong>进入</p>
+</blockquote>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="/images/20200727085643.jpg" alt="必应推送记录及剩余配额查询">
+      </p>
+
+        <h4 id="百度-3">
+          <span class="heading-link">百度</span>
+        </h4>
+      
+<p>登陆百度搜索资源平台（ <span class="exturl"><a class="exturl__link" href="https://ziyuan.baidu.com/" target="_blank" rel="external nofollow noopener noreferrer">https://ziyuan.baidu.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> ），搜索服务，普通收录，数据反馈，仅可在给出的图中查看到过去一段时间中，每天的推送数量，且延期更新。由于百度与此相关的具体期限不确定，您实际最快在第<code>t+1</code>天、最慢在第<code>t+3</code>天才可以看到第<code>t</code>天的推送链接数。</p>
+
+        <h4 id="谷歌-3">
+          <span class="heading-link">谷歌</span>
+        </h4>
+      
+<p>仅可在下方地址“错误”表格中查到一段时间内（最多近30天）累计推送链接数量及失败推送所占百分比（实时更新），虽然给了每天提交数据图，但相当于没给……</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;console.developers.google.com&#x2F;apis&#x2F;api&#x2F;indexing.googleapis.com&#x2F;metrics?project&#x3D;</span><br></pre></td></tr></table></div></figure>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="/images/20200727090448.jpg" alt="谷歌推送推送链接数查询">
+      </p>
+
+        <h2 id="联系我">
+          <span class="heading-link">联系我</span>
+        </h2>
+      
+<p>官方交流 QQ 群：<span class="exturl"><a class="exturl__link" href="https://qm.qq.com/cgi-bin/qm/qr?k=POn3F_D9aGvz3sBLO-qwUkaQT7kWzwkC&amp;jump_from=webapi" target="_blank" rel="external nofollow noopener noreferrer">1079685183 点击直接打开 QQ</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>（一般使用 QQ 联系我比使用本站留言可以更快获得回复！）</p>
+<p>欢迎交友交流，<a href="/friends/index.html">交换本站友情链接请点这里</a></p>
+<p>其实我很早就自编一键部署程序推送链接给站长平台们，对于自己已经没有必要额外开发插件了。开发这个插件是看到目前网络上其他类似插件只支持百度，以及为了避免全球 Hexo 用户啃文档、重造轮子、怀疑人生……</p>
+
+        <h2 id="我开发的参考资料">
+          <span class="heading-link">我开发的参考资料</span>
+        </h2>
+      
+<p>推送至百度的代码参考自插件：<span class="exturl"><a class="exturl__link" href="https://github.com/huiwang/hexo-baidu-url-submit" target="_blank" rel="external nofollow noopener noreferrer">hexo-baidu-url-submit</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>。如果您之前使用该插件，现在可以停用它了。它另外提供向熊掌推送的功能，但百度熊掌已经关闭。百度将熊掌推送升级为“快速收录”，如您有需求，且您网页满足要求，可以使用此功能,请至<span class="exturl"><a class="exturl__link" href="https://github.com/cjh0613/hexo-submit-urls-to-search-engine/issues/8" target="_blank" rel="external nofollow noopener noreferrer">issues/8</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>投票，我视人数决定；或提交 Pull Request。</p>
+<p>本站还有许多与此相关的文章，比如使用 python 从 sitemap 获取链接推送，您可至<a href="/archives/">归档页</a>点击查看，也可使用右上角搜索查找您感兴趣的内容。</p>
+<p>下方整理不全……有些没来得及记录，还参考了我之前写的文章及它们的参考资料。</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th style="text-align:center">网页链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><span class="exturl"><a class="exturl__link" href="https://wangdoc.com/javascript/bom/xmlhttprequest.html#xmlhttprequestsend" target="_blank" rel="external nofollow noopener noreferrer">https://wangdoc.com/javascript/bom/xmlhttprequest.html#xmlhttprequestsend</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="exturl"><a class="exturl__link" href="https://attacomsian.com/blog/xhr-json-post-request" target="_blank" rel="external nofollow noopener noreferrer">https://attacomsian.com/blog/xhr-json-post-request</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="exturl"><a class="exturl__link" href="https://www.jianshu.com/p/fae6bd1b2d76" target="_blank" rel="external nofollow noopener noreferrer">https://www.jianshu.com/p/fae6bd1b2d76</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="exturl"><a class="exturl__link" href="https://learning.postman.com/docs/postman/sending-api-requests/requests/" target="_blank" rel="external nofollow noopener noreferrer">https://learning.postman.com/docs/postman/sending-api-requests/requests/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="exturl"><a class="exturl__link" href="https://github.com/psf/requests/blob/427e8eb1e7559ac4739c04069310be18ddbb734f/requests/sessions.py" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/psf/requests/blob/427e8eb1e7559ac4739c04069310be18ddbb734f/requests/sessions.py</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></td>
+</tr>
+<tr>
+<td style="text-align:center"><span class="exturl"><a class="exturl__link" href="https://github.com/psf/requests/blob/427e8eb1e7559ac4739c04069310be18ddbb734f/requests/models.py" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/psf/requests/blob/427e8eb1e7559ac4739c04069310be18ddbb734f/requests/models.py</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></td>
+</tr>
+</tbody>
+</table></div>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="https://cjh0613.com">峡州仙士</a></span></div><div class="copyright-link"><span class="copyright-link__name">原文链接: </span><span class="copyright-link__value"><a href="https://cjh0613.com/20200603HexoSubmitUrlsToSearchEngine.html">https://cjh0613.com/20200603HexoSubmitUrlsToSearchEngine.html</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">声明: </span><span class="copyright-notice__value">如文章有更新，将先在本网站（峡州仙士之页）发布！（可百度）| 本网站所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/hexo/">hexo</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/搜索/">搜索</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/nodejs/">nodejs</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/api/">api</a></span></div><div class="post-share"><div class="social-share" data-sites="qzone, qq, weibo, wechat, douban, linkedin, facebook, twitter, google">分享本文到: </div></div><div class="post-reward reward"><div class="reward-button">请我喝一杯凉虾~</div><div class="reward-qrcode"><a class="exturl__link" href="https://www.cjh0613.com/RedEnvelope" target="_blank" rel="external nofollow noopener noreferrer">（推荐）【免费打赏】手机用户点此一键领红包，您通过使用红包来支持站长</a><p>BTC地址（建议使用ETH）：3F7hk94nnBHrL4LuHZdtP4soPCefCV6CbU</p><p>ETH收款地址：0x2AdDE524665af970acE4CB3D50dE70136c88f90F</p><span class="reward-qrcode-alipay"><img class="reward-qrcode-alipay__img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/pasted-5.png"><div class="reward-qrcode-alipay__text">支付宝打赏</div></span><span class="reward-qrcode-wechat"><img class="reward-qrcode-wechat__img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/pasted-6.png"><div class="reward-qrcode-wechat__text">微信打赏</div></span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/20200710anti-anti-spider.html"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">[转]斗鱼关注人数爬取 ── 字体反爬的攻与防</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/20200703pi.html"><span class="paginator-prev__text">[译]Raspberry Pi树莓派资源大全中文版</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div><div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-3992225808017393" data-ad-slot="7938361938"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#序"><span class="toc-number">1.</span> <span class="toc-text">
+          序
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#操作步骤"><span class="toc-number">2.</span> <span class="toc-text">
+          操作步骤
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取站长平台密钥"><span class="toc-number">3.</span> <span class="toc-text">
+          获取站长平台密钥
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#百度"><span class="toc-number">3.1.</span> <span class="toc-text">
+          百度
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#必应"><span class="toc-number">3.2.</span> <span class="toc-text">
+          必应
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#谷歌"><span class="toc-number">3.3.</span> <span class="toc-text">
+          谷歌
+        </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置hexo"><span class="toc-number">4.</span> <span class="toc-text">
+          配置hexo
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装本插件"><span class="toc-number">4.1.</span> <span class="toc-text">
+          安装本插件
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑hexo的_configyml"><span class="toc-number">4.2.</span> <span class="toc-text">
+          编辑hexo的_config.yml
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo-submit-urls-to-search-engine"><span class="toc-number">4.2.1.</span> <span class="toc-text">
+          hexo-submit-urls-to-search-engine
+        </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#deploy"><span class="toc-number">4.2.2.</span> <span class="toc-text">
+          deploy
+        </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#持续集成支持"><span class="toc-number">4.2.3.</span> <span class="toc-text">
+          持续集成支持
+        </span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插件升级"><span class="toc-number">5.</span> <span class="toc-text">
+          插件升级
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#插件升级提醒"><span class="toc-number">5.1.</span> <span class="toc-text">
+          插件升级提醒
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#升级操作"><span class="toc-number">5.2.</span> <span class="toc-text">
+          升级操作
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不兼容升级"><span class="toc-number">5.3.</span> <span class="toc-text">
+          不兼容升级
+        </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#返回信息"><span class="toc-number">6.</span> <span class="toc-text">
+          返回信息
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#成功推送信息"><span class="toc-number">6.1.</span> <span class="toc-text">
+          成功推送信息
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#必应-2"><span class="toc-number">6.1.1.</span> <span class="toc-text">
+          必应
+        </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#百度-2"><span class="toc-number">6.1.2.</span> <span class="toc-text">
+          百度
+        </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#谷歌-2"><span class="toc-number">6.1.3.</span> <span class="toc-text">
+          谷歌
+        </span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-number">6.2.</span> <span class="toc-text">
+          其他
+        </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询结果"><span class="toc-number">7.</span> <span class="toc-text">
+          查询结果
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查询索引"><span class="toc-number">7.1.</span> <span class="toc-text">
+          查询索引
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询推送记录"><span class="toc-number">7.2.</span> <span class="toc-text">
+          查询推送记录
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#必应-3"><span class="toc-number">7.2.1.</span> <span class="toc-text">
+          必应
+        </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#百度-3"><span class="toc-number">7.2.2.</span> <span class="toc-text">
+          百度
+        </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#谷歌-3"><span class="toc-number">7.2.3.</span> <span class="toc-text">
+          谷歌
+        </span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#联系我"><span class="toc-number">8.</span> <span class="toc-text">
+          联系我
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#我开发的参考资料"><span class="toc-number">9.</span> <span class="toc-text">
+          我开发的参考资料
+        </span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">这里也有我的痕迹(按排序)：</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="/20200402RSS.html" target="_blank" rel="noopener" data-popover="RSS订阅" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-rss"></i></span></a><a class="sidebar-ov-social-item" href="https://github.com/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.thingiverse.com/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Thingiverse" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-cube"></i></span></a><a class="sidebar-ov-social-item" href="http://sighttp.qq.com/authd?IDKEY=4d5d36c19d4b64b91e4074144124b486759e276fa30b8abc" target="_blank" rel="external nofollow noopener noreferrer" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a><a class="sidebar-ov-social-item" href="https://t.me/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Telegram" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-telegram"></i></span></a><a class="sidebar-ov-social-item" href="https://www.quora.com/profile/Bruce-Chen-199" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Quora" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-quora"></i></span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-question"></i></span></a><a class="sidebar-ov-social-item" href="/about.html" target="_blank" rel="noopener" data-popover="更多" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-ellipsis-h"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/index.html"><div class="sidebar-ov-state-item__count">131</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/index.html"><div class="sidebar-ov-state-item__count">6</div><div class="sidebar-ov-state-item__name">分类</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/index.html"><div class="sidebar-ov-state-item__count">75</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer" data-popover="知识共享" data-popover-pos="up"><img src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020~2021</span><span class="footer__icon"><i class="fas fa-code"></i></span><span>峡州仙士</span><span class="footer__devider">|</span><span>粤ICP备12009483号（Gitee站）</span></div><!----><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div>推荐使用电脑端访问本站</div><div class="webinfo-item"><span class="webinfo-runtime-name">本站持续运行时间 :</span><span class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="2020/2/26 00:00:00"></span></div><div style="display:none"><script type="text/javascript" src="https://js.users.51.la/20667167.js"></script><script src="https://s96.cnzz.com/z_stat.php?id=1277785770&amp;web_id=1277785770"></script></div><div><p><a class="exturl__link" href="/20200402RSS.html" target="_blank" rel="noopener">RSS</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://en.cjh0613.com/index.html" target="_blank" rel="noopener">English&emsp;I18N&emsp;国际站</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://status.cjh0613.com/" target="_blank" rel="external nofollow noopener noreferrer">峡州仙士之页状态监控</a><br><a class="exturl__link" href="https://suyin-blog.club/" target="_blank" rel="noopener">苏寅</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://www.avg.cx" target="_blank" rel="noopener">Yrh</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://www.v6g.cn/" target="_blank" rel="noopener">微6g资源网</a><br><a class="exturl__link" href="https://cjh0613.com/archives/index.html" target="_blank" rel="noopener">归档页</a>&nbsp;|&nbsp;
+sitemap（<a class="exturl__link" href="https://cjh0613.com/sitemap.xml" target="_blank" rel="noopener">1</a><a class="exturl__link" href="https://cjh0613.com/google-sitemap.xml" target="_blank" rel="noopener">2</a>）
+&nbsp;|&nbsp;<a class="exturl__link" href="/friends/index.html" target="_blank" rel="noopener">更多友情链接</a></p></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><script>//var btn = document.getElementById("cjh_search");
+function cjh_search(){
+var $input = $('.search-input input');var q = $input.val().toLowerCase().trim();
+var url = "https://www.baidu.com/s";
+var url = url + '?wd='+q+' "峡州仙士之页"';
+if(q){
+var tempwindow=window.open('_blank');
+tempwindow.location=url;
+}}
+function cjh_g_search(){
+var $input = $('.search-input input');var q = $input.val().toLowerCase().trim();
+var url = "https://www.sanzhima.com/search";
+var url = url + '?q='+q+' site:cjh0613.com';
+if(q){
+var tempwindow=window.open('_blank');
+tempwindow.location=url;
+}}
+</script><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"><div class="cjh-btn__icon" style="font-size:1rem"><a class="cjh-btn-a" href="javascript:;" onclick="cjh_g_search();return false;">谷歌搜索</a>&emsp;<a class="cjh-btn-a" id="cjh_search" href="javascript:;" onclick="cjh_search();return false;">备用搜索</a></div><div style="text-align: center"><p>（您还可以在<a class="exturl__link" href="/blog/archives/" target="_blank" rel="noopener">归档页</a>搜索文章标题）</p></div></div><div class="search-results"></div></div><script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><script src="//cdn.staticfile.org/velocity/1.5.2/velocity.min.js"></script><script src="//cdn.staticfile.org/velocity/1.5.2/velocity.ui.min.js"></script><script src="//cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script><script src="//cdn.staticfile.org/masonry/4.2.2/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script src="//cdn.staticfile.org/social-share.js/1.0.16/js/social-share.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keypress', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css('overflow', 'auto');
+  $('.search-popup')
+    .removeClass('show')
+    .velocity('stop')
+    .velocity('transition.expandOut', {
+      duration: 300
+    });
+  $('.search-mask')
+    .velocity('stop')
+    .velocity('transition.fadeOut', {
+      duration: 300
+    });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .addClass('show')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);</script><link href="https://cdn.staticfile.org/KaTeX/0.10.2/katex.min.css" rel="stylesheet" type="text/css"><link href="https://cdn.staticfile.org/KaTeX/0.10.2/contrib/copy-tex.css" rel="stylesheet" type="text/css"><script src="https://cdn.staticfile.org/KaTeX/0.10.2/contrib/copy-tex.min.js"></script><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="//cdn.staticfile.org/valine/1.4.14/Valine.min.js"></script><script>function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'GfE51gqBqbGNIbHPqoSHcPXD-MdYXbMMI',
+    appKey: 'JXCYM9TcWAOLRnxo2BWpEL8y',
+    notify: true,
+    verify: true,
+    placeholder: '点这里输入评论。如果您需要咨询，还可QQ联系。（请填写上方昵称与邮箱，邮箱不会公开显示。如果您有个人网站，也可以填写）【近期邮件提醒失效，回复较慢】',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: false,
+    recordIP: true,
+    lang: 'zh-cn' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+  
+if (false) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3992225808017393',
+  enable_page_level_ads: true
+});</script><script src="https://cjh0613.com/js/counttime.js"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/utils.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/stun-boot.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/scroll.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/header.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/sidebar.js?v=1.7.0"></script></body></html>

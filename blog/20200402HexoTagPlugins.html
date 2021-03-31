@@ -1,0 +1,1136 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="renderer" content="webkit"><meta name="force-rendering" content="webkit"><!----><script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><script src="https://cdn.staticfile.org/layer/3.1.1/layer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/boycott-ie/boycott-ie/boycott-ie.js"></script><!----><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" type="image/png" sizes="16x16"><link rel="icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" sizes="180x180"><link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" color="#54bcff"><meta name="msapplication-TileImage" content="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg"><meta name="msapplication-TileColor" content="#000000"><meta name="google-site-verification" content="WENVxYJ4LorKjirCAv6WnZEiM9vyEiZKmRIqaiTLOVw"><meta name="msvalidate.01" content="1995BB61A214C11B83C059025081A00C"><meta name="description" content="标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。 https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;docs&#x2F;tag-plugins.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我使用的Hexo相关语法（+Tag）">
+<meta property="og:url" content="https://cjh0613.com/20200402HexoTagPlugins.html">
+<meta property="og:site_name" content="峡州仙士之页">
+<meta property="og:description" content="标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。 https:&#x2F;&#x2F;hexo.io&#x2F;zh-cn&#x2F;docs&#x2F;tag-plugins.html">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cjh0613.com/images/pasted-23.png">
+<meta property="article:published_time" content="1999-12-31T16:01:00.000Z">
+<meta property="article:modified_time" content="2020-12-12T09:37:22.819Z">
+<meta property="article:author" content="峡州仙士">
+<meta property="article:tag" content="hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cjh0613.com/images/pasted-23.png"><meta name="keywords" content="峡州仙士, 峡州仙士之页"><title>我使用的Hexo相关语法（+Tag） | 峡州仙士之页</title><link ref="canonical" href="https://cjh0613.com/20200402HexoTagPlugins.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="//cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="//cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="//cdn.staticfile.org/social-share.js/1.0.16/css/share.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/css/index.css?v=1.7.0"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://hm.baidu.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-168599388-1" async></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-168599388-1');
+}</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?3571f7725019f0e61870427684c3ce17';
+  hm.async = true;
+
+  if (false) {
+    hm.setAttribute('data-pjax', '');
+  }
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  post_widget: {"end_text":true},
+  night_mode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","word_wrap":false},
+  reward: true,
+  fancybox: true,
+  zoom_image: {"enable":true,"mask_color":"rgba(0,0,0,0.6)"},
+  gallery_waterfall: {"enable":true,"col_width":"220px","gap_x":"10px","gap_y":"10px"},
+  lazyload: {"enable":true,"placeholder":"gif"},
+  pjax: undefined,
+  external_link: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copy_button":"复制","copy_success":"复制成功","copy_error":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="https://en.cjh0613.com/index.html" target="_blank" rel="noopener"><span class="header-nav-menu-item__icon"><i class="fas fa-language"></i></span><span class="header-nav-menu-item__text">En</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-ellipsis-h"></i></span><span class="header-nav-menu-item__text">其他菜单项</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/about.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-user"></i></span><span class="header-nav-submenu-item__text">关于我</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/hot.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-paper-plane"></i></span><span class="header-nav-submenu-item__text">热门文章</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="https://suiji.cjh0613.com/" target="_blank" rel="external nofollow noopener noreferrer"><span class="header-nav-submenu-item__icon"><i class="fas fa-history"></i></span><span class="header-nav-submenu-item__text">随记</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/ask.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-question"></i></span><span class="header-nav-submenu-item__text">留言/提问</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/friends/index.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-users"></i></span><span class="header-nav-submenu-item__text">朋友</span></a></div></div></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">世上本没有路</div><div class="header-banner-info__subtitle">峡州仙士之页</div><!--br--><!--div.header-banner-info__btn--></div><div class="cjh-btn"><div class="cjh-btn__icon"><a class="cjh-btn-a" href="/index.html" target="_blank" rel="noopener">移步首页</a></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">我使用的Hexo相关语法（+Tag）</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表</span><span class="post-meta-item__value">2000-01-01</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新</span><span class="post-meta-item__value">2020-12-12</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数</span><span class="post-meta-item__value">2.4k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">预计阅读时长</span><span class="post-meta-item__value">22分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/hexo/">hexo</a></span></div></header><div class="post-body"><p>标签插件和 Front-matter 中的标签不同，它们是用于在文章中快速插入特定内容的插件。</p>
+<p><span class="exturl"><a class="exturl__link" href="https://hexo.io/zh-cn/docs/tag-plugins.html" target="_blank" rel="external nofollow noopener noreferrer">https://hexo.io/zh-cn/docs/tag-plugins.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<a id="more"></a>
+
+        <h2 id="评论管理">
+          <span class="heading-link">评论管理</span>
+        </h2>
+      
+<p><span class="exturl"><a class="exturl__link" href="https://console.leancloud.app/data.html?appid=GfE51gqBqbGNIbHPqoSHcPXD-MdYXbMMI#/" target="_blank" rel="external nofollow noopener noreferrer">评论管理</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+
+        <h2 id="本站其他辅助">
+          <span class="heading-link">本站其他辅助</span>
+        </h2>
+      
+<p><a href="/template.html" target="_blank" rel="noopener noreferrer">模版</a>   <a href="/CJHlinkTool.html" target="_blank" rel="noopener noreferrer">自动生成链接标记</a></p>
+
+        <h2 id="目录正则">
+          <span class="heading-link">目录正则</span>
+        </h2>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\d+.[ ][ ]</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="内链">
+          <span class="heading-link">内链</span>
+        </h2>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% post_link filename %&#125;</span><br></pre></td></tr></table></div></figure>
+<p>具体参见 <a href="#%E5%BC%95%E7%94%A8%E6%96%87%E7%AB%A0">引用文章</a></p>
+
+        <h2 id="插入图片">
+          <span class="heading-link">插入图片</span>
+        </h2>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](&#x2F;images&#x2F;)</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="qq分享图">
+          <span class="heading-link">qq分享图</span>
+        </h2>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp;pics&#x3D;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;cjh0613&#x2F;blog@master&#x2F;images&#x2F;icons&#x2F;CJHicon.jpg</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="未完成">
+          <span class="heading-link">未完成</span>
+        </h2>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">（未完成……敬请期待……）</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="请自行-谷歌百度">
+          <span class="heading-link">请自行 谷歌/百度：</span>
+        </h2>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请自行 &#123;% post_link GoogleMirror 谷歌 %&#125;&#x2F;[百度](https:&#x2F;&#x2F;www.baidu.com)</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="参考资料">
+          <span class="heading-link">参考资料</span>
+        </h2>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">## 参考资料</span><br><span class="line"></span><br><span class="line">| 网页链接 |</span><br><span class="line">|:------:|</span><br><span class="line">|    [content]()    |</span><br><span class="line">|    [content]()    |</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="转">
+          <span class="heading-link">转</span>
+        </h2>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[转]</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 原文</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line">&gt; 转自 </span><br><span class="line">&gt; 本文为转载文章，请忽略本站默认原创声明，以原始页面为准。</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="截断">
+          <span class="heading-link">截断</span>
+        </h2>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="插入b视频">
+          <span class="heading-link">插入b视频</span>
+        </h2>
+      
+<figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"position: relative; width: 100%; height: 0; padding-bottom: 75%;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"//player.bilibili.com/player.html?bvid=BV"</span>  <span class="attr">scrolling</span>=<span class="string">"no"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">frameborder</span>=<span class="string">"no"</span> <span class="attr">framespacing</span>=<span class="string">"0"</span> <span class="attr">allowfullscreen</span>=<span class="string">"true"</span> <span class="attr">style</span>=<span class="string">"position: absolute; width: 100%; height: 100%; left: 0; top: 0;"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="常见特殊字符">
+          <span class="heading-link">常见特殊字符</span>
+        </h2>
+      
+<p>常用特殊字符转译字符对照表：</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th style="text-align:center">特殊符号</th>
+<th style="text-align:center">命名实体</th>
+<th style="text-align:center">十进制编码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">空格</td>
+<td style="text-align:center"><code>&amp;nbsp;</code></td>
+<td style="text-align:center"><code>&amp;#160;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">全角空格</td>
+<td style="text-align:center"><code>&amp;emsp;</code></td>
+<td style="text-align:center"><code>&amp;#12288;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">’</td>
+<td style="text-align:center"><code>&amp;apos;</code></td>
+<td style="text-align:center"><code>&amp;#39;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">&quot;</td>
+<td style="text-align:center"><code>&amp;quot;</code></td>
+<td style="text-align:center"><code>&amp;#34;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">(</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center"><code>&amp;#40;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">)</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center"><code>&amp;#41;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center"><code>&amp;lt;</code></td>
+<td style="text-align:center"><code>&amp;#60;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">&gt;</td>
+<td style="text-align:center"><code>&amp;gt;</code></td>
+<td style="text-align:center"><code>&amp;#62;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">[</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center"><code>&amp;#91;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">]</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center"><code>&amp;#93;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">{</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center"><code>&amp;#123;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">}</td>
+<td style="text-align:center">—</td>
+<td style="text-align:center"><code>&amp;#125;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">´</td>
+<td style="text-align:center"><code>&amp;acute;</code></td>
+<td style="text-align:center"><code>&amp;#180;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">°</td>
+<td style="text-align:center"><code>&amp;deg;</code></td>
+<td style="text-align:center"><code>&amp;#176;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">®</td>
+<td style="text-align:center"><code>&amp;reg;</code></td>
+<td style="text-align:center"><code>&amp;#174;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">©</td>
+<td style="text-align:center"><code>&amp;copy;</code></td>
+<td style="text-align:center"><code>&amp;#169;</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>常用数学转译字符对照表：</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th style="text-align:center">特殊符号</th>
+<th style="text-align:center">命名实体</th>
+<th style="text-align:center">十进制编码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">≤</td>
+<td style="text-align:center"><code>&amp;le;</code></td>
+<td style="text-align:center"><code>&amp;#8804;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">≥</td>
+<td style="text-align:center"><code>&amp;ge;</code></td>
+<td style="text-align:center"><code>&amp;#8805;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">≈</td>
+<td style="text-align:center"><code>&amp;asymp;</code></td>
+<td style="text-align:center"><code>&amp;#8773;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">≠</td>
+<td style="text-align:center"><code>&amp;ne;</code></td>
+<td style="text-align:center"><code>&amp;#8800;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">∩</td>
+<td style="text-align:center"><code>&amp;cap;</code></td>
+<td style="text-align:center"><code>&amp;#8745;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">∪</td>
+<td style="text-align:center"><code>&amp;cup;</code></td>
+<td style="text-align:center"><code>&amp;#8746;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">∠</td>
+<td style="text-align:center"><code>&amp;ang;</code></td>
+<td style="text-align:center"><code>&amp;#8736;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">∞</td>
+<td style="text-align:center"><code>&amp;infin;</code></td>
+<td style="text-align:center"><code>&amp;#8734;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">±</td>
+<td style="text-align:center"><code>&amp;plusmn;</code></td>
+<td style="text-align:center"><code>&amp;#177;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">√</td>
+<td style="text-align:center"><code>&amp;radic;</code></td>
+<td style="text-align:center"><code>&amp;#8730;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">∑</td>
+<td style="text-align:center"><code>&amp;sum;</code></td>
+<td style="text-align:center"><code>&amp;#8722;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">∫</td>
+<td style="text-align:center"><code>&amp;int;</code></td>
+<td style="text-align:center"><code>&amp;#8747;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">Δ</td>
+<td style="text-align:center"><code>&amp;Delta;</code></td>
+<td style="text-align:center"><code>&amp;#916;</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>常用希腊字母转译字符对照表：</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th style="text-align:center">特殊符号</th>
+<th style="text-align:center">命名实体</th>
+<th style="text-align:center">十进制编码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Φ</td>
+<td style="text-align:center"><code>&amp;Phi;</code></td>
+<td style="text-align:center"><code>&amp;#934;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">Ω</td>
+<td style="text-align:center"><code>&amp;Omega;</code></td>
+<td style="text-align:center"><code>&amp;#937;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">α</td>
+<td style="text-align:center"><code>&amp;alpha;</code></td>
+<td style="text-align:center"><code>&amp;#945;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">β</td>
+<td style="text-align:center"><code>&amp;beta;</code></td>
+<td style="text-align:center"><code>&amp;#946;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">γ</td>
+<td style="text-align:center"><code>&amp;gamma;</code></td>
+<td style="text-align:center"><code>&amp;#947;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">δ</td>
+<td style="text-align:center"><code>&amp;delta;</code></td>
+<td style="text-align:center"><code>&amp;#948;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">ε</td>
+<td style="text-align:center"><code>&amp;epsilon;</code></td>
+<td style="text-align:center"><code>&amp;#949;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">ζ</td>
+<td style="text-align:center"><code>&amp;zeta;</code></td>
+<td style="text-align:center"><code>&amp;#950;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">η</td>
+<td style="text-align:center"><code>&amp;eta;</code></td>
+<td style="text-align:center"><code>&amp;#951;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">θ</td>
+<td style="text-align:center"><code>&amp;theta;</code></td>
+<td style="text-align:center"><code>&amp;#952;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">λ</td>
+<td style="text-align:center"><code>&amp;lambda;</code></td>
+<td style="text-align:center"><code>&amp;#955;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">μ</td>
+<td style="text-align:center"><code>&amp;mu;</code></td>
+<td style="text-align:center"><code>&amp;#956;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">ξ</td>
+<td style="text-align:center"><code>&amp;xi;</code></td>
+<td style="text-align:center"><code>&amp;#958;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">π</td>
+<td style="text-align:center"><code>&amp;pi;</code></td>
+<td style="text-align:center"><code>&amp;#960;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">ρ</td>
+<td style="text-align:center"><code>&amp;rho;</code></td>
+<td style="text-align:center"><code>&amp;#961;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">σ</td>
+<td style="text-align:center"><code>&amp;sigma;</code></td>
+<td style="text-align:center"><code>&amp;#963;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">φ</td>
+<td style="text-align:center"><code>&amp;phi;</code></td>
+<td style="text-align:center"><code>&amp;#966;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">ψ</td>
+<td style="text-align:center"><code>&amp;psi;</code></td>
+<td style="text-align:center"><code>&amp;#968;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">ω</td>
+<td style="text-align:center"><code>&amp;omega;</code></td>
+<td style="text-align:center"><code>&amp;#969;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">∂</td>
+<td style="text-align:center"><code>&amp;part;</code></td>
+<td style="text-align:center"><code>&amp;#8706;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">∅</td>
+<td style="text-align:center"><code>&amp;empty;</code></td>
+<td style="text-align:center"><code>&amp;#8709;</code></td>
+</tr>
+</tbody>
+</table></div>
+
+        <h2 id="插入注释-badge-textstable-badge-textv120">
+          <span class="heading-link">插入注释</span>
+        </h2>
+      
+
+    <div class="note-plugin warning no-icon">
+      <p><strong>info</strong> 类型的标注从 <code>v2.0.0-rc.0</code> 开始支持，其他类型的标注均从 <code>v1.2.0</code> 开始支持。</p>
+    </div>
+  
+<p>实际使用语法如下：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note [type] [no-icon] %&#125;</span><br><span class="line">**header text**</span><br><span class="line">Any text</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note success no-icon %&#125;</span><br><span class="line">**提示**</span><br><span class="line"></span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note info no-icon %&#125;</span><br><span class="line">**提示**</span><br><span class="line"></span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note danger no-icon %&#125;</span><br><span class="line">**错误**</span><br><span class="line"></span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note warning no-icon %&#125;</span><br><span class="line">**警告**</span><br><span class="line"></span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note default no-icon %&#125;</span><br><span class="line">**Success**</span><br><span class="line">This is success note.</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></div></figure>
+<blockquote>
+<p>标签内可以是任意文字，支持 Markdown 和 HTML 语法。</p>
+</blockquote>
+<p>参数：</p>
+<p><code>[type]</code>：标注类型</p>
+<p><code>[no-icon]</code>：是否显示 ICON</p>
+<p>举例：</p>
+<figure class="highlight markdown"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="comment">&lt;!-- With header, With icon --&gt;</span></span></span><br><span class="line">&#123;% note success %&#125;</span><br><span class="line"><span class="strong">**Success**</span></span><br><span class="line">This is success note.</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- With header, No icon --&gt;</span></span></span><br><span class="line">&#123;% note success no-icon %&#125;</span><br><span class="line"><span class="strong">**Success**</span></span><br><span class="line">This is success note.</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- No header, With icon --&gt;</span></span></span><br><span class="line">&#123;% note success %&#125;</span><br><span class="line">This is success note.</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- No header, No icon --&gt;</span></span></span><br><span class="line">&#123;% note success no-icon %&#125;</span><br><span class="line">This is success note.</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></div></figure>
+<p>全部效果如下：</p>
+<p>
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="/images/pasted-23.png" alt="插入注释">
+      </p>
+
+        <h2 id="引用块">
+          <span class="heading-link">引用块</span>
+        </h2>
+      
+<p>在文章中插入引言，可包含作者、来源和标题。</p>
+<p><strong>别号：</strong> quote</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% blockquote [author[, source]] [link] [source_link_title] %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h3 id="峡州仙士">
+          <span class="heading-link">峡州仙士</span>
+        </h3>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% blockquote 峡州仙士,关于的论述  %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></div></figure>
+<blockquote><footer><strong>峡州仙士</strong><cite>关于的论述</cite></footer></blockquote>
+
+        <h3 id="没有提供参数则只输出普通的-blockquote">
+          <span class="heading-link">没有提供参数，则只输出普通的 blockquote</span>
+        </h3>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% blockquote %&#125;</span><br><span class="line">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></div></figure>
+<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
+</blockquote>
+
+        <h3 id="引用书上的句子">
+          <span class="heading-link">引用书上的句子</span>
+        </h3>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% blockquote David Levithan, Wide Awake %&#125;</span><br><span class="line">Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></div></figure>
+<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
+<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
+
+        <h3 id="引用-twitter">
+          <span class="heading-link">引用 Twitter</span>
+        </h3>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% blockquote @DevDocs https:&#x2F;&#x2F;twitter.com&#x2F;devdocs&#x2F;status&#x2F;356095192085962752 %&#125;</span><br><span class="line">NEW: DevDocs now comes with syntax highlighting. http:&#x2F;&#x2F;devdocs.io</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></div></figure>
+<blockquote><p>NEW: DevDocs now comes with syntax highlighting. <span class="exturl"><a class="exturl__link" href="http://devdocs.io" target="_blank" rel="external nofollow noopener noreferrer">http://devdocs.io</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<footer><strong>@DevDocs</strong><cite><span class="exturl"><a class="exturl__link" href="https://twitter.com/devdocs/status/356095192085962752" target="_blank" rel="external nofollow noopener noreferrer">twitter.com/devdocs/status/356095192085962752</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></cite></footer></blockquote>
+
+        <h3 id="引用网络上的文章">
+          <span class="heading-link">引用网络上的文章</span>
+        </h3>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% blockquote Seth Godin http:&#x2F;&#x2F;sethgodin.typepad.com&#x2F;seths_blog&#x2F;2009&#x2F;07&#x2F;welcome-to-island-marketing.html Welcome to Island Marketing %&#125;</span><br><span class="line">Every interaction is both precious and an opportunity to delight.</span><br><span class="line">&#123;% endblockquote %&#125;</span><br></pre></td></tr></table></div></figure>
+<blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
+<footer><strong>Seth Godin</strong><cite><span class="exturl"><a class="exturl__link" href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html" target="_blank" rel="external nofollow noopener noreferrer">Welcome to Island Marketing</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></cite></footer></blockquote>
+
+        <h2 id="代码块">
+          <span class="heading-link">代码块</span>
+        </h2>
+      
+<p>在文章中插入代码。</p>
+<p><strong>别名：</strong> code</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock [title] [lang:language] [url] [link text] [additional options] %&#125;</span><br><span class="line">code snippet</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></div></figure>
+<p>Specify additional options in <code>option:value</code> format, e.g. <code>line_number:false first_line:5</code>.</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>Extra Options</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>line_number</code></td>
+<td>Show line number</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>highlight</code></td>
+<td>Enable code highlighting</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>first_line</code></td>
+<td>Specify the first line number</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>mark</code></td>
+<td>Line highlight specific line(s), each value separated by a comma. Specify number range using a dash<br>Example: <code>mark:1,4-7,10</code> will mark line 1, 4 to 7 and 10.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>wrap</code></td>
+<td>Wrap the code block in <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table" target="_blank" rel="external nofollow noopener noreferrer"><code>&lt;table&gt;</code></a></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table></div>
+
+        <h3 id="普通的代码块">
+          <span class="heading-link">普通的代码块</span>
+        </h3>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">alert(&#39;Hello World!&#39;);</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&#39;Hello World!&#39;);</span><br></pre></td></tr></table></div></figure>
+
+        <h3 id="指定语言">
+          <span class="heading-link">指定语言</span>
+        </h3>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock lang:objc %&#125;</span><br><span class="line">[rectangle setX: 10 y: 10 width: 20 height: 20];</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight objc"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[rectangle setX: <span class="number">10</span> y: <span class="number">10</span> width: <span class="number">20</span> height: <span class="number">20</span>];</span><br></pre></td></tr></table></div></figure>
+
+        <h3 id="附加说明">
+          <span class="heading-link">附加说明</span>
+        </h3>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock Array.map %&#125;</span><br><span class="line">array.map(callback[, thisArg])</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plain"><figcaption><span>Array.map</span></figcaption><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.map(callback[, thisArg])</span><br></pre></td></tr></table></div></figure>
+
+        <h3 id="附加说明和网址">
+          <span class="heading-link">附加说明和网址</span>
+        </h3>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock _.compact http:&#x2F;&#x2F;underscorejs.org&#x2F;#compact Underscore.js %&#125;</span><br><span class="line">_.compact([0, 1, false, 2, &#39;&#39;, 3]);</span><br><span class="line">&#x3D;&gt; [1, 2, 3]</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plain"><figcaption><span>_.compact</span><span class="exturl"><a class="exturl__link" href="http://underscorejs.org/#compact" target="_blank" rel="external nofollow noopener noreferrer">Underscore.js</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></figcaption><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &#39;&#39;, 3]);</span><br><span class="line">&#x3D;&gt; [1, 2, 3]</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="反引号代码块">
+          <span class="heading-link">反引号代码块</span>
+        </h2>
+      
+<p>另一种形式的代码块，不同的是它使用三个反引号来包裹。</p>
+
+&#96`` [language] [title] [url] [link text]
+code snippet
+&#96;``
+
+
+        <h2 id="pull-quote">
+          <span class="heading-link">Pull Quote</span>
+        </h2>
+      
+<p>在文章中插入 Pull quote。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pullquote [class] %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endpullquote %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="jsfiddle">
+          <span class="heading-link">jsFiddle</span>
+        </h2>
+      
+<p>在文章中嵌入 jsFiddle。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% jsfiddle shorttag [tabs] [skin] [width] [height] %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="gist">
+          <span class="heading-link">Gist</span>
+        </h2>
+      
+<p>在文章中嵌入 Gist。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% gist gist_id [filename] %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="iframe">
+          <span class="heading-link">iframe</span>
+        </h2>
+      
+<p>在文章中插入 iframe。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% iframe url [width] [height] %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="image">
+          <span class="heading-link">Image</span>
+        </h2>
+      
+<p>在文章中插入指定大小的图片。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% img [class names] &#x2F;path&#x2F;to&#x2F;image [width] [height] &#39;&quot;title text&quot; &quot;alt text&quot;&#39; %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="link">
+          <span class="heading-link">Link</span>
+        </h2>
+      
+<p>在文章中插入链接，并自动给外部链接添加 <code>target=&quot;_blank&quot;</code> 属性。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% link text url [external] [title] %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="include-code">
+          <span class="heading-link">Include Code</span>
+        </h2>
+      
+<p>插入 <code>source/downloads/code</code> 文件夹内的代码文件。<code>source/downloads/code</code> 不是固定的，取决于你在配置文件中 <code>code_dir</code> 的配置。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include_code [title] [lang:language] [from:line] [to:line] path&#x2F;to&#x2F;file %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h3 id="嵌入-testjs-文件全文">
+          <span class="heading-link">嵌入 test.js 文件全文</span>
+        </h3>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include_code lang:javascript test.js %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h3 id="只嵌入第-3-行">
+          <span class="heading-link">只嵌入第 3 行</span>
+        </h3>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include_code lang:javascript from:3 to:3 test.js %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h3 id="嵌入第-5-行至第-8-行">
+          <span class="heading-link">嵌入第 5 行至第 8 行</span>
+        </h3>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include_code lang:javascript from:5 to:8 test.js %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h3 id="嵌入第-5-行至文件结束">
+          <span class="heading-link">嵌入第 5 行至文件结束</span>
+        </h3>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include_code lang:javascript from:5 test.js %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h3 id="嵌入第-1-行至第-8-行">
+          <span class="heading-link">嵌入第 1 行至第 8 行</span>
+        </h3>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include_code lang:javascript to:8 test.js %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="youtube">
+          <span class="heading-link">Youtube</span>
+        </h2>
+      
+<p>在文章中插入 Youtube 视频。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% youtube video_id %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="vimeo">
+          <span class="heading-link">Vimeo</span>
+        </h2>
+      
+<p>在文章中插入 Vimeo 视频。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% vimeo video_id %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="引用文章">
+          <span class="heading-link">引用文章</span>
+        </h2>
+      
+<p>引用其他文章的链接。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% post_path filename %&#125;</span><br><span class="line">&#123;% post_link filename [title] [escape] %&#125;</span><br></pre></td></tr></table></div></figure>
+<p>在使用此标签时可以忽略文章文件所在的路径或者文章的永久链接信息、如语言、日期。</p>
+<p>例如，在文章中使用 <code>{% post_link how-to-bake-a-cake %}</code> 时，只需有一个名为 <code>how-to-bake-a-cake.md</code> 的文章文件即可。即使这个文件位于站点文件夹的 <code>source/posts/2015-02-my-family-holiday</code> 目录下、或者文章的永久链接是 <code>2018/en/how-to-bake-a-cake</code>，都没有影响。</p>
+<p>默认链接文字是文章的标题，你也可以自定义要显示的文本。此时不应该使用 Markdown 语法 <code>[]()</code>。</p>
+<p>默认对文章的标题和自定义标题里的特殊字符进行转义。可以使用<code>escape</code>选项，禁止对特殊字符进行转义。</p>
+
+        <h3 id="链接使用文章的标题">
+          <span class="heading-link">链接使用文章的标题</span>
+        </h3>
+      
+<p><code>{% post_link hexo-3-8-released %}</code></p>
+
+
+        <h3 id="链接使用自定义文字">
+          <span class="heading-link">链接使用自定义文字</span>
+        </h3>
+      
+<p><code>{% post_link hexo-3-8-released '通往文章的链接' %}</code></p>
+
+
+        <h3 id="对标题的特殊字符进行转义">
+          <span class="heading-link">对标题的特殊字符进行转义</span>
+        </h3>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% post_link hexo-4-released &#39;How to use &lt;b&gt; tag in title&#39; %&#125;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h3 id="禁止对标题的特殊字符进行转义">
+          <span class="heading-link">禁止对标题的特殊字符进行转义</span>
+        </h3>
+      
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% post_link hexo-4-released &#39;&lt;b&gt;bold&lt;&#x2F;b&gt; custom title&#39; false %&#125;</span><br></pre></td></tr></table></div></figure>
+
+
+        <h2 id="引用资源">
+          <span class="heading-link">引用资源</span>
+        </h2>
+      
+<p>引用文章的资源。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_path filename %&#125;</span><br><span class="line">&#123;% asset_img filename [title] %&#125;</span><br><span class="line">&#123;% asset_link filename [title] [escape] %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="raw">
+          <span class="heading-link">Raw</span>
+        </h2>
+      
+<p>如果您想在文章中插入 Swig 标签，可以尝试使用 Raw 标签，以免发生解析异常。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% raw %&#125;</span><br><span class="line">content</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="文章摘要和截断">
+          <span class="heading-link">文章摘要和截断</span>
+        </h2>
+      
+<p>在文章中使用 <code>&lt;!-- more --&gt;</code>，那么 <code>&lt;!-- more --&gt;</code> 之前的文字将会被视为摘要。首页中将只出现这部分文字，同时这部分文字也会出现在正文之中。</p>
+<p>例如：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span><br></pre></td></tr></table></div></figure>
+<p>首页中将只会出现</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span><br></pre></td></tr></table></div></figure>
+<p>正文中则会出现</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span><br><span class="line"></span><br><span class="line">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span><br></pre></td></tr></table></div></figure>
+<p>注意，摘要可能会被 Front Matter 中的 <code>excerpt</code> 覆盖。</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="https://cjh0613.com">峡州仙士</a></span></div><div class="copyright-link"><span class="copyright-link__name">原文链接: </span><span class="copyright-link__value"><a href="https://cjh0613.com/20200402HexoTagPlugins.html">https://cjh0613.com/20200402HexoTagPlugins.html</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">声明: </span><span class="copyright-notice__value">如文章有更新，将先在本网站（峡州仙士之页）发布！（可百度）| 本网站所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/hexo/">hexo</a></span></div><div class="post-share"><div class="social-share" data-sites="qzone, qq, weibo, wechat, douban, linkedin, facebook, twitter, google">分享本文到: </div></div><div class="post-reward reward"><div class="reward-button">请我喝一杯凉虾~</div><div class="reward-qrcode"><a class="exturl__link" href="https://www.cjh0613.com/RedEnvelope" target="_blank" rel="external nofollow noopener noreferrer">（推荐）【免费打赏】手机用户点此一键领红包，您通过使用红包来支持站长</a><p>BTC地址（建议使用ETH）：3F7hk94nnBHrL4LuHZdtP4soPCefCV6CbU</p><p>ETH收款地址：0x2AdDE524665af970acE4CB3D50dE70136c88f90F</p><span class="reward-qrcode-alipay"><img class="reward-qrcode-alipay__img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/pasted-5.png"><div class="reward-qrcode-alipay__text">支付宝打赏</div></span><span class="reward-qrcode-wechat"><img class="reward-qrcode-wechat__img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/pasted-6.png"><div class="reward-qrcode-wechat__text">微信打赏</div></span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/hot.html"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">热门文章</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/template.html"><span class="paginator-prev__text">template</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div><div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-3992225808017393" data-ad-slot="7938361938"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#评论管理"><span class="toc-number">1.</span> <span class="toc-text">
+          评论管理
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本站其他辅助"><span class="toc-number">2.</span> <span class="toc-text">
+          本站其他辅助
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目录正则"><span class="toc-number">3.</span> <span class="toc-text">
+          目录正则
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内链"><span class="toc-number">4.</span> <span class="toc-text">
+          内链
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入图片"><span class="toc-number">5.</span> <span class="toc-text">
+          插入图片
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#qq分享图"><span class="toc-number">6.</span> <span class="toc-text">
+          qq分享图
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#未完成"><span class="toc-number">7.</span> <span class="toc-text">
+          未完成
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#请自行-谷歌百度"><span class="toc-number">8.</span> <span class="toc-text">
+          请自行 谷歌&#x2F;百度：
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">9.</span> <span class="toc-text">
+          参考资料
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转"><span class="toc-number">10.</span> <span class="toc-text">
+          转
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#截断"><span class="toc-number">11.</span> <span class="toc-text">
+          截断
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入b视频"><span class="toc-number">12.</span> <span class="toc-text">
+          插入b视频
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见特殊字符"><span class="toc-number">13.</span> <span class="toc-text">
+          常见特殊字符
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入注释-badge-textstable-badge-textv120"><span class="toc-number">14.</span> <span class="toc-text">
+          插入注释
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用块"><span class="toc-number">15.</span> <span class="toc-text">
+          引用块
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#峡州仙士"><span class="toc-number">15.1.</span> <span class="toc-text">
+          峡州仙士
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#没有提供参数则只输出普通的-blockquote"><span class="toc-number">15.2.</span> <span class="toc-text">
+          没有提供参数，则只输出普通的 blockquote
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用书上的句子"><span class="toc-number">15.3.</span> <span class="toc-text">
+          引用书上的句子
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用-twitter"><span class="toc-number">15.4.</span> <span class="toc-text">
+          引用 Twitter
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用网络上的文章"><span class="toc-number">15.5.</span> <span class="toc-text">
+          引用网络上的文章
+        </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码块"><span class="toc-number">16.</span> <span class="toc-text">
+          代码块
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#普通的代码块"><span class="toc-number">16.1.</span> <span class="toc-text">
+          普通的代码块
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指定语言"><span class="toc-number">16.2.</span> <span class="toc-text">
+          指定语言
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#附加说明"><span class="toc-number">16.3.</span> <span class="toc-text">
+          附加说明
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#附加说明和网址"><span class="toc-number">16.4.</span> <span class="toc-text">
+          附加说明和网址
+        </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反引号代码块"><span class="toc-number">17.</span> <span class="toc-text">
+          反引号代码块
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pull-quote"><span class="toc-number">18.</span> <span class="toc-text">
+          Pull Quote
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsfiddle"><span class="toc-number">19.</span> <span class="toc-text">
+          jsFiddle
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gist"><span class="toc-number">20.</span> <span class="toc-text">
+          Gist
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iframe"><span class="toc-number">21.</span> <span class="toc-text">
+          iframe
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#image"><span class="toc-number">22.</span> <span class="toc-text">
+          Image
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#link"><span class="toc-number">23.</span> <span class="toc-text">
+          Link
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#include-code"><span class="toc-number">24.</span> <span class="toc-text">
+          Include Code
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌入-testjs-文件全文"><span class="toc-number">24.1.</span> <span class="toc-text">
+          嵌入 test.js 文件全文
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#只嵌入第-3-行"><span class="toc-number">24.2.</span> <span class="toc-text">
+          只嵌入第 3 行
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌入第-5-行至第-8-行"><span class="toc-number">24.3.</span> <span class="toc-text">
+          嵌入第 5 行至第 8 行
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌入第-5-行至文件结束"><span class="toc-number">24.4.</span> <span class="toc-text">
+          嵌入第 5 行至文件结束
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌入第-1-行至第-8-行"><span class="toc-number">24.5.</span> <span class="toc-text">
+          嵌入第 1 行至第 8 行
+        </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#youtube"><span class="toc-number">25.</span> <span class="toc-text">
+          Youtube
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vimeo"><span class="toc-number">26.</span> <span class="toc-text">
+          Vimeo
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用文章"><span class="toc-number">27.</span> <span class="toc-text">
+          引用文章
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#链接使用文章的标题"><span class="toc-number">27.1.</span> <span class="toc-text">
+          链接使用文章的标题
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接使用自定义文字"><span class="toc-number">27.2.</span> <span class="toc-text">
+          链接使用自定义文字
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对标题的特殊字符进行转义"><span class="toc-number">27.3.</span> <span class="toc-text">
+          对标题的特殊字符进行转义
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#禁止对标题的特殊字符进行转义"><span class="toc-number">27.4.</span> <span class="toc-text">
+          禁止对标题的特殊字符进行转义
+        </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引用资源"><span class="toc-number">28.</span> <span class="toc-text">
+          引用资源
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#raw"><span class="toc-number">29.</span> <span class="toc-text">
+          Raw
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文章摘要和截断"><span class="toc-number">30.</span> <span class="toc-text">
+          文章摘要和截断
+        </span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">这里也有我的痕迹(按排序)：</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="/20200402RSS.html" target="_blank" rel="noopener" data-popover="RSS订阅" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-rss"></i></span></a><a class="sidebar-ov-social-item" href="https://github.com/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.thingiverse.com/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Thingiverse" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-cube"></i></span></a><a class="sidebar-ov-social-item" href="http://sighttp.qq.com/authd?IDKEY=4d5d36c19d4b64b91e4074144124b486759e276fa30b8abc" target="_blank" rel="external nofollow noopener noreferrer" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a><a class="sidebar-ov-social-item" href="https://t.me/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Telegram" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-telegram"></i></span></a><a class="sidebar-ov-social-item" href="https://www.quora.com/profile/Bruce-Chen-199" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Quora" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-quora"></i></span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-question"></i></span></a><a class="sidebar-ov-social-item" href="/about.html" target="_blank" rel="noopener" data-popover="更多" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-ellipsis-h"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/index.html"><div class="sidebar-ov-state-item__count">131</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/index.html"><div class="sidebar-ov-state-item__count">6</div><div class="sidebar-ov-state-item__name">分类</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/index.html"><div class="sidebar-ov-state-item__count">75</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer" data-popover="知识共享" data-popover-pos="up"><img src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020~2021</span><span class="footer__icon"><i class="fas fa-code"></i></span><span>峡州仙士</span><span class="footer__devider">|</span><span>粤ICP备12009483号（Gitee站）</span></div><!----><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div>推荐使用电脑端访问本站</div><div class="webinfo-item"><span class="webinfo-runtime-name">本站持续运行时间 :</span><span class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="2020/2/26 00:00:00"></span></div><div style="display:none"><script type="text/javascript" src="https://js.users.51.la/20667167.js"></script><script src="https://s96.cnzz.com/z_stat.php?id=1277785770&amp;web_id=1277785770"></script></div><div><p><a class="exturl__link" href="/20200402RSS.html" target="_blank" rel="noopener">RSS</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://en.cjh0613.com/index.html" target="_blank" rel="noopener">English&emsp;I18N&emsp;国际站</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://status.cjh0613.com/" target="_blank" rel="external nofollow noopener noreferrer">峡州仙士之页状态监控</a><br><a class="exturl__link" href="https://suyin-blog.club/" target="_blank" rel="noopener">苏寅</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://www.avg.cx" target="_blank" rel="noopener">Yrh</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://www.v6g.cn/" target="_blank" rel="noopener">微6g资源网</a><br><a class="exturl__link" href="https://cjh0613.com/archives/index.html" target="_blank" rel="noopener">归档页</a>&nbsp;|&nbsp;
+sitemap（<a class="exturl__link" href="https://cjh0613.com/sitemap.xml" target="_blank" rel="noopener">1</a><a class="exturl__link" href="https://cjh0613.com/google-sitemap.xml" target="_blank" rel="noopener">2</a>）
+&nbsp;|&nbsp;<a class="exturl__link" href="/friends/index.html" target="_blank" rel="noopener">更多友情链接</a></p></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><script>//var btn = document.getElementById("cjh_search");
+function cjh_search(){
+var $input = $('.search-input input');var q = $input.val().toLowerCase().trim();
+var url = "https://www.baidu.com/s";
+var url = url + '?wd='+q+' "峡州仙士之页"';
+if(q){
+var tempwindow=window.open('_blank');
+tempwindow.location=url;
+}}
+function cjh_g_search(){
+var $input = $('.search-input input');var q = $input.val().toLowerCase().trim();
+var url = "https://www.sanzhima.com/search";
+var url = url + '?q='+q+' site:cjh0613.com';
+if(q){
+var tempwindow=window.open('_blank');
+tempwindow.location=url;
+}}
+</script><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"><div class="cjh-btn__icon" style="font-size:1rem"><a class="cjh-btn-a" href="javascript:;" onclick="cjh_g_search();return false;">谷歌搜索</a>&emsp;<a class="cjh-btn-a" id="cjh_search" href="javascript:;" onclick="cjh_search();return false;">备用搜索</a></div><div style="text-align: center"><p>（您还可以在<a class="exturl__link" href="/blog/archives/" target="_blank" rel="noopener">归档页</a>搜索文章标题）</p></div></div><div class="search-results"></div></div><script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><script src="//cdn.staticfile.org/velocity/1.5.2/velocity.min.js"></script><script src="//cdn.staticfile.org/velocity/1.5.2/velocity.ui.min.js"></script><script src="//cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script><script src="//cdn.staticfile.org/masonry/4.2.2/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script src="//cdn.staticfile.org/social-share.js/1.0.16/js/social-share.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keypress', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css('overflow', 'auto');
+  $('.search-popup')
+    .removeClass('show')
+    .velocity('stop')
+    .velocity('transition.expandOut', {
+      duration: 300
+    });
+  $('.search-mask')
+    .velocity('stop')
+    .velocity('transition.fadeOut', {
+      duration: 300
+    });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .addClass('show')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);</script><link href="https://cdn.staticfile.org/KaTeX/0.10.2/katex.min.css" rel="stylesheet" type="text/css"><link href="https://cdn.staticfile.org/KaTeX/0.10.2/contrib/copy-tex.css" rel="stylesheet" type="text/css"><script src="https://cdn.staticfile.org/KaTeX/0.10.2/contrib/copy-tex.min.js"></script><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="//cdn.staticfile.org/valine/1.4.14/Valine.min.js"></script><script>function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'GfE51gqBqbGNIbHPqoSHcPXD-MdYXbMMI',
+    appKey: 'JXCYM9TcWAOLRnxo2BWpEL8y',
+    notify: true,
+    verify: true,
+    placeholder: '点这里输入评论。如果您需要咨询，还可QQ联系。（请填写上方昵称与邮箱，邮箱不会公开显示。如果您有个人网站，也可以填写）【近期邮件提醒失效，回复较慢】',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: false,
+    recordIP: true,
+    lang: 'zh-cn' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+  
+if (false) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3992225808017393',
+  enable_page_level_ads: true
+});</script><script src="https://cjh0613.com/js/counttime.js"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/utils.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/stun-boot.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/scroll.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/header.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/sidebar.js?v=1.7.0"></script></body></html>

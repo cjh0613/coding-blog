@@ -1,0 +1,731 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="renderer" content="webkit"><meta name="force-rendering" content="webkit"><!----><script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><script src="https://cdn.staticfile.org/layer/3.1.1/layer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/boycott-ie/boycott-ie/boycott-ie.js"></script><!----><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" type="image/png" sizes="16x16"><link rel="icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" sizes="180x180"><link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" color="#54bcff"><meta name="msapplication-TileImage" content="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg"><meta name="msapplication-TileColor" content="#000000"><meta name="google-site-verification" content="WENVxYJ4LorKjirCAv6WnZEiM9vyEiZKmRIqaiTLOVw"><meta name="msvalidate.01" content="1995BB61A214C11B83C059025081A00C"><meta name="description" content="（持续更新……） Uab&#x3D;φA−φBU_{ab}&#x3D;\varphi _{A}-\varphi _{B}Uab​&#x3D;φA​−φB​ 目录：  1. 电路的作用与组成部分 1.1. 电路的作用 1.2. 电路的组成部分 2. 电路模型 3. 电流和电压的参考方向 3.1. 电流的参考方向 3.2. 电压的参考方向 4. 欧姆定律 5. 电源有载工作、开路与短路 5.1. 电源与负载的判别 5.1.1. 根">
+<meta property="og:type" content="article">
+<meta property="og:title" content="电工学1：电路的基本概念与基本定律">
+<meta property="og:url" content="https://cjh0613.com/20200502Electrotechnics1.html">
+<meta property="og:site_name" content="峡州仙士之页">
+<meta property="og:description" content="（持续更新……） Uab&#x3D;φA−φBU_{ab}&#x3D;\varphi _{A}-\varphi _{B}Uab​&#x3D;φA​−φB​ 目录：  1. 电路的作用与组成部分 1.1. 电路的作用 1.2. 电路的组成部分 2. 电路模型 3. 电流和电压的参考方向 3.1. 电流的参考方向 3.2. 电压的参考方向 4. 欧姆定律 5. 电源有载工作、开路与短路 5.1. 电源与负载的判别 5.1.1. 根">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cjh0613.com/images/pasted-24.png">
+<meta property="og:image" content="https://cjh0613.com/images/pasted-26.png">
+<meta property="article:published_time" content="2020-05-02T02:57:00.000Z">
+<meta property="article:modified_time" content="2020-08-31T06:20:16.886Z">
+<meta property="article:author" content="峡州仙士">
+<meta property="article:tag" content="电工">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cjh0613.com/images/pasted-24.png"><meta name="keywords" content="峡州仙士, 峡州仙士之页"><title>电工学1：电路的基本概念与基本定律 | 峡州仙士之页</title><link ref="canonical" href="https://cjh0613.com/20200502Electrotechnics1.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="//cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="//cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="//cdn.staticfile.org/social-share.js/1.0.16/css/share.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/css/index.css?v=1.7.0"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://hm.baidu.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-168599388-1" async></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-168599388-1');
+}</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?3571f7725019f0e61870427684c3ce17';
+  hm.async = true;
+
+  if (false) {
+    hm.setAttribute('data-pjax', '');
+  }
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  post_widget: {"end_text":true},
+  night_mode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","word_wrap":false},
+  reward: true,
+  fancybox: true,
+  zoom_image: {"enable":true,"mask_color":"rgba(0,0,0,0.6)"},
+  gallery_waterfall: {"enable":true,"col_width":"220px","gap_x":"10px","gap_y":"10px"},
+  lazyload: {"enable":true,"placeholder":"gif"},
+  pjax: undefined,
+  external_link: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copy_button":"复制","copy_success":"复制成功","copy_error":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="https://en.cjh0613.com/index.html" target="_blank" rel="noopener"><span class="header-nav-menu-item__icon"><i class="fas fa-language"></i></span><span class="header-nav-menu-item__text">En</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-ellipsis-h"></i></span><span class="header-nav-menu-item__text">其他菜单项</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/about.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-user"></i></span><span class="header-nav-submenu-item__text">关于我</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/hot.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-paper-plane"></i></span><span class="header-nav-submenu-item__text">热门文章</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="https://suiji.cjh0613.com/" target="_blank" rel="external nofollow noopener noreferrer"><span class="header-nav-submenu-item__icon"><i class="fas fa-history"></i></span><span class="header-nav-submenu-item__text">随记</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/ask.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-question"></i></span><span class="header-nav-submenu-item__text">留言/提问</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/friends/index.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-users"></i></span><span class="header-nav-submenu-item__text">朋友</span></a></div></div></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">世上本没有路</div><div class="header-banner-info__subtitle">峡州仙士之页</div><!--br--><!--div.header-banner-info__btn--></div><div class="cjh-btn"><div class="cjh-btn__icon"><a class="cjh-btn-a" href="/index.html" target="_blank" rel="noopener">移步首页</a></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">电工学1：电路的基本概念与基本定律</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表</span><span class="post-meta-item__value">2020-05-02</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新</span><span class="post-meta-item__value">2020-08-31</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数</span><span class="post-meta-item__value">2.4k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">预计阅读时长</span><span class="post-meta-item__value">14分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/电工/">电工</a></span></div></header><div class="post-body"><p>（持续更新……）<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>U</mi><mrow><mi>a</mi><mi>b</mi></mrow></msub><mo>=</mo><msub><mi>φ</mi><mi>A</mi></msub><mo>−</mo><msub><mi>φ</mi><mi>B</mi></msub></mrow><annotation encoding="application/x-tex">U_{ab}=\varphi _{A}-\varphi _{B}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">U</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7777700000000001em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">A</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05017em;">B</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>目录：</p>
+<ul>
+<li><a href="#%E7%94%B5%E8%B7%AF%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86">1. 电路的作用与组成部分</a><br>
+<a href="#%E7%94%B5%E8%B7%AF%E7%9A%84%E4%BD%9C%E7%94%A8">1.1. 电路的作用</a><br>
+<a href="#%E7%94%B5%E8%B7%AF%E7%9A%84%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86">1.2. 电路的组成部分</a></li>
+<li><a href="#%E7%94%B5%E8%B7%AF%E6%A8%A1%E5%9E%8B">2. 电路模型</a></li>
+<li><a href="#%E7%94%B5%E6%B5%81%E5%92%8C%E7%94%B5%E5%8E%8B%E7%9A%84%E5%8F%82%E8%80%83%E6%96%B9%E5%90%91">3. 电流和电压的参考方向</a><br>
+<a href="#%E7%94%B5%E6%B5%81%E7%9A%84%E5%8F%82%E8%80%83%E6%96%B9%E5%90%91">3.1. 电流的参考方向</a><br>
+<a href="#%E7%94%B5%E5%8E%8B%E7%9A%84%E5%8F%82%E8%80%83%E6%96%B9%E5%90%91">3.2. 电压的参考方向</a></li>
+<li><a href="#%E6%AC%A7%E5%A7%86%E5%AE%9A%E5%BE%8B">4. 欧姆定律</a></li>
+<li><a href="#%E7%94%B5%E6%BA%90%E6%9C%89%E8%BD%BD%E5%B7%A5%E4%BD%9C-%E5%BC%80%E8%B7%AF%E4%B8%8E%E7%9F%AD%E8%B7%AF">5. 电源有载工作、开路与短路</a><br>
+<a href="#%E7%94%B5%E6%BA%90%E4%B8%8E%E8%B4%9F%E8%BD%BD%E7%9A%84%E5%88%A4%E5%88%AB">5.1. 电源与负载的判别</a><br>
+<a href="#%E6%A0%B9%E6%8D%AEu%E5%92%8Ci%E7%9A%84%E5%AE%9E%E9%99%85%E6%96%B9%E5%90%91%E5%88%A4%E5%88%AB">5.1.1. 根据U和I的实际方向判别</a><br>
+<a href="#%E6%A0%B9%E6%8D%AEu%E5%92%8C%E7%9A%84%E5%8F%82%E8%80%83%E6%96%B9%E5%90%91%E5%88%A4%E5%88%AB">5.1.2. 根据U和的参考方向判别</a><br>
+<a href="#%E7%94%B5%E6%B0%94%E8%AE%BE%E5%A4%87%E7%9A%84%E9%A2%9D%E5%AE%9A%E5%80%BC">5.2. 电气设备的额定值</a><br>
+<a href="#%E7%94%B5%E6%B0%94%E8%AE%BE%E5%A4%87%E7%9A%84%E4%B8%89%E7%A7%8D%E8%BF%90%E8%A1%8C%E7%8A%B6%E6%80%81">5.2.1. 电气设备的三种运行状态</a><br>
+<a href="#%E5%BC%80%E8%B7%AF%E6%96%AD%E8%B7%AF">5.3. 开路=断路</a><br>
+<a href="#%E7%9F%AD%E8%B7%AF">5.4. 短路</a></li>
+<li><a href="#%E5%9F%BA%E5%B0%94%E9%9C%8D%E5%A4%AB%E5%AE%9A%E5%BE%8B">6. 基尔霍夫定律</a><br>
+<a href="#%E5%9F%BA%E5%B0%94%E9%9C%8D%E5%A4%AB%E7%94%B5%E6%B5%81%E5%AE%9A%E5%BE%8Bkcl">6.1. 基尔霍夫电流定律（KCL）</a><br>
+<a href="#%E5%9F%BA%E5%B0%94%E9%9C%8D%E5%A4%AB%E7%94%B5%E5%8E%8B%E5%AE%9A%E5%BE%8Bkvl">6.2. 基尔霍夫电压定律（KVL）</a><br>
+<a href="#kcl%E5%92%8Ckvl%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%96%B9%E7%A8%8B%E6%95%B0">6.3. KCL和KVL的独立方程数</a></li>
+<li><a href="#%E7%94%B5%E8%B7%AF%E4%B8%AD%E7%94%B5%E4%BD%8D%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8F%8A%E8%AE%A1%E7%AE%97">7. 电路中电位的概念及计算</a></li>
+</ul>
+<a id="more"></a>
+
+        <h2 id="电路的作用与组成部分">
+          <span class="heading-link">电路的作用与组成部分</span>
+        </h2>
+      
+
+        <h3 id="电路的作用">
+          <span class="heading-link">电路的作用</span>
+        </h3>
+      
+<ol>
+<li>实现电能的传输、分配与转换</li>
+<li>实现信号的传递与处理</li>
+</ol>
+
+        <h3 id="电路的组成部分">
+          <span class="heading-link">电路的组成部分</span>
+        </h3>
+      
+<div class="table-container"><table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">释义</th>
+<th style="text-align:center">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">电源</td>
+<td style="text-align:center">提供电能的装置</td>
+<td style="text-align:center">发电机</td>
+</tr>
+<tr>
+<td style="text-align:center">中间环节</td>
+<td style="text-align:center">传递、分配和控制电能的作用</td>
+<td style="text-align:center">变压器、输电线</td>
+</tr>
+<tr>
+<td style="text-align:center">负载</td>
+<td style="text-align:center">取用电能的装置</td>
+<td style="text-align:center">用电器</td>
+</tr>
+<tr>
+<td style="text-align:center">信号源</td>
+<td style="text-align:center">提供信息</td>
+<td style="text-align:center">话筒</td>
+</tr>
+<tr>
+<td style="text-align:center">信号处理</td>
+<td style="text-align:center">放大、调谐、检波等</td>
+<td style="text-align:center">放大器</td>
+</tr>
+</tbody>
+</table></div>
+<p>电源或信号源的电压或电流称为激励，它推动电路工作；由激励所产生的电压和电流称为响应。</p>
+
+        <h2 id="电路模型">
+          <span class="heading-link">电路模型</span>
+        </h2>
+      
+<p>在实际分析中，可将实际电路理想化，即在一定条件下突出主要的电磁性质,  忽略起次要因素的影响, 由一些理想元件组成电路模型。</p>
+<p>如，白炽灯通过电流，</p>
+<ul>
+<li>消耗电能（电阻性）</li>
+<li>产生磁场储存磁场能量（电感性）【忽略】</li>
+</ul>
+<ol>
+<li>
+<p>集总元件和集总电路<br>
+在器件的尺寸远小于工作频率所对应的波长时，可以用一些理想电路元件或它们的组合来模拟实际电路中的器件。这种理想电路元件为集总元件或集总参数元件，这种由理想电路元件构成的电路叫集总电路。</p>
+</li>
+<li>
+<p>理想电路元件</p>
+</li>
+</ol>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th style="text-align:center">元件</th>
+<th style="text-align:center">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">无源元件</td>
+<td style="text-align:center">电阻、电容、电感、理想变压器等</td>
+</tr>
+<tr>
+<td style="text-align:center">有源元件</td>
+<td style="text-align:center">独立电源（电压源、电流源）；受控源压控流源、压控压源、流控流源、流控压源</td>
+</tr>
+</tbody>
+</table></div>
+<ol start="3">
+<li>实际器件的提型</li>
+</ol>
+<p>今后分析的都是指电路模型，简称电路。</p>
+<p>电路分析是在已知电路结构和参数的条件下，讨论激励与响应的关系。</p>
+
+    <div class="note-plugin warning no-icon">
+      <p><strong>注意</strong><br>1.具有相同的主要电磁性能的实际电路部件，在一定条件下可用同一电路模型表示；<br>2.同一实际电路部件在不同的应用条件下，其电路模型可以有不同的形式</p>
+    </div>
+  
+
+        <h2 id="电流和电压的参考方向">
+          <span class="heading-link">电流和电压的参考方向</span>
+        </h2>
+      
+<p>电路中的主要物理量有电压、电流、电荷、磁链、能量、电功率等。在线性电路分析中人们主要关心的物理量是电流、电压和功率。</p>
+
+        <h3 id="电流的参考方向">
+          <span class="heading-link">电流的参考方向</span>
+        </h3>
+      
+<p>规定正电荷的 运动方向为电流的实际方向</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><munder><mo><mi>lim</mi><mo>⁡</mo></mo><mrow><mi mathvariant="normal">Δ</mi><mi>t</mi><mo>→</mo><mn>0</mn></mrow></munder><mfrac><mrow><mi mathvariant="normal">Δ</mi><mi>q</mi></mrow><mrow><mi mathvariant="normal">Δ</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>d</mi><mi>q</mi></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">i(t) = \lim _{ \Delta t \rightarrow 0} \frac{ \Delta q}{ \Delta t}= \frac{dq}{dt} 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">i</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.1046609999999997em;vertical-align:-0.744331em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-2.055669em;margin-left:0em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">Δ</span><span class="mord mathdefault mtight">t</span><span class="mrel mtight">→</span><span class="mord mtight">0</span></span></span></span><span style="top:-2.7em;"><span class="pstrut" style="height:2.7em;"></span><span><span class="mop">lim</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.744331em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603299999999998em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">Δ</span><span class="mord mathdefault">t</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">Δ</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.0574399999999997em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714399999999998em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="mord mathdefault">t</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>元件(导线)中电流流动的实际方向只有两种可能。对于复杂电路或电路中的电流随时间变化时，电流的实际方向往往很难事先判断。</p>
+<p>参考方向： 在分析与计算电路时，对电量任意假定的方向。方向(正负），电流(代数量)</p>
+<p>电流参考方向的两种表示：</p>
+<ol>
+<li>用箭头表示：箭头的指向为电流的参考方向。</li>
+<li>用双下标表示：如iAB , 电流的参考方向由A指向B。<br>
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>→</mo><mi>B</mi></mrow><annotation encoding="application/x-tex">A\rightarrow B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span></span></li>
+</ol>
+
+        <h3 id="电压的参考方向">
+          <span class="heading-link">电压的参考方向</span>
+        </h3>
+      
+<p>电位<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>φ</mi><mi>a</mi></msub></mrow><annotation encoding="application/x-tex">\varphi _{a}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">φ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：单位正电荷q 从a点移至参考点（＝0）时电场力作功的大小。</p>
+<p>电压<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>u</mi><mrow><mi>a</mi><mi>b</mi></mrow></msub></mrow><annotation encoding="application/x-tex">u_{ab}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>：单位正电荷q 从电路中a点移至b点时电场力作功（W）的大小。</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>u</mi><mrow><mi>a</mi><mi>b</mi></mrow></msub><mo>=</mo><mfrac><mrow><mi>d</mi><msub><mi>W</mi><mrow><mi>a</mi><mi>b</mi></mrow></msub></mrow><mrow><mi>d</mi><mi>q</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">u_{ab} = \frac{dW_{ab}}{dq}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.25188em;vertical-align:-0.8804400000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804400000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>可以设定电压(降)的参考方向</p>
+<p>电路中电位参考点可任意选择；参考点一经选定，电路中各点的电位值就唯一确定</p>
+<p>关联参考方向：元件或支路的u，i 采用相同的参考方向称为关联参考方向。反之，称为非关联参考方向。</p>
+
+    <div class="note-plugin warning no-icon">
+      <p><strong>注意</strong></p><ol><li>分析电路前必须选定电压和电流的参考方向。</li><li>参考方向一经选定，必须在图中相应位置标注   (包括方向和符号)，在计算中不得任意改变。</li><li>参考方向不同时，其表达式相差一负号，但电压、电流的实际方向不变。</li></ol>
+    </div>
+  
+
+        <h2 id="欧姆定律">
+          <span class="heading-link">欧姆定律</span>
+        </h2>
+      
+<p>导体中的电流，跟导体两端的电压成正比，跟这段导体的电阻成反比</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi><mo>=</mo><mfrac><mi>U</mi><mi>R</mi></mfrac></mrow><annotation encoding="application/x-tex">I= \frac{U}{R}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.04633em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">U</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+
+    <div class="note-plugin info no-icon">
+      <p><strong>注意</strong></p><ol><li>欧姆定律是从实验中总结出来的规律，它适用于任何情况下的电流计算。</li><li>欧姆定律公式中各个物理量只能是<strong>同一导体</strong>在<strong>同一时刻</strong>所具有的量</li></ol>
+    </div>
+  
+<p>U、I 参考方向相同时<code>U=IR</code>，相反时<code>U=-IR</code>，式前的正负号由U、I 参考方向的关系确定，U、I 值本身的正负则说明实际方向与参考方向之间的关系。</p>
+<blockquote>
+<p>通常取 U、I 参考方向相同。</p>
+</blockquote>
+
+        <h2 id="电源有载工作-开路与短路">
+          <span class="heading-link">电源有载工作、开路与短路</span>
+        </h2>
+      
+<p>……</p>
+
+        <h3 id="电源与负载的判别">
+          <span class="heading-link">电源与负载的判别</span>
+        </h3>
+      
+
+        <h4 id="根据u和i的实际方向判别">
+          <span class="heading-link">根据U和I的实际方向判别</span>
+        </h4>
+      
+<p>电源：U和I 的实际方向相反，电流从“+”端流出,发出功率；负载：U和I 的实际方向相同，电流从“+”端流入,取用功率。</p>
+
+        <h4 id="根据u和的参考方向判别">
+          <span class="heading-link">根据U和的参考方向判别</span>
+        </h4>
+      
+<p>U和取关联参考方向，若P=UI&gt;0，负载；U和取非关联参考方向，若P=D&gt;0，负载；若P=-UI&lt;0，电源。</p>
+
+        <h3 id="电气设备的额定值">
+          <span class="heading-link">电气设备的额定值</span>
+        </h3>
+      
+<p>额定值：电气设备在正常运行时的规定使用值</p>
+<ol>
+<li>额定值反映电气设备的使用安全性；</li>
+<li>额定值表示电气设备的使用能力</li>
+</ol>
+<p>注意：电气设备工作时的实际值不一定都等于其额定值，要能够加以区别。</p>
+
+        <h4 id="电气设备的三种运行状态">
+          <span class="heading-link">电气设备的三种运行状态</span>
+        </h4>
+      
+<div class="table-container"><table>
+<thead>
+<tr>
+<th style="text-align:center">运行状态</th>
+<th style="text-align:center">举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">额定工作状态</td>
+<td style="text-align:center">I = IN ，P = PN (经济合理安全可靠)</td>
+</tr>
+<tr>
+<td style="text-align:center">过载(超载)</td>
+<td style="text-align:center">I &gt; IN ，P &gt; PN  (设备易损坏)</td>
+</tr>
+<tr>
+<td style="text-align:center">欠载(轻载)</td>
+<td style="text-align:center">I &lt; IN ，P &lt; PN   (不经济)</td>
+</tr>
+</tbody>
+</table></div>
+
+        <h3 id="开路断路">
+          <span class="heading-link">开路=断路</span>
+        </h3>
+      
+
+        <h3 id="短路">
+          <span class="heading-link">短路</span>
+        </h3>
+      
+<p>为防止事故发生，需在电路中接入熔断器或自动断路器，用以保护电路。</p>
+
+        <h2 id="基尔霍夫定律">
+          <span class="heading-link">基尔霍夫定律</span>
+        </h2>
+      
+<p>基尔霍夫定律包括基尔霍夫电流定律（KCL）和基尔霍夫电压定律（KVL）它反映了电路中所有支路电压和电流所遵循的基本规律，是分析集总参数电路的基本定律基尔霍夫定律与元件特性构成了电路分析的基础。<br>
+
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="/images/pasted-24.png" alt="支路">
+      </p>
+<p>支路</p>
+<ul>
+<li>电路中通过同一电流的分支b=3</li>
+<li>电路中每一个两端元件就称为一条支路。b=5</li>
+</ul>
+<p>结点</p>
+<ul>
+<li>三条以上支路的连接点称为结点。n=2</li>
+<li>元件的连接点称为结点。n=4</li>
+</ul>
+<p>路径</p>
+<ul>
+<li>两结点间的一条通路。由支路构成。</li>
+</ul>
+<p>回路</p>
+<ul>
+<li>由支路组成的闭合路径。l=3</li>
+</ul>
+<p>网孔</p>
+<ul>
+<li>对平面电路，其内部不含任何支路的回路称网孔</li>
+</ul>
+
+    <div class="note-plugin warning no-icon">
+      <p><strong>注意</strong><br>网孔是回路，但回路不一定是网孔</p>
+    </div>
+  
+
+        <h3 id="基尔霍夫电流定律kcl">
+          <span class="heading-link">基尔霍夫电流定律（KCL）</span>
+        </h3>
+      
+<p>在集总参数电路中，任意时刻，对任意结点流出（或流入）该结点电流的代数和等于零，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>b</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></msubsup><mi>i</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sum _{b=1}^{m}i(t)=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">b</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">i</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>或<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>∑</mo><msub><mi>i</mi><mi mathvariant="normal">入</mi></msub><mo>=</mo><mo>∑</mo><msub><mi>i</mi><mi mathvariant="normal">出</mi></msub></mrow><annotation encoding="application/x-tex">\sum i_{ 入 }= \sum i_{出}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.15em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord cjk_fallback mtight">入</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">i</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.15em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord cjk_fallback mtight">出</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，KCL可推广应用于电路中包围多个结点的任一闭合面。</p>
+<p>①KCL是电荷守恒和电流连续性原理在电路中任意结点处的反应</p>
+<p>②KCL是对结点处支路电流加的约束，与支路上接的是什么元件无关，与电路是线性还是非线性无关。</p>
+<p>③KCL方程是按电流参考方向列写的，与电流实际方向无关。</p>
+
+        <h3 id="基尔霍夫电压定律kvl">
+          <span class="heading-link">基尔霍夫电压定律（KVL）</span>
+        </h3>
+      
+<p>在集总参数电路中，任一时刻，沿任一回路，所有支路电压的代数和恒等于零</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>b</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></msubsup><mi>u</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\sum _{b=1}^{m}u(t)=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">b</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">u</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 或  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>∑</mo><msub><mi>u</mi><mi mathvariant="normal">降</mi></msub><mo>=</mo><mo>∑</mo><msub><mi>u</mi><mi mathvariant="normal">升</mi></msub></mrow><annotation encoding="application/x-tex">\sum u_{降}= \sum u_{升}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.15em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord cjk_fallback mtight">降</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.00001em;vertical-align:-0.25001em;"></span><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.15em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord cjk_fallback mtight">升</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><br>
+
+        <img class="lazyload lazyload-gif" src="/images/loading.svg" data-src="/images/pasted-26.png" alt="upload successful">
+      <br>
+①标定各元件电压参考方向</p>
+<p>②选定回路绕行方向，顺时针或逆时针。</p>
+<p>①KVL的实质反映了电路遵从能量守恒</p>
+<p>②KVL是对回路中的支路电压加的约束，与回路各支路上接的是什么元件无关，与电路是线性还是非线性无关</p>
+<p>③KVL方程是按电压参考方向列写的，与电压实际方向无关</p>
+
+        <h3 id="kcl和kvl的独立方程数">
+          <span class="heading-link">KCL和KVL的独立方程数</span>
+        </h3>
+      
+<p>n个结点的电路，独立的KCL方程为n-1个</p>
+<p>①独立的KVL方程数网孔数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><mi>b</mi><mo>−</mo><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">=b-(n-1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span></p>
+<p>②n个结点、b条支路的电路，独立的KCL方程数为（n-1）</p>
+
+        <h2 id="电路中电位的概念及计算">
+          <span class="heading-link">电路中电位的概念及计算</span>
+        </h2>
+      
+<p>（1）任选电路中某一点为参考点，设其电位为零；</p>
+<p>（2）标出各电流参考方向并计算；</p>
+<p>（3）计算各点至参考点间的电压即为各点的电位。</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="https://cjh0613.com">峡州仙士</a></span></div><div class="copyright-link"><span class="copyright-link__name">原文链接: </span><span class="copyright-link__value"><a href="https://cjh0613.com/20200502Electrotechnics1.html">https://cjh0613.com/20200502Electrotechnics1.html</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">声明: </span><span class="copyright-notice__value">如文章有更新，将先在本网站（峡州仙士之页）发布！（可百度）| 本网站所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/电工/">电工</a></span></div><div class="post-share"><div class="social-share" data-sites="qzone, qq, weibo, wechat, douban, linkedin, facebook, twitter, google">分享本文到: </div></div><div class="post-reward reward"><div class="reward-button">请我喝一杯凉虾~</div><div class="reward-qrcode"><a class="exturl__link" href="https://www.cjh0613.com/RedEnvelope" target="_blank" rel="external nofollow noopener noreferrer">（推荐）【免费打赏】手机用户点此一键领红包，您通过使用红包来支持站长</a><p>BTC地址（建议使用ETH）：3F7hk94nnBHrL4LuHZdtP4soPCefCV6CbU</p><p>ETH收款地址：0x2AdDE524665af970acE4CB3D50dE70136c88f90F</p><span class="reward-qrcode-alipay"><img class="reward-qrcode-alipay__img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/pasted-5.png"><div class="reward-qrcode-alipay__text">支付宝打赏</div></span><span class="reward-qrcode-wechat"><img class="reward-qrcode-wechat__img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/pasted-6.png"><div class="reward-qrcode-wechat__text">微信打赏</div></span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/20200503win10cmd.html"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">windows10 cmd命令提示符/批处理/终端 快速编辑模式bug 程序运行被阻塞 顶部标题栏提示选择 需要回车才能继续执行的解决方案</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/20200502English.html"><span class="paginator-prev__text">英语 跨文化交际</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div><div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-3992225808017393" data-ad-slot="7938361938"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#电路的作用与组成部分"><span class="toc-number">1.</span> <span class="toc-text">
+          电路的作用与组成部分
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#电路的作用"><span class="toc-number">1.1.</span> <span class="toc-text">
+          电路的作用
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#电路的组成部分"><span class="toc-number">1.2.</span> <span class="toc-text">
+          电路的组成部分
+        </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#电路模型"><span class="toc-number">2.</span> <span class="toc-text">
+          电路模型
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#电流和电压的参考方向"><span class="toc-number">3.</span> <span class="toc-text">
+          电流和电压的参考方向
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#电流的参考方向"><span class="toc-number">3.1.</span> <span class="toc-text">
+          电流的参考方向
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#电压的参考方向"><span class="toc-number">3.2.</span> <span class="toc-text">
+          电压的参考方向
+        </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#欧姆定律"><span class="toc-number">4.</span> <span class="toc-text">
+          欧姆定律
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#电源有载工作-开路与短路"><span class="toc-number">5.</span> <span class="toc-text">
+          电源有载工作、开路与短路
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#电源与负载的判别"><span class="toc-number">5.1.</span> <span class="toc-text">
+          电源与负载的判别
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#根据u和i的实际方向判别"><span class="toc-number">5.1.1.</span> <span class="toc-text">
+          根据U和I的实际方向判别
+        </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#根据u和的参考方向判别"><span class="toc-number">5.1.2.</span> <span class="toc-text">
+          根据U和的参考方向判别
+        </span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#电气设备的额定值"><span class="toc-number">5.2.</span> <span class="toc-text">
+          电气设备的额定值
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电气设备的三种运行状态"><span class="toc-number">5.2.1.</span> <span class="toc-text">
+          电气设备的三种运行状态
+        </span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开路断路"><span class="toc-number">5.3.</span> <span class="toc-text">
+          开路&#x3D;断路
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#短路"><span class="toc-number">5.4.</span> <span class="toc-text">
+          短路
+        </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基尔霍夫定律"><span class="toc-number">6.</span> <span class="toc-text">
+          基尔霍夫定律
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基尔霍夫电流定律kcl"><span class="toc-number">6.1.</span> <span class="toc-text">
+          基尔霍夫电流定律（KCL）
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基尔霍夫电压定律kvl"><span class="toc-number">6.2.</span> <span class="toc-text">
+          基尔霍夫电压定律（KVL）
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#kcl和kvl的独立方程数"><span class="toc-number">6.3.</span> <span class="toc-text">
+          KCL和KVL的独立方程数
+        </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#电路中电位的概念及计算"><span class="toc-number">7.</span> <span class="toc-text">
+          电路中电位的概念及计算
+        </span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">这里也有我的痕迹(按排序)：</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="/20200402RSS.html" target="_blank" rel="noopener" data-popover="RSS订阅" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-rss"></i></span></a><a class="sidebar-ov-social-item" href="https://github.com/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.thingiverse.com/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Thingiverse" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-cube"></i></span></a><a class="sidebar-ov-social-item" href="http://sighttp.qq.com/authd?IDKEY=4d5d36c19d4b64b91e4074144124b486759e276fa30b8abc" target="_blank" rel="external nofollow noopener noreferrer" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a><a class="sidebar-ov-social-item" href="https://t.me/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Telegram" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-telegram"></i></span></a><a class="sidebar-ov-social-item" href="https://www.quora.com/profile/Bruce-Chen-199" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Quora" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-quora"></i></span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-question"></i></span></a><a class="sidebar-ov-social-item" href="/about.html" target="_blank" rel="noopener" data-popover="更多" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-ellipsis-h"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/index.html"><div class="sidebar-ov-state-item__count">131</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/index.html"><div class="sidebar-ov-state-item__count">6</div><div class="sidebar-ov-state-item__name">分类</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/index.html"><div class="sidebar-ov-state-item__count">75</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer" data-popover="知识共享" data-popover-pos="up"><img src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020~2021</span><span class="footer__icon"><i class="fas fa-code"></i></span><span>峡州仙士</span><span class="footer__devider">|</span><span>粤ICP备12009483号（Gitee站）</span></div><!----><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div>推荐使用电脑端访问本站</div><div class="webinfo-item"><span class="webinfo-runtime-name">本站持续运行时间 :</span><span class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="2020/2/26 00:00:00"></span></div><div style="display:none"><script type="text/javascript" src="https://js.users.51.la/20667167.js"></script><script src="https://s96.cnzz.com/z_stat.php?id=1277785770&amp;web_id=1277785770"></script></div><div><p><a class="exturl__link" href="/20200402RSS.html" target="_blank" rel="noopener">RSS</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://en.cjh0613.com/index.html" target="_blank" rel="noopener">English&emsp;I18N&emsp;国际站</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://status.cjh0613.com/" target="_blank" rel="external nofollow noopener noreferrer">峡州仙士之页状态监控</a><br><a class="exturl__link" href="https://suyin-blog.club/" target="_blank" rel="noopener">苏寅</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://www.avg.cx" target="_blank" rel="noopener">Yrh</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://www.v6g.cn/" target="_blank" rel="noopener">微6g资源网</a><br><a class="exturl__link" href="https://cjh0613.com/archives/index.html" target="_blank" rel="noopener">归档页</a>&nbsp;|&nbsp;
+sitemap（<a class="exturl__link" href="https://cjh0613.com/sitemap.xml" target="_blank" rel="noopener">1</a><a class="exturl__link" href="https://cjh0613.com/google-sitemap.xml" target="_blank" rel="noopener">2</a>）
+&nbsp;|&nbsp;<a class="exturl__link" href="/friends/index.html" target="_blank" rel="noopener">更多友情链接</a></p></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><script>//var btn = document.getElementById("cjh_search");
+function cjh_search(){
+var $input = $('.search-input input');var q = $input.val().toLowerCase().trim();
+var url = "https://www.baidu.com/s";
+var url = url + '?wd='+q+' "峡州仙士之页"';
+if(q){
+var tempwindow=window.open('_blank');
+tempwindow.location=url;
+}}
+function cjh_g_search(){
+var $input = $('.search-input input');var q = $input.val().toLowerCase().trim();
+var url = "https://www.sanzhima.com/search";
+var url = url + '?q='+q+' site:cjh0613.com';
+if(q){
+var tempwindow=window.open('_blank');
+tempwindow.location=url;
+}}
+</script><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"><div class="cjh-btn__icon" style="font-size:1rem"><a class="cjh-btn-a" href="javascript:;" onclick="cjh_g_search();return false;">谷歌搜索</a>&emsp;<a class="cjh-btn-a" id="cjh_search" href="javascript:;" onclick="cjh_search();return false;">备用搜索</a></div><div style="text-align: center"><p>（您还可以在<a class="exturl__link" href="/blog/archives/" target="_blank" rel="noopener">归档页</a>搜索文章标题）</p></div></div><div class="search-results"></div></div><script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><script src="//cdn.staticfile.org/velocity/1.5.2/velocity.min.js"></script><script src="//cdn.staticfile.org/velocity/1.5.2/velocity.ui.min.js"></script><script src="//cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script><script src="//cdn.staticfile.org/masonry/4.2.2/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script src="//cdn.staticfile.org/social-share.js/1.0.16/js/social-share.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keypress', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css('overflow', 'auto');
+  $('.search-popup')
+    .removeClass('show')
+    .velocity('stop')
+    .velocity('transition.expandOut', {
+      duration: 300
+    });
+  $('.search-mask')
+    .velocity('stop')
+    .velocity('transition.fadeOut', {
+      duration: 300
+    });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .addClass('show')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);</script><link href="https://cdn.staticfile.org/KaTeX/0.10.2/katex.min.css" rel="stylesheet" type="text/css"><link href="https://cdn.staticfile.org/KaTeX/0.10.2/contrib/copy-tex.css" rel="stylesheet" type="text/css"><script src="https://cdn.staticfile.org/KaTeX/0.10.2/contrib/copy-tex.min.js"></script><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="//cdn.staticfile.org/valine/1.4.14/Valine.min.js"></script><script>function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'GfE51gqBqbGNIbHPqoSHcPXD-MdYXbMMI',
+    appKey: 'JXCYM9TcWAOLRnxo2BWpEL8y',
+    notify: true,
+    verify: true,
+    placeholder: '点这里输入评论。如果您需要咨询，还可QQ联系。（请填写上方昵称与邮箱，邮箱不会公开显示。如果您有个人网站，也可以填写）【近期邮件提醒失效，回复较慢】',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: false,
+    recordIP: true,
+    lang: 'zh-cn' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+  
+if (false) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3992225808017393',
+  enable_page_level_ads: true
+});</script><script src="https://cjh0613.com/js/counttime.js"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/utils.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/stun-boot.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/scroll.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/header.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/sidebar.js?v=1.7.0"></script></body></html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="renderer" content="webkit"><meta name="force-rendering" content="webkit"><!----><script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><script src="https://cdn.staticfile.org/layer/3.1.1/layer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/boycott-ie/boycott-ie/boycott-ie.js"></script><!----><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" type="image/png" sizes="16x16"><link rel="icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" sizes="180x180"><link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" color="#54bcff"><meta name="msapplication-TileImage" content="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg"><meta name="msapplication-TileColor" content="#000000"><meta name="google-site-verification" content="WENVxYJ4LorKjirCAv6WnZEiM9vyEiZKmRIqaiTLOVw"><meta name="msvalidate.01" content="1995BB61A214C11B83C059025081A00C"><meta name="description" content="警告需要跳过hexo对百度地图 html 文件的渲染。如不跳过，地图显示为多个方格拼合形式，且方格间存在较宽灰缝，无法准确标地点。         因此，将百度地图 API 生成的代码放入单独 html 文件，使用 iframe 嵌套在hexo网页中。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo网页调用百度地图 JS API">
+<meta property="og:url" content="https://cjh0613.com/20200405map.html">
+<meta property="og:site_name" content="峡州仙士之页">
+<meta property="og:description" content="警告需要跳过hexo对百度地图 html 文件的渲染。如不跳过，地图显示为多个方格拼合形式，且方格间存在较宽灰缝，无法准确标地点。         因此，将百度地图 API 生成的代码放入单独 html 文件，使用 iframe 嵌套在hexo网页中。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-16T02:49:00.000Z">
+<meta property="article:modified_time" content="2020-08-23T08:26:23.783Z">
+<meta property="article:author" content="峡州仙士">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="api">
+<meta property="article:tag" content="地图">
+<meta name="twitter:card" content="summary"><meta name="keywords" content="峡州仙士, 峡州仙士之页"><title>hexo网页调用百度地图 JS API | 峡州仙士之页</title><link ref="canonical" href="https://cjh0613.com/20200405map.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="//cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="//cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="//cdn.staticfile.org/social-share.js/1.0.16/css/share.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/css/index.css?v=1.7.0"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://hm.baidu.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-168599388-1" async></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-168599388-1');
+}</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?3571f7725019f0e61870427684c3ce17';
+  hm.async = true;
+
+  if (false) {
+    hm.setAttribute('data-pjax', '');
+  }
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  post_widget: {"end_text":true},
+  night_mode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","word_wrap":false},
+  reward: true,
+  fancybox: true,
+  zoom_image: {"enable":true,"mask_color":"rgba(0,0,0,0.6)"},
+  gallery_waterfall: {"enable":true,"col_width":"220px","gap_x":"10px","gap_y":"10px"},
+  lazyload: {"enable":true,"placeholder":"gif"},
+  pjax: undefined,
+  external_link: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copy_button":"复制","copy_success":"复制成功","copy_error":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="https://en.cjh0613.com/index.html" target="_blank" rel="noopener"><span class="header-nav-menu-item__icon"><i class="fas fa-language"></i></span><span class="header-nav-menu-item__text">En</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-ellipsis-h"></i></span><span class="header-nav-menu-item__text">其他菜单项</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/about.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-user"></i></span><span class="header-nav-submenu-item__text">关于我</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/hot.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-paper-plane"></i></span><span class="header-nav-submenu-item__text">热门文章</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="https://suiji.cjh0613.com/" target="_blank" rel="external nofollow noopener noreferrer"><span class="header-nav-submenu-item__icon"><i class="fas fa-history"></i></span><span class="header-nav-submenu-item__text">随记</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/ask.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-question"></i></span><span class="header-nav-submenu-item__text">留言/提问</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/friends/index.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-users"></i></span><span class="header-nav-submenu-item__text">朋友</span></a></div></div></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">世上本没有路</div><div class="header-banner-info__subtitle">峡州仙士之页</div><!--br--><!--div.header-banner-info__btn--></div><div class="cjh-btn"><div class="cjh-btn__icon"><a class="cjh-btn-a" href="/index.html" target="_blank" rel="noopener">移步首页</a></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">hexo网页调用百度地图 JS API</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表</span><span class="post-meta-item__value">2020-04-16</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新</span><span class="post-meta-item__value">2020-08-23</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数</span><span class="post-meta-item__value">1.6k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">预计阅读时长</span><span class="post-meta-item__value">14分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/hexo/">hexo</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/javascript/">javascript</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/api/">api</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/地图/">地图</a></span></div></header><div class="post-body">
+    <div class="note-plugin danger no-icon">
+      <p><strong>警告</strong><br>需要跳过hexo对百度地图 html 文件的渲染。如不跳过，地图显示为多个方格拼合形式，且方格间存在较宽灰缝，无法准确标地点。</p>
+    </div>
+  
+<p>因此，将百度地图 API 生成的代码放入单独 html 文件，使用 <code>iframe</code> 嵌套在hexo网页中。</p>
+<a id="more"></a>
+
+    <div class="note-plugin success no-icon">
+      <p>另外推荐一下<a href="/20200603HexoSubmitUrlsToSearchEngine.html">主动推送Hexo博客新链接至谷歌、必应、百度搜索引擎站长平台以提升网站收录质量和速度的插件<code>hexo-submit-urls-to-search-engine</code></a>，现在我的一篇文章<strong>刚发布5分钟，即可在必应搜索到</strong></p>
+    </div>
+  
+<p>回到主题。</p>
+<h2 id><a class="markdownIt-Anchor" href="#"></a> <a href="#%E5%B5%8C%E5%85%A5%E7%99%BE%E5%BA%A6%E5%9C%B0%E5%9B%BE" title="嵌入百度地图"></a>嵌入百度地图</h2>
+
+    <div class="note-plugin danger no-icon">
+      <p><strong>警告</strong><br>实际测试时，此法有bug,请谨慎尝试。<br>解决方案请继续阅读。</p>
+    </div>
+  
+<p>使用<span class="exturl"><a class="exturl__link" href="http://api.map.baidu.com/lbsapi/createmap/index.html" target="_blank" rel="external nofollow noopener noreferrer">百度地图 API</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 生成好要标记的地方。保存代码为.html 文件，注意文件编码需为 <code>UTF-8</code>。编辑该 HTML 文件，去掉标签中的废话，并将 <code>div</code> 的宽度改为 100%，高度改为自己需要的高度。</p>
+<p>将 html 文件复制到文章对应的资源文件夹中，命名为 <code>map.html</code>，并在 markdown 中直接编写 html 代码，推荐 <code>height</code> 比 html 文件内的 <code>height</code> 多 20 左右。</p>
+<figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">width</span>\=<span class="string">"100%"</span> <span class="attr">height</span>\=<span class="string">"420px"</span> <span class="attr">frameborder</span>\=<span class="string">"0"</span> <span class="attr">src</span>\=<span class="string">"&#123;% asset\_path map.no\-render.html %&#125;"</span> /&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+    <div class="note-plugin danger no-icon">
+      <p><strong>警告</strong><br>hexo .md文件实际测试时，地图后面的文本全部无法显示。<br>解决方案请继续阅读。</p>
+    </div>
+  
+
+        <h3 id="-2">
+          <span class="heading-link">Hexo 用户</span>
+        </h3>
+      
+<p>需要跳过对百度地图 html 文件的渲染。</p>
+<p>另一种 <code>iframe</code> 引用方式：</p>
+<blockquote>
+<p>此处链接相对网址，而非html文件</p>
+</blockquote>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% iframe &#x2F;map.html 100% 520px %&#125;</span><br></pre></td></tr></table></div></figure>
+<p>显示如下：</p>
+<iframe src="/blog/map.html" width="100%" height="520px" frameborder="0" loading="lazy" allowfullscreen></iframe>
+
+        <h2 id="-3">
+          <span class="heading-link">支持 SSL 访问</span>
+        </h2>
+      
+<p>如果你的博客使用 https 访问，那么还需要在 html 文件中，将 js 引用改为 https，同时在密钥后面加上 <code>&amp;s=1</code>。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src\&#x3D;&quot;https:&#x2F;&#x2F;api.map.baidu.com&#x2F;api?v&#x3D;2.0&amp;ak&#x3D;你的密钥&amp;s&#x3D;1&quot;\&gt;script\&gt;</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="调用百度地图api-去掉地图左下角logo或文字">
+          <span class="heading-link">调用百度地图api 去掉地图左下角LOGO或文字</span>
+        </h2>
+      
+<p>注意，这里style的添加针对的是嵌入hexo的map.html，而非文章显示网页</p>
+<p>去掉文字那行，添加CSS即可</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.BMap_cpyCtrl &#123;display:none;&#125;</span><br></pre></td></tr></table></div></figure>
+<p>去掉地图那行，添加CSS即可</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.anchorBL&#123;display:none;&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="地图代码">
+          <span class="heading-link">地图代码</span>
+        </h2>
+      
+
+        <h3 id="百度demo">
+          <span class="heading-link">百度demo</span>
+        </h3>
+      
+<figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"initial-scale=1.0, user-scalable=no"</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line"><span class="css">		<span class="selector-tag">body</span>, <span class="selector-tag">html</span>,<span class="selector-id">#allmap</span> &#123;<span class="attribute">width</span>: <span class="number">100%</span>;<span class="attribute">height</span>: <span class="number">100%</span>;<span class="attribute">overflow</span>: hidden;<span class="attribute">margin</span>:<span class="number">0</span>;<span class="attribute">font-family</span>:<span class="string">"微软雅黑"</span>;&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-id">#l-map</span>&#123;<span class="attribute">height</span>:<span class="number">100%</span>;<span class="attribute">width</span>:<span class="number">78%</span>;<span class="attribute">float</span>:left;<span class="attribute">border-right</span>:<span class="number">2px</span> solid <span class="number">#bcbcbc</span>;&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-id">#r-result</span>&#123;<span class="attribute">height</span>:<span class="number">100%</span>;<span class="attribute">width</span>:<span class="number">20%</span>;<span class="attribute">float</span>:left;&#125;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"//api.map.baidu.com/api?v=2.0&amp;ak=RiTOvwDlYn3P5emEiWO0MzMt8Ru0YbX8"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>添加多个标注点<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"allmap"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">	<span class="comment">// 百度地图API功能</span></span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> map = <span class="keyword">new</span> BMap.Map(<span class="string">"allmap"</span>);</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> point = <span class="keyword">new</span> BMap.Point(<span class="number">116.404</span>, <span class="number">39.915</span>);</span></span><br><span class="line">	map.centerAndZoom(point, 15);</span><br><span class="line"><span class="actionscript">	<span class="comment">// 编写自定义函数,创建标注</span></span></span><br><span class="line"><span class="actionscript">	<span class="function"><span class="keyword">function</span> <span class="title">addMarker</span><span class="params">(point)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">	  <span class="keyword">var</span> marker = <span class="keyword">new</span> BMap.Marker(point);</span></span><br><span class="line">	  map.addOverlay(marker);</span><br><span class="line">	&#125;</span><br><span class="line"><span class="actionscript">	<span class="comment">// 随机向地图添加25个标注</span></span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> bounds = map.getBounds();</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> sw = bounds.getSouthWest();</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> ne = bounds.getNorthEast();</span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> lngSpan = <span class="built_in">Math</span>.abs(sw.lng - ne.lng);</span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> latSpan = <span class="built_in">Math</span>.abs(ne.lat - sw.lat);</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">25</span>; i ++) &#123;</span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> point = <span class="keyword">new</span> BMap.Point(sw.lng + lngSpan * (<span class="built_in">Math</span>.random() * <span class="number">0.7</span>), ne.lat - latSpan * (<span class="built_in">Math</span>.random() * <span class="number">0.7</span>));</span></span><br><span class="line">		addMarker(point);</span><br><span class="line">	&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+        <h3 id="优化">
+          <span class="heading-link">优化</span>
+        </h3>
+      
+<figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">"-//W3C//DTD XHTML 1.0 Transitional//EN"</span> <span class="meta-string">"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1999/xhtml"</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf8"</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>百度地图API显示多个标注点带提示的代码<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line">    <span class="comment">&lt;!--css--&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"style/demo.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> /&gt;</span>  </span><br><span class="line">    <span class="comment">&lt;!--javascript--&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"scripts/jquery-1.9.1.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"scripts/demo.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"demo_main"</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">fieldset</span> <span class="attr">class</span>=<span class="string">"demo_title"</span>&gt;</span>  </span><br><span class="line">            百度地图API显示多个标注点带提示的代码  </span><br><span class="line">        <span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;<span class="name">fieldset</span> <span class="attr">class</span>=<span class="string">"demo_content"</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"min-height: 300px; width: 100%;"</span> <span class="attr">id</span>=<span class="string">"map"</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">            <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span>  </span><br><span class="line"><span class="actionscript">                <span class="keyword">var</span> markerArr = [  </span></span><br><span class="line"><span class="actionscript">                    &#123; title: <span class="string">"名称：广州火车站"</span>, point: <span class="string">"113.264531,23.157003"</span>, address: <span class="string">"广东省广州市广州火车站"</span>, tel: <span class="string">"12306"</span> &#125;,  </span></span><br><span class="line"><span class="actionscript">                    &#123; title: <span class="string">"名称：广州塔（赤岗塔）"</span>, point: <span class="string">"113.330934,23.113401"</span>, address: <span class="string">"广东省广州市广州塔（赤岗塔） "</span>, tel: <span class="string">"18500000000"</span> &#125;,  </span></span><br><span class="line"><span class="actionscript">                    &#123; title: <span class="string">"名称：广州动物园"</span>, point: <span class="string">"113.312213,23.147267"</span>, address: <span class="string">"广东省广州市广州动物园"</span>, tel: <span class="string">"18500000000"</span> &#125;,  </span></span><br><span class="line"><span class="actionscript">                    &#123; title: <span class="string">"名称：天河公园"</span>, point: <span class="string">"113.372867,23.134274"</span>, address: <span class="string">"广东省广州市天河公园"</span>, tel: <span class="string">"18500000000"</span> &#125;  </span></span><br><span class="line">  </span><br><span class="line">                ];  </span><br><span class="line">  </span><br><span class="line"><span class="actionscript">                <span class="function"><span class="keyword">function</span> <span class="title">map_init</span><span class="params">()</span> </span>&#123;  </span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">var</span> map = <span class="keyword">new</span> BMap.Map(<span class="string">"map"</span>); <span class="comment">// 创建Map实例  </span></span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">var</span> point = <span class="keyword">new</span> BMap.Point(<span class="number">113.312213</span>, <span class="number">23.147267</span>); <span class="comment">//地图中心点，广州市  </span></span></span><br><span class="line"><span class="actionscript">                    map.centerAndZoom(point, <span class="number">13</span>); <span class="comment">// 初始化地图,设置中心点坐标和地图级别。  </span></span></span><br><span class="line"><span class="actionscript">                    map.enableScrollWheelZoom(<span class="literal">true</span>); <span class="comment">//启用滚轮放大缩小  </span></span></span><br><span class="line"><span class="actionscript">                    <span class="comment">//向地图中添加缩放控件  </span></span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> ctrlNav = <span class="keyword">new</span> <span class="built_in">window</span>.BMap.NavigationControl(&#123;  </span></span><br><span class="line">                        anchor: BMAP_ANCHOR_TOP_LEFT,  </span><br><span class="line">                        type: BMAP_NAVIGATION_CONTROL_LARGE  </span><br><span class="line">                    &#125;);  </span><br><span class="line">                    map.addControl(ctrlNav);  </span><br><span class="line">  </span><br><span class="line"><span class="actionscript">                    <span class="comment">//向地图中添加缩略图控件  </span></span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> ctrlOve = <span class="keyword">new</span> <span class="built_in">window</span>.BMap.OverviewMapControl(&#123;  </span></span><br><span class="line">                        anchor: BMAP_ANCHOR_BOTTOM_RIGHT,  </span><br><span class="line">                        isOpen: 1  </span><br><span class="line">                    &#125;);  </span><br><span class="line">                    map.addControl(ctrlOve);  </span><br><span class="line">  </span><br><span class="line"><span class="actionscript">                    <span class="comment">//向地图中添加比例尺控件  </span></span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> ctrlSca = <span class="keyword">new</span> <span class="built_in">window</span>.BMap.ScaleControl(&#123;  </span></span><br><span class="line">                        anchor: BMAP_ANCHOR_BOTTOM_LEFT  </span><br><span class="line">                    &#125;);  </span><br><span class="line">                    map.addControl(ctrlSca);  </span><br><span class="line">  </span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> point = <span class="keyword">new</span> <span class="built_in">Array</span>(); <span class="comment">//存放标注点经纬信息的数组  </span></span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> marker = <span class="keyword">new</span> <span class="built_in">Array</span>(); <span class="comment">//存放标注点对象的数组  </span></span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> info = <span class="keyword">new</span> <span class="built_in">Array</span>(); <span class="comment">//存放提示信息窗口对象的数组  </span></span></span><br><span class="line"><span class="actionscript">                    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; markerArr.length; i++) &#123;  </span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">var</span> p0 = markerArr[i].point.split(<span class="string">","</span>)[<span class="number">0</span>]; <span class="comment">//  </span></span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">var</span> p1 = markerArr[i].point.split(<span class="string">","</span>)[<span class="number">1</span>]; <span class="comment">//按照原数组的point格式将地图点坐标的经纬度分别提出来  </span></span></span><br><span class="line"><span class="javascript">                        point[i] = <span class="keyword">new</span> <span class="built_in">window</span>.BMap.Point(p0, p1); <span class="comment">//循环生成新的地图点  </span></span></span><br><span class="line"><span class="javascript">                        marker[i] = <span class="keyword">new</span> <span class="built_in">window</span>.BMap.Marker(point[i]); <span class="comment">//按照地图点坐标生成标记  </span></span></span><br><span class="line">                        map.addOverlay(marker[i]);  </span><br><span class="line"><span class="actionscript">                        marker[i].setAnimation(BMAP_ANIMATION_BOUNCE); <span class="comment">//跳动的动画  </span></span></span><br><span class="line"><span class="javascript">                        <span class="keyword">var</span> label = <span class="keyword">new</span> <span class="built_in">window</span>.BMap.Label(markerArr[i].title, &#123; <span class="attr">offset</span>: <span class="keyword">new</span> <span class="built_in">window</span>.BMap.Size(<span class="number">20</span>, <span class="number">-10</span>) &#125;);  </span></span><br><span class="line">                        marker[i].setLabel(label);  </span><br><span class="line"><span class="javascript">                        info[i] = <span class="keyword">new</span> <span class="built_in">window</span>.BMap.InfoWindow(<span class="string">"&lt;p style=’font-size:12px;lineheight:1.8em;’&gt;"</span> + markerArr[i].title + <span class="string">"&lt;/br&gt;地址："</span> + markerArr[i].address + <span class="string">"&lt;/br&gt; 电话："</span> + markerArr[i].tel + <span class="string">"&lt;/br&gt;&lt;/p&gt;"</span>); <span class="comment">// 创建信息窗口对象  </span></span></span><br><span class="line">                    &#125;  </span><br><span class="line"><span class="actionscript">                    marker[<span class="number">0</span>].addEventListener(<span class="string">"mouseover"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;  </span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">this</span>.openInfoWindow(info[<span class="number">0</span>]);  </span></span><br><span class="line">                    &#125;);  </span><br><span class="line"><span class="actionscript">                    marker[<span class="number">1</span>].addEventListener(<span class="string">"mouseover"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;  </span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">this</span>.openInfoWindow(info[<span class="number">1</span>]);  </span></span><br><span class="line">                    &#125;);  </span><br><span class="line"><span class="actionscript">                    marker[<span class="number">2</span>].addEventListener(<span class="string">"mouseover"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;  </span></span><br><span class="line"><span class="actionscript">                        <span class="keyword">this</span>.openInfoWindow(info[<span class="number">2</span>]);  </span></span><br><span class="line">                    &#125;);  </span><br><span class="line">                &#125;  </span><br><span class="line"><span class="actionscript">                <span class="comment">//异步调用百度js  </span></span></span><br><span class="line"><span class="actionscript">                <span class="function"><span class="keyword">function</span> <span class="title">map_load</span><span class="params">()</span> </span>&#123;  </span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> load = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);  </span></span><br><span class="line"><span class="actionscript">                    load.src = <span class="string">"http://api.map.baidu.com/api?v=1.4&amp;callback=map_init"</span>;  </span></span><br><span class="line"><span class="javascript">                    <span class="built_in">document</span>.body.appendChild(load);  </span></span><br><span class="line">                &#125;  </span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.onload = map_load;  </span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line">        <span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="参考资料">
+          <span class="heading-link">参考资料</span>
+        </h2>
+      
+<p><span class="exturl"><a class="exturl__link" href="https://blog.csdn.net/dong_18383219470/article/details/52983771" target="_blank" rel="external nofollow noopener noreferrer">https://blog.csdn.net/dong_18383219470/article/details/52983771</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><span class="exturl"><a class="exturl__link" href="https://blog.kuretru.com/posts/7a624fc3.html" target="_blank" rel="external nofollow noopener noreferrer">https://blog.kuretru.com/posts/7a624fc3.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><span class="exturl"><a class="exturl__link" href="https://bigbossjiang.top/2016/2016-11-16-Hexo-baidu-map/" target="_blank" rel="external nofollow noopener noreferrer">https://bigbossjiang.top/2016/2016-11-16-Hexo-baidu-map/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><span class="exturl"><a class="exturl__link" href="http://api.map.baidu.com/lbsapi/getpoint/index.html" target="_blank" rel="external nofollow noopener noreferrer">http://api.map.baidu.com/lbsapi/getpoint/index.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><span class="exturl"><a class="exturl__link" href="https://api.map.baidu.com/lbsapi/" target="_blank" rel="external nofollow noopener noreferrer">https://api.map.baidu.com/lbsapi/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><span class="exturl"><a class="exturl__link" href="https://blog.csdn.net/weixin_37930716/article/details/81034352" target="_blank" rel="external nofollow noopener noreferrer">https://blog.csdn.net/weixin_37930716/article/details/81034352</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><span class="exturl"><a class="exturl__link" href="http://lbsyun.baidu.com/index.php?title=jspopular3.0" target="_blank" rel="external nofollow noopener noreferrer">http://lbsyun.baidu.com/index.php?title=jspopular3.0</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="https://cjh0613.com">峡州仙士</a></span></div><div class="copyright-link"><span class="copyright-link__name">原文链接: </span><span class="copyright-link__value"><a href="https://cjh0613.com/20200405map.html">https://cjh0613.com/20200405map.html</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">声明: </span><span class="copyright-notice__value">如文章有更新，将先在本网站（峡州仙士之页）发布！（可百度）| 本网站所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/hexo/">hexo</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/javascript/">javascript</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/api/">api</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="tags/地图/">地图</a></span></div><div class="post-share"><div class="social-share" data-sites="qzone, qq, weibo, wechat, douban, linkedin, facebook, twitter, google">分享本文到: </div></div><div class="post-reward reward"><div class="reward-button">请我喝一杯凉虾~</div><div class="reward-qrcode"><a class="exturl__link" href="https://www.cjh0613.com/RedEnvelope" target="_blank" rel="external nofollow noopener noreferrer">（推荐）【免费打赏】手机用户点此一键领红包，您通过使用红包来支持站长</a><p>BTC地址（建议使用ETH）：3F7hk94nnBHrL4LuHZdtP4soPCefCV6CbU</p><p>ETH收款地址：0x2AdDE524665af970acE4CB3D50dE70136c88f90F</p><span class="reward-qrcode-alipay"><img class="reward-qrcode-alipay__img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/pasted-5.png"><div class="reward-qrcode-alipay__text">支付宝打赏</div></span><span class="reward-qrcode-wechat"><img class="reward-qrcode-wechat__img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/pasted-6.png"><div class="reward-qrcode-wechat__text">微信打赏</div></span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/20200416searchEngineRemark.html"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">对搜索引擎对本站的收录状况的评价</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/20200409Panda-Learning.html"><span class="paginator-prev__text">【转】学习强国助手：Panda-Learning</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div><div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-3992225808017393" data-ad-slot="7938361938"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text"> 嵌入百度地图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#-2"><span class="toc-number">1.1.</span> <span class="toc-text">
+          Hexo 用户
+        </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-3"><span class="toc-number">2.</span> <span class="toc-text">
+          支持 SSL 访问
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#调用百度地图api-去掉地图左下角logo或文字"><span class="toc-number">3.</span> <span class="toc-text">
+          调用百度地图api 去掉地图左下角LOGO或文字
+        </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#地图代码"><span class="toc-number">4.</span> <span class="toc-text">
+          地图代码
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#百度demo"><span class="toc-number">4.1.</span> <span class="toc-text">
+          百度demo
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优化"><span class="toc-number">4.2.</span> <span class="toc-text">
+          优化
+        </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考资料"><span class="toc-number">5.</span> <span class="toc-text">
+          参考资料
+        </span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">这里也有我的痕迹(按排序)：</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="/20200402RSS.html" target="_blank" rel="noopener" data-popover="RSS订阅" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-rss"></i></span></a><a class="sidebar-ov-social-item" href="https://github.com/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.thingiverse.com/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Thingiverse" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-cube"></i></span></a><a class="sidebar-ov-social-item" href="http://sighttp.qq.com/authd?IDKEY=4d5d36c19d4b64b91e4074144124b486759e276fa30b8abc" target="_blank" rel="external nofollow noopener noreferrer" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a><a class="sidebar-ov-social-item" href="https://t.me/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Telegram" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-telegram"></i></span></a><a class="sidebar-ov-social-item" href="https://www.quora.com/profile/Bruce-Chen-199" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Quora" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-quora"></i></span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-question"></i></span></a><a class="sidebar-ov-social-item" href="/about.html" target="_blank" rel="noopener" data-popover="更多" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-ellipsis-h"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/index.html"><div class="sidebar-ov-state-item__count">131</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/index.html"><div class="sidebar-ov-state-item__count">6</div><div class="sidebar-ov-state-item__name">分类</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/index.html"><div class="sidebar-ov-state-item__count">75</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer" data-popover="知识共享" data-popover-pos="up"><img src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020~2021</span><span class="footer__icon"><i class="fas fa-code"></i></span><span>峡州仙士</span><span class="footer__devider">|</span><span>粤ICP备12009483号（Gitee站）</span></div><!----><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div>推荐使用电脑端访问本站</div><div class="webinfo-item"><span class="webinfo-runtime-name">本站持续运行时间 :</span><span class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="2020/2/26 00:00:00"></span></div><div style="display:none"><script type="text/javascript" src="https://js.users.51.la/20667167.js"></script><script src="https://s96.cnzz.com/z_stat.php?id=1277785770&amp;web_id=1277785770"></script></div><div><p><a class="exturl__link" href="/20200402RSS.html" target="_blank" rel="noopener">RSS</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://en.cjh0613.com/index.html" target="_blank" rel="noopener">English&emsp;I18N&emsp;国际站</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://status.cjh0613.com/" target="_blank" rel="external nofollow noopener noreferrer">峡州仙士之页状态监控</a><br><a class="exturl__link" href="https://suyin-blog.club/" target="_blank" rel="noopener">苏寅</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://www.avg.cx" target="_blank" rel="noopener">Yrh</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://www.v6g.cn/" target="_blank" rel="noopener">微6g资源网</a><br><a class="exturl__link" href="https://cjh0613.com/archives/index.html" target="_blank" rel="noopener">归档页</a>&nbsp;|&nbsp;
+sitemap（<a class="exturl__link" href="https://cjh0613.com/sitemap.xml" target="_blank" rel="noopener">1</a><a class="exturl__link" href="https://cjh0613.com/google-sitemap.xml" target="_blank" rel="noopener">2</a>）
+&nbsp;|&nbsp;<a class="exturl__link" href="/friends/index.html" target="_blank" rel="noopener">更多友情链接</a></p></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><script>//var btn = document.getElementById("cjh_search");
+function cjh_search(){
+var $input = $('.search-input input');var q = $input.val().toLowerCase().trim();
+var url = "https://www.baidu.com/s";
+var url = url + '?wd='+q+' "峡州仙士之页"';
+if(q){
+var tempwindow=window.open('_blank');
+tempwindow.location=url;
+}}
+function cjh_g_search(){
+var $input = $('.search-input input');var q = $input.val().toLowerCase().trim();
+var url = "https://www.sanzhima.com/search";
+var url = url + '?q='+q+' site:cjh0613.com';
+if(q){
+var tempwindow=window.open('_blank');
+tempwindow.location=url;
+}}
+</script><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"><div class="cjh-btn__icon" style="font-size:1rem"><a class="cjh-btn-a" href="javascript:;" onclick="cjh_g_search();return false;">谷歌搜索</a>&emsp;<a class="cjh-btn-a" id="cjh_search" href="javascript:;" onclick="cjh_search();return false;">备用搜索</a></div><div style="text-align: center"><p>（您还可以在<a class="exturl__link" href="/blog/archives/" target="_blank" rel="noopener">归档页</a>搜索文章标题）</p></div></div><div class="search-results"></div></div><script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><script src="//cdn.staticfile.org/velocity/1.5.2/velocity.min.js"></script><script src="//cdn.staticfile.org/velocity/1.5.2/velocity.ui.min.js"></script><script src="//cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script><script src="//cdn.staticfile.org/masonry/4.2.2/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script src="//cdn.staticfile.org/social-share.js/1.0.16/js/social-share.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keypress', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css('overflow', 'auto');
+  $('.search-popup')
+    .removeClass('show')
+    .velocity('stop')
+    .velocity('transition.expandOut', {
+      duration: 300
+    });
+  $('.search-mask')
+    .velocity('stop')
+    .velocity('transition.fadeOut', {
+      duration: 300
+    });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .addClass('show')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);</script><link href="https://cdn.staticfile.org/KaTeX/0.10.2/katex.min.css" rel="stylesheet" type="text/css"><link href="https://cdn.staticfile.org/KaTeX/0.10.2/contrib/copy-tex.css" rel="stylesheet" type="text/css"><script src="https://cdn.staticfile.org/KaTeX/0.10.2/contrib/copy-tex.min.js"></script><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="//cdn.staticfile.org/valine/1.4.14/Valine.min.js"></script><script>function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'GfE51gqBqbGNIbHPqoSHcPXD-MdYXbMMI',
+    appKey: 'JXCYM9TcWAOLRnxo2BWpEL8y',
+    notify: true,
+    verify: true,
+    placeholder: '点这里输入评论。如果您需要咨询，还可QQ联系。（请填写上方昵称与邮箱，邮箱不会公开显示。如果您有个人网站，也可以填写）【近期邮件提醒失效，回复较慢】',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: false,
+    recordIP: true,
+    lang: 'zh-cn' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+  
+if (false) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3992225808017393',
+  enable_page_level_ads: true
+});</script><script src="https://cjh0613.com/js/counttime.js"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/utils.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/stun-boot.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/scroll.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/header.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/sidebar.js?v=1.7.0"></script></body></html>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title></title>
+        <link>https://cjh0613.com/</link>
+        <atom:link href="/categories/%E7%AC%94%E8%AE%B0/rss2.xml" rel="self" type="application/rss+xml"/>
+        
+        <description></description>
+        <pubDate>Tue, 29 Sep 2020 08:57:29 GMT</pubDate>
+        <generator>http://hexo.io/</generator>
+        
+        <item>
+            <title>流体力学2-流体的主要物理性质</title>
+            <link>https://cjh0613.com/20200929Fluid-mechanics2.html</link>
+            <guid>https://cjh0613.com/20200929Fluid-mechanics2.html</guid>
+            <pubDate>Tue, 29 Sep 2020 08:16:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;（持续更新……）&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200929Fluid-mechanics2.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>电工学14：半导体的导电特性</title>
+            <link>https://cjh0613.com/20200830Electrotechnics14.html</link>
+            <guid>https://cjh0613.com/20200830Electrotechnics14.html</guid>
+            <pubDate>Wed, 09 Sep 2020 10:32:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;（持续更新……）&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200830Electrotechnics14.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>电工学2：电路的分析方法</title>
+            <link>https://cjh0613.com/20200830Electrotechnics2.html</link>
+            <guid>https://cjh0613.com/20200830Electrotechnics2.html</guid>
+            <pubDate>Sun, 30 Aug 2020 10:52:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;（持续更新……）&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200830Electrotechnics2.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>机械原理</title>
+            <link>https://cjh0613.com/20200513mechanical.html</link>
+            <guid>https://cjh0613.com/20200513mechanical.html</guid>
+            <pubDate>Wed, 13 May 2020 02:30:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;（未完成……敬请期待……）&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200513mechanical.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>材料力学 应力状态分析</title>
+            <link>https://cjh0613.com/20200511MaterialMechanics.html</link>
+            <guid>https://cjh0613.com/20200511MaterialMechanics.html</guid>
+            <pubDate>Mon, 11 May 2020 09:18:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;（未完成……敬请期待……）&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200511MaterialMechanics.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>电工学1：电路的基本概念与基本定律</title>
+            <link>https://cjh0613.com/20200502Electrotechnics1.html</link>
+            <guid>https://cjh0613.com/20200502Electrotechnics1.html</guid>
+            <pubDate>Sat, 02 May 2020 02:57:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;（持续更新……）&lt;br&gt;
+&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;U&lt;/mi&gt;&lt;mrow&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;φ&lt;/mi&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;φ&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/msub&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;U_{ab}=\varphi _{A}-\varphi _{B}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.83333em;vertical-align:-0.15em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.10903em;&quot;&gt;U&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.33610799999999996em;&quot;&gt;&lt;span style=&quot;top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mord mathdefault mtight&quot;&gt;b&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.7777700000000001em;vertical-align:-0.19444em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;φ&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.32833099999999993em;&quot;&gt;&lt;span style=&quot;top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot;&gt;A&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mbin&quot;&gt;−&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2222222222222222em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.625em;vertical-align:-0.19444em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;φ&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.32833099999999993em;&quot;&gt;&lt;span style=&quot;top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mathdefault mtight&quot; style=&quot;margin-right:0.05017em;&quot;&gt;B&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.15em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;目录：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#%E7%94%B5%E8%B7%AF%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86&quot;&gt;1. 电路的作用与组成部分&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;#%E7%94%B5%E8%B7%AF%E7%9A%84%E4%BD%9C%E7%94%A8&quot;&gt;1.1. 电路的作用&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;#%E7%94%B5%E8%B7%AF%E7%9A%84%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86&quot;&gt;1.2. 电路的组成部分&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E7%94%B5%E8%B7%AF%E6%A8%A1%E5%9E%8B&quot;&gt;2. 电路模型&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E7%94%B5%E6%B5%81%E5%92%8C%E7%94%B5%E5%8E%8B%E7%9A%84%E5%8F%82%E8%80%83%E6%96%B9%E5%90%91&quot;&gt;3. 电流和电压的参考方向&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;#%E7%94%B5%E6%B5%81%E7%9A%84%E5%8F%82%E8%80%83%E6%96%B9%E5%90%91&quot;&gt;3.1. 电流的参考方向&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;#%E7%94%B5%E5%8E%8B%E7%9A%84%E5%8F%82%E8%80%83%E6%96%B9%E5%90%91&quot;&gt;3.2. 电压的参考方向&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E6%AC%A7%E5%A7%86%E5%AE%9A%E5%BE%8B&quot;&gt;4. 欧姆定律&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E7%94%B5%E6%BA%90%E6%9C%89%E8%BD%BD%E5%B7%A5%E4%BD%9C-%E5%BC%80%E8%B7%AF%E4%B8%8E%E7%9F%AD%E8%B7%AF&quot;&gt;5. 电源有载工作、开路与短路&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;#%E7%94%B5%E6%BA%90%E4%B8%8E%E8%B4%9F%E8%BD%BD%E7%9A%84%E5%88%A4%E5%88%AB&quot;&gt;5.1. 电源与负载的判别&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;#%E6%A0%B9%E6%8D%AEu%E5%92%8Ci%E7%9A%84%E5%AE%9E%E9%99%85%E6%96%B9%E5%90%91%E5%88%A4%E5%88%AB&quot;&gt;5.1.1. 根据U和I的实际方向判别&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;#%E6%A0%B9%E6%8D%AEu%E5%92%8C%E7%9A%84%E5%8F%82%E8%80%83%E6%96%B9%E5%90%91%E5%88%A4%E5%88%AB&quot;&gt;5.1.2. 根据U和的参考方向判别&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;#%E7%94%B5%E6%B0%94%E8%AE%BE%E5%A4%87%E7%9A%84%E9%A2%9D%E5%AE%9A%E5%80%BC&quot;&gt;5.2. 电气设备的额定值&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;#%E7%94%B5%E6%B0%94%E8%AE%BE%E5%A4%87%E7%9A%84%E4%B8%89%E7%A7%8D%E8%BF%90%E8%A1%8C%E7%8A%B6%E6%80%81&quot;&gt;5.2.1. 电气设备的三种运行状态&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;#%E5%BC%80%E8%B7%AF%E6%96%AD%E8%B7%AF&quot;&gt;5.3. 开路=断路&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;#%E7%9F%AD%E8%B7%AF&quot;&gt;5.4. 短路&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E5%9F%BA%E5%B0%94%E9%9C%8D%E5%A4%AB%E5%AE%9A%E5%BE%8B&quot;&gt;6. 基尔霍夫定律&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;#%E5%9F%BA%E5%B0%94%E9%9C%8D%E5%A4%AB%E7%94%B5%E6%B5%81%E5%AE%9A%E5%BE%8Bkcl&quot;&gt;6.1. 基尔霍夫电流定律（KCL）&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;#%E5%9F%BA%E5%B0%94%E9%9C%8D%E5%A4%AB%E7%94%B5%E5%8E%8B%E5%AE%9A%E5%BE%8Bkvl&quot;&gt;6.2. 基尔霍夫电压定律（KVL）&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;#kcl%E5%92%8Ckvl%E7%9A%84%E7%8B%AC%E7%AB%8B%E6%96%B9%E7%A8%8B%E6%95%B0&quot;&gt;6.3. KCL和KVL的独立方程数&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%E7%94%B5%E8%B7%AF%E4%B8%AD%E7%94%B5%E4%BD%8D%E7%9A%84%E6%A6%82%E5%BF%B5%E5%8F%8A%E8%AE%A1%E7%AE%97&quot;&gt;7. 电路中电位的概念及计算&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200502Electrotechnics1.html#disqus_thread</comments>
+        </item>
+        
+        <item>
+            <title>英语 跨文化交际</title>
+            <link>https://cjh0613.com/20200502English.html</link>
+            <guid>https://cjh0613.com/20200502English.html</guid>
+            <pubDate>Sat, 02 May 2020 02:34:00 GMT</pubDate>
+            <description>
+                
+                &lt;p&gt;（持续更新……）&lt;br&gt;
+英语 跨文化交际&lt;/p&gt;
+                
+            </description>
+            
+            <comments>https://cjh0613.com/20200502English.html#disqus_thread</comments>
+        </item>
+        
+    </channel>
+</rss>

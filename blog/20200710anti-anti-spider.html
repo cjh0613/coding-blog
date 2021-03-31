@@ -1,0 +1,589 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="renderer" content="webkit"><meta name="force-rendering" content="webkit"><!----><script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><script src="https://cdn.staticfile.org/layer/3.1.1/layer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/boycott-ie/boycott-ie/boycott-ie.js"></script><!----><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" type="image/png" sizes="16x16"><link rel="icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" sizes="180x180"><link rel="mask-icon" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg?v=1.7.0" color="#54bcff"><meta name="msapplication-TileImage" content="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg"><meta name="msapplication-TileColor" content="#000000"><meta name="google-site-verification" content="WENVxYJ4LorKjirCAv6WnZEiM9vyEiZKmRIqaiTLOVw"><meta name="msvalidate.01" content="1995BB61A214C11B83C059025081A00C"><meta name="description" content="转自 https:&#x2F;&#x2F;cjting.me&#x2F;2020&#x2F;07&#x2F;01&#x2F;douyu-crawler-and-font-anti-crawling&#x2F;  之前因为业务原因需要爬取一批斗鱼主播的相关数据，在这过程中我发现斗鱼使用了一种很有意思的反爬技术，字体反爬。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[转]斗鱼关注人数爬取 ── 字体反爬的攻与防">
+<meta property="og:url" content="https://cjh0613.com/20200710anti-anti-spider.html">
+<meta property="og:site_name" content="峡州仙士之页">
+<meta property="og:description" content="转自 https:&#x2F;&#x2F;cjting.me&#x2F;2020&#x2F;07&#x2F;01&#x2F;douyu-crawler-and-font-anti-crawling&#x2F;  之前因为业务原因需要爬取一批斗鱼主播的相关数据，在这过程中我发现斗鱼使用了一种很有意思的反爬技术，字体反爬。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-10T13:29:00.000Z">
+<meta property="article:modified_time" content="2020-09-10T14:02:51.536Z">
+<meta property="article:author" content="峡州仙士">
+<meta property="article:tag" content="峡州仙士">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="峡州仙士之博客">
+<meta property="article:tag" content="峡州仙士之页">
+<meta property="article:tag" content="世上本没有路">
+<meta property="article:tag" content="cjh">
+<meta property="article:tag" content="网站">
+<meta property="article:tag" content="个人">
+<meta property="article:tag" content="发布">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="讨论">
+<meta name="twitter:card" content="summary"><meta name="keywords" content="峡州仙士, 峡州仙士之页"><title>[转]斗鱼关注人数爬取 ── 字体反爬的攻与防 | 峡州仙士之页</title><link ref="canonical" href="https://cjh0613.com/20200710anti-anti-spider.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="//cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="//cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" type="text/css"><link rel="stylesheet" href="//cdn.staticfile.org/social-share.js/1.0.16/css/share.min.css" type="text/css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/css/index.css?v=1.7.0"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><link rel="dns-prefetch" href="https://hm.baidu.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-168599388-1" async></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-168599388-1');
+}</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?3571f7725019f0e61870427684c3ce17';
+  hm.async = true;
+
+  if (false) {
+    hm.setAttribute('data-pjax', '');
+  }
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  post_widget: {"end_text":true},
+  night_mode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","word_wrap":false},
+  reward: true,
+  fancybox: true,
+  zoom_image: {"enable":true,"mask_color":"rgba(0,0,0,0.6)"},
+  gallery_waterfall: {"enable":true,"col_width":"220px","gap_x":"10px","gap_y":"10px"},
+  lazyload: {"enable":true,"placeholder":"gif"},
+  pjax: undefined,
+  external_link: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copy_button":"复制","copy_success":"复制成功","copy_error":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/index.html"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="https://en.cjh0613.com/index.html" target="_blank" rel="noopener"><span class="header-nav-menu-item__icon"><i class="fas fa-language"></i></span><span class="header-nav-menu-item__text">En</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="javascript:;" onclick="return false;"><span class="header-nav-menu-item__icon"><i class="fas fa-ellipsis-h"></i></span><span class="header-nav-menu-item__text">其他菜单项</span></a><div class="header-nav-submenu"><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/about.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-user"></i></span><span class="header-nav-submenu-item__text">关于我</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/hot.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-paper-plane"></i></span><span class="header-nav-submenu-item__text">热门文章</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="https://suiji.cjh0613.com/" target="_blank" rel="external nofollow noopener noreferrer"><span class="header-nav-submenu-item__icon"><i class="fas fa-history"></i></span><span class="header-nav-submenu-item__text">随记</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/ask.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-question"></i></span><span class="header-nav-submenu-item__text">留言/提问</span></a></div><div class="header-nav-submenu-item"><a class="header-nav-submenu-item__link" href="/friends/index.html"><span class="header-nav-submenu-item__icon"><i class="fas fa-users"></i></span><span class="header-nav-submenu-item__text">朋友</span></a></div></div></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">世上本没有路</div><div class="header-banner-info__subtitle">峡州仙士之页</div><!--br--><!--div.header-banner-info__btn--></div><div class="cjh-btn"><div class="cjh-btn__icon"><a class="cjh-btn-a" href="/index.html" target="_blank" rel="noopener">移步首页</a></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">[转]斗鱼关注人数爬取 ── 字体反爬的攻与防</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表</span><span class="post-meta-item__value">2020-07-10</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新</span><span class="post-meta-item__value">2020-09-10</span></span><span class="post-meta-item post-meta-item--wordcount"><span class="post-meta-item__icon"><i class="far fa-file-word"></i></span><span class="post-meta-item__info">字数</span><span class="post-meta-item__value">6k</span></span><span class="post-meta-item post-meta-item--readtime"><span class="post-meta-item__icon"><i class="far fa-clock"></i></span><span class="post-meta-item__info">预计阅读时长</span><span class="post-meta-item__value">41分</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body"><blockquote>
+<p>转自 <span class="exturl"><a class="exturl__link" href="https://cjting.me/2020/07/01/douyu-crawler-and-font-anti-crawling/" target="_blank" rel="external nofollow noopener noreferrer">https://cjting.me/2020/07/01/douyu-crawler-and-font-anti-crawling/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</blockquote>
+<p>之前因为业务原因需要爬取一批斗鱼主播的相关数据，在这过程中我发现斗鱼使用了一种很有意思的反爬技术，字体反爬。</p>
+<a id="more"></a>
+<p>打开任何一个斗鱼主播的直播间，例如 <span class="exturl"><a class="exturl__link" href="https://www.douyu.com/7874579" target="_blank" rel="external nofollow noopener noreferrer">这个主播</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>，他的关注人数数据显示在右上角：</p>
+<p>斗鱼在关注数据这里使用了字体反爬。什么是字体反爬？也就是通过自定义字体来自定义字符与渲染图形的映射。比如，字符 1 实际渲染的是 9，那么如果 HTML 中的数字是 111，实际显示就是 999。</p>
+<p>在这种技术下，传统的通过解析 HTML 文档获取数据的方式就失效了，因为获取到的数据并不是真实数据。</p>
+<p>Tip: 下文中所谈的具体细节高度依赖斗鱼网页的实现，很有可能当你阅读这篇文章的时候已经不再是那样。虽然代码会过时地很快，但是，技巧和方法是永远不会过时的。</p>
+
+        <h2 id="进攻">
+          <span class="heading-link">进攻</span>
+        </h2>
+      
+<p>感兴趣的读者可以打开控制台，看看显示关注人数的那个 span 元素里面的内容，会发现根本不是显示的数字。</p>
+<p>从上图可以看出，显示的是 59605，这个是真实值，但是字符却是 96809，这个是虚假值。右边的 <code>font-family</code> 告诉我们这个元素使用了一个自定义字体。</p>
+<p>从 Network 面板中的我们可以找到这个字体，具体链接是 <span class="exturl"><a class="exturl__link" href="https://shark.douyucdn.cn/app/douyu/res/font/mpepc5unpb.woff" target="_blank" rel="external nofollow noopener noreferrer">mpepc5unpb.woff</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>。</p>
+<p>如果大家将字体下载下来，使用如下的 HTML 代码来渲染它，我们就可以看得很清楚：</p>
+<figure class="highlight html"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="keyword">@font-face</span> &#123;</span></span><br><span class="line">      font-family: test;</span><br><span class="line"><span class="css">      <span class="selector-tag">src</span>: <span class="selector-tag">url</span>(<span class="selector-tag">mpepc5unpb</span><span class="selector-class">.woff</span>);</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    div &#123;</span><br><span class="line">      font-family: test;</span><br><span class="line">      font-size: 80px;</span><br><span class="line">      text-align: center;</span><br><span class="line">      margin: 200px 0;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  0123456789</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+<p>在这个字体中，字符 <code>0</code> 会渲染图形 <code>0</code>，字符 <code>1</code> 会渲染图形 <code>7</code>，以此类推，因此，HTML 中的字符 <code>96809</code> 渲染的图形就是 <code>59605</code>。</p>
+<p>这个原理不难理解，我们甚至不需要知道字体文件内部的具体格式。因为不管怎样，字体内部一定有一个映射关系。这个关系规定了什么样的字符渲染什么样的图形。</p>
+<p>正常情况下，字符 1 对应的图形是 1 的形状，但是通过修改字体，我们就可以让字符 1 对应的图形是 9 的形状，或者说，其他任意形状。</p>
+<p>这样以来，HTML 中的字符就完全失去了意义，这个字符所代表的的含义要依据字体来定。</p>
+<p>上面这个字体实际上定义了一个 <code>0123456789</code> 到 <code>0741389265</code> 的映射，拿到 HTML 中的字符我们需要根据这个映射才能得到真正的值。</p>
+<p>刷新斗鱼你会发现，字体又变了，所以它那边肯定是有一个字体库的，但是这个不关键，解决一个就解决了所有。</p>
+<p>那么，如何解决字体反爬从而得到真实关注人数？</p>
+
+        <h3 id="分析">
+          <span class="heading-link">分析</span>
+        </h3>
+      
+<p>现在我们知道，如果要获取关注人数，我们必须要获取</p>
+<ul>
+<li>HTML 中的原始值，也就是假值</li>
+<li>字符与真正数字之间的映射关系</li>
+</ul>
+<p>这两个问题都不太好解决，我们先谈第一个。</p>
+<p>斗鱼的这个关注人数很明显是 JS 渲染的，我们有两条路可以走：</p>
+<ul>
+<li>使用 Headless Browser。也就是使用一个完整的浏览器来渲染整个页面，然后获取 DOM 中的值。这个是兜底办法，永远可行，但是缺点是效率太差。大家可以看一下打开斗鱼直播间页面的速度，正常情况下等到关注人数显示的时候至少需要 5 秒钟。</li>
+<li>我们找到数据源。找到斗鱼的 JS 是请求了哪个接口获取到了数据，然后直接请求该接口。</li>
+</ul>
+<p>第二个办法的效率会高很多，但是同时也困难很多。因为 JS 通过什么手段获取了数据实在是灵活性太高了，有太多的办法：</p>
+<ul>
+<li>可以请求多个接口，然后拼接得到数据</li>
+<li>可以请求某个接口，返回变形后的数据，然后 JS 再反向处理</li>
+<li>组合上面两种方式</li>
+<li>…</li>
+</ul>
+<p>面对一堆压缩后的 JS 代码，我们想通过分析代码的方式来找到数据源是不可行的。不过我们还是有别的手段，这个后面再说。</p>
+<p>考虑到性能以及让生活变的更有乐趣，这里我们选择第二种办法。</p>
+<p>Tip: 第一种办法我顺带提一下，使用 <span class="exturl"><a class="exturl__link" href="https://www.selenium.dev/" target="_blank" rel="external nofollow noopener noreferrer">Selenium</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 或者 <span class="exturl"><a class="exturl__link" href="https://github.com/puppeteer/puppeteer" target="_blank" rel="external nofollow noopener noreferrer">Puppeteer</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 都可以。加载网页以后，轮询直到对应的 DOM 中有值即可，通杀任何网站。</p>
+<p>现在我们来看第二个问题，也就是如何通过字体来获取映射关系。</p>
+<p>通过解析字体文件可以办到吗？不可以，字体文件中存储的是字符和图形的映射，那么对于一个图形，它是我们眼中的 “0” 还是我们眼中的 “1” 字体文件也没法知道，在字体文件眼中就是一堆坐标。</p>
+<p>那还能怎么办呢？只能渲染好以后找个人来看吗？</p>
+<p>如果时光倒退 20 年回到 2000 年，恐怕只能这样做了。虽然那个时候也有图形识别技术，但是不像现在这样成熟也不像现在这样随手可得。</p>
+<p>但是现在是 2020 年，OCR 图形识别技术已经非常成熟了，我们随便找个 OCR 库应该就够用了。</p>
+<p>所以这个问题的解决方案也有了，我们使用字体渲染好图形，然后调用 OCR 识别图形对应的数字便可以获取到映射关系。</p>
+<p>按照这个思路，我们整个流程便是</p>
+<ul>
+<li>寻找数据源</li>
+<li>根据数据源获取字体文件和假数据</li>
+<li>根据字体文件渲染图形</li>
+<li>使用 OCR 技术识别图形得到映射关系</li>
+<li>根据映射关系和假数据得到真数据</li>
+</ul>
+
+        <h3 id="数据源">
+          <span class="heading-link">数据源</span>
+        </h3>
+      
+<p>现在我们来找数据源，看看斗鱼的 JS 到底是从哪里获取的字体信息和假数据。</p>
+<p>这其实是一个很有意思的过程，我建议有兴趣的同学先暂停下来，花点时间自己试着找找，看能不能找到。</p>
+<p>我的第一个想法很简单，JS 一定是通过某个接口得到了这些数据，那么，我们把所有网络请求导出为 HAR 格式，然后在里面搜索试试。</p>
+<p>Tip: 点击上图中标记为红色的按钮就可以导出请求为 HAR 格式，HAR 是一个文本格式，非常有利于搜索。</p>
+<p>我试了用假数据也就是 <code>96809</code> 和字体 ID <code>mpepc5unpb</code> 来搜索，都没有任何结果。</p>
+<p>只能说我们的运气不太好，这里情况实在太多了，有可能返回的值经过了一定的处理比如 base64 或者 rot13，也有可能是多接口返回然后再拼接组装。我们没办法进一步验证，只能放弃这条路。</p>
+<p>Tip: 其实在大部分情况下，使用关键词搜索一下 HAR 是很有效的手段，很容易找到对应的接口。</p>
+<p>既然此路不通，我们换个思路，请求到了数据以后，JS 代码一定会调用相关 API 去修改 DOM，能不能监听到这个动作？在它修改 DOM 的时候打上断点，这样就可以通过调用栈知道是哪段 JS 在做此操作，然后顺腾摸瓜找到对应的接口。</p>
+<p>答案是是可以的，通过使用 <code>MutationObserver</code> 我们可以监听任意 DOM 的修改事件。</p>
+<figure class="highlight js"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> MutationObserver(<span class="function">(<span class="params">mutations, observer</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> el = <span class="built_in">document</span>.querySelector(<span class="string">"span.Title-followNum"</span>)</span><br><span class="line">  <span class="keyword">if</span> (el != <span class="literal">null</span>) &#123;</span><br><span class="line">    observer.disconnect()</span><br><span class="line">    <span class="keyword">new</span> MutationObserver(<span class="function">(<span class="params">mutations, observer</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">debugger</span></span><br><span class="line">    &#125;).observe(el, &#123;<span class="attr">childList</span>: <span class="literal">true</span>, <span class="attr">subtree</span>: <span class="literal">true</span>&#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).observe(<span class="built_in">document</span>, &#123;<span class="attr">childList</span>: <span class="literal">true</span>, <span class="attr">subtree</span>: <span class="literal">true</span>&#125;)</span><br></pre></td></tr></table></div></figure>
+<p>通过 <span class="exturl"><a class="exturl__link" href="https://www.tampermonkey.net/" target="_blank" rel="external nofollow noopener noreferrer">Tampermonkey</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 加载上面的代码，刷新，等待断点触发。</p>
+<p>从上面的调用栈可以看出，数据来源自 WebSocket。</p>
+<p>去 Network 面板中看一下，果然是这样。</p>
+<p>Tip: 之后爬取像斗鱼这样的复杂网站，应该先检查一下 WebSocket 中的消息。</p>
+<p>这个消息格式很好理解，我们可以猜到 <code>cfdc@=63206</code> 表示字符为 63206，<code>ci@=t3gadgbaon</code> 表示字体 ID 是 t3gadgbaon，和 DOM 对照一下，确实如此。</p>
+<p>至此我们的数据源问题解决了一半，我们知道了数据是来自 WebSocket 发送的响应。但是，如何程序化去获取这个响应？</p>
+
+        <h3 id="协议">
+          <span class="heading-link">协议</span>
+        </h3>
+      
+<p>分析 WebSocket 消息会发现，客户端连接以后会发送一条登录消息，然后服务端会回复多个消息，其中，就有我们感兴趣的 <code>followed_count</code>。</p>
+<p>客户端发送的消息如下：</p>
+<p>虽然是二进制消息，但是可以看到消息主体都是可读的文本，很明显，斗鱼这里是自己实现了一个内部协议格式。</p>
+<p>开头 12 个字节暂时不清楚什么含义，然后紧跟着一段键值对数据，使用 <code>@=</code> 连接键和值，使用 <code>/</code> 分割，最后跟上 <code>/\x00</code>。</p>
+<p>多查看几个直播间以后，对于开头的 12 个字节，我们不难分析出前四个字节和消息长度有关，使用 Little Endian，中间四个字节和前四个字节相同，而最后四个字节是固定值 <code>0xb1020000</code>。</p>
+<p>上面的消息长度是 287 个字节，而 <code>0x0000011b = 283</code>，所以，长度编码的值实际上是整个消息的长度减去 4。</p>
+<p>这里设计其实挺奇怪的，长度信息比实际长度少了四个字节，同时开头又多了四个字节的冗余数据，怎么看怎么都像是设计失误，第二个四字节是多余的。</p>
+<p>Tip: 对于一个协议来说，作为外部人员，我们是永远无法弄清楚有些问题的成因的。可能这四个字节有其他用处，可能就是设计失误，也有可能一开始没有这四个字节，后来因为 bug 不小心加上了，然后为了后向兼容，就一直带上了。</p>
+<p>现在我们来看具体的键值对：</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">type@&#x3D;loginreq</span><br><span class="line">roomid@&#x3D;7874579</span><br><span class="line">dfl@&#x3D;sn@AA&#x3D;105@ASss@AA&#x3D;1</span><br><span class="line">username@&#x3D;</span><br><span class="line">password@&#x3D;</span><br><span class="line">ltkid@&#x3D;</span><br><span class="line">biz@&#x3D;</span><br><span class="line">stk@&#x3D;</span><br><span class="line">devid@&#x3D;4d9c39a8a93746b6db53675800021501</span><br><span class="line">ct@&#x3D;0</span><br><span class="line">pt@&#x3D;2</span><br><span class="line">cvr@&#x3D;0</span><br><span class="line">tvr@&#x3D;7</span><br><span class="line">apd@&#x3D;</span><br><span class="line">rt@&#x3D;1593623035</span><br><span class="line">vk@&#x3D;6e9dfb63cdae310f97700a750b2fa47f</span><br><span class="line">ver@&#x3D;20190610</span><br><span class="line">aver@&#x3D;218101901</span><br><span class="line">dmbt@&#x3D;chrome</span><br><span class="line">dmbv@&#x3D;83</span><br></pre></td></tr></table></div></figure>
+<p>这些参数中，<code>type</code>, <code>roomid</code>, <code>devid</code> 都很好理解，<code>dfl</code>, <code>ver</code>, <code>aver</code>, <code>dmbt</code>, <code>dmbv</code> 这些看起来像是不重要的信息携带字段。</p>
+<p><code>rt</code> 很容易发现是一个秒级时间戳，现在唯一剩下的就是 <code>vk</code> 这个字段。我们可以通过修改字段值的方式来大致判断字段的作用和重要性。</p>
+<p>如果我们原封不动的使用这个请求体（在检查器中右键选择 <code>Copy message... -&gt; Copy as hex</code>）请求斗鱼的 WebSocket 服务，会发现一开始是有正常响应的，但是过几分钟后就报错了。</p>
+<figure class="highlight js"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> WebSocket = <span class="built_in">require</span>(<span class="string">"ws"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">"wss://wsproxy.douyu.com:6672/"</span>)</span><br><span class="line"></span><br><span class="line">ws.on(<span class="string">"open"</span>, () =&gt; &#123;</span><br><span class="line">  ws.send(Buffer.from(<span class="string">"1b0100001b010000b102000074797065403d6c6f67696e7265712f726f6f6d6964403d373837343537392f64666c403d736e4041413d31303540415373734041413d312f757365726e616d65403d2f70617373776f7264403d2f6c746b6964403d2f62697a403d2f73746b403d2f6465766964403d34643963333961386139333734366236646235333637353830303032313530312f6374403d302f7074403d322f637672403d302f747672403d372f617064403d2f7274403d313539333632333033352f766b403d36653964666236336364616533313066393737303061373530623266613437662f766572403d32303139303631302f61766572403d3231383130313930312f646d6274403d6368726f6d652f646d6276403d38332f00"</span>, <span class="string">"hex"</span>))</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">ws.on(<span class="string">"message"</span>, payload =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(payload.toString())</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></div></figure>
+<p>很明显，斗鱼会校验 <code>rt</code> 的值，如果服务器时间和 <code>rt</code> 时间超过一定间隔，那么会返回错误，这是一个很常见的设计。</p>
+<p>如果我们修改了一下 <code>vk</code>，也会得到一个错误，这说明 <code>vk</code> 是类似签名的东西，而不是什么信息携带字段，服务端会校验它的有效性。</p>
+<p>对于 <code>dfl</code>, <code>ver</code>, <code>aver</code>, <code>dmbt</code>, <code>dmbv</code> 这些字段，我们会发现随便修改都不会影响结果，说明我们的之前的猜测是正确的。</p>
+<p>所以，现在剩下的问题就是要搞清楚 <code>vk</code> 的签名规则，这个只能从源码入手。</p>
+<p>Chrome 检查器中对于每个网络请求都会显示它的 Initiator，也就是这个请求是什么代码发起的。</p>
+<p>鼠标放上去可以看到完整的调用栈。</p>
+<p>我们的思路是找到发送消息的地方，打上断点，通过调用栈往上找。</p>
+<p>所以打开最上面的 <code>playerSDK-room_4a27f53.js</code> 文件，搜索关键字 <code>send</code>，很容易找到下面这段代码。</p>
+<p>通过断点我们可以看出，登录消息就是通过这里发送的，因为 <code>e</code> 是登录的消息体。</p>
+<p>展开调用栈，会发现有一个函数叫做 <code>userLogin</code>，点进去。</p>
+<p>可以发现我们来到了 <code>common-pre~9fd51f5d.js</code> 文件，可以猜到 <code>h.default.jsEncrypt.async()</code> 这段代码应该就是签名相关的代码。</p>
+<p>我们可以断点进这个函数，然后继续找。或者，我们直接搜索 <code>vk</code>。</p>
+<p>然后我们就发现 <code>vk</code> 的值等于 <code>L(y + &quot;r5*^5;}2#${XF[h+;'./.Q'1;,-]f'p[&quot; + p)</code>。到这里就简单了，通过断点可以发现 <code>y</code> 就是 <code>rt</code>，<code>p</code> 是 <code>devid</code>，而 <code>L</code> 是一个求 md5 值的函数。</p>
+<p>所以 <code>vk</code> 的签名算法是 <code>vk = md5(rt + &quot;r5*^5;}2#${XF[h+;'./.Q'1;,-]f'p[&quot; + devid)</code></p>
+<p>现在整个消息体的结构我们都清楚了，我们试着构造消息体请求斗鱼服务器看看能不能得到响应。</p>
+<figure class="highlight js"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> encode = <span class="function"><span class="params">obj</span> =&gt;</span> <span class="built_in">Object</span>.keys(obj).map(<span class="function"><span class="params">k</span> =&gt;</span> <span class="string">`<span class="subst">$&#123; k &#125;</span>@=<span class="subst">$&#123; obj[k] &#125;</span>`</span>).join(<span class="string">"/"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> decode = <span class="function"><span class="params">str</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> str.split(<span class="string">"/"</span>).reduce(<span class="function">(<span class="params">acc, pair</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> [key, value] = pair.split(<span class="string">"@="</span>)</span><br><span class="line">    acc[key] = value</span><br><span class="line">    <span class="keyword">return</span> acc</span><br><span class="line">  &#125;, &#123;&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> crypto = <span class="built_in">require</span>(<span class="string">"crypto"</span>)</span><br><span class="line"><span class="keyword">const</span> md5Hash = crypto.createHash(<span class="string">"md5"</span>)</span><br><span class="line"><span class="keyword">const</span> md5 = <span class="function"><span class="params">payload</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> md5Hash.update(payload).digest(<span class="string">"hex"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4-byte length, 4-byte length, 0xb102, 0x0000</span></span><br><span class="line"><span class="keyword">const</span> getPayload = <span class="function"><span class="params">obj</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> arr = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0xb1</span>, <span class="number">0x02</span>, <span class="number">0x00</span>, <span class="number">0x00</span>]</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> objEncoded = encode(obj) + <span class="string">"/\x00"</span></span><br><span class="line">  arr.push(...objEncoded.split(<span class="string">""</span>).map(<span class="function"><span class="params">c</span> =&gt;</span> c.charCodeAt(<span class="number">0</span>)))</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> payload = Buffer.from(arr)</span><br><span class="line">  <span class="keyword">const</span> dv = <span class="keyword">new</span> <span class="built_in">DataView</span>(payload.buffer, payload.byteOffset)</span><br><span class="line">  <span class="keyword">const</span> length = payload.length - <span class="number">4</span></span><br><span class="line">  dv.setUint32(<span class="number">0</span>, length, <span class="literal">true</span>)</span><br><span class="line">  dv.setUint32(<span class="number">4</span>, length, <span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> payload</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ws.on(<span class="string">"open"</span>, () =&gt; &#123;</span><br><span class="line">  <span class="comment">// 这个随便填写一个</span></span><br><span class="line">  <span class="keyword">const</span> devID = <span class="string">"4d9c39a8a93746b6db53675800021501"</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> rt = (<span class="keyword">new</span> <span class="built_in">Date</span>().getTime() / <span class="number">1000</span>) &gt;&gt; <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> obj = &#123;</span><br><span class="line">    type: <span class="string">"loginreq"</span>,</span><br><span class="line">    roomid: roomID,</span><br><span class="line">    devid: devID,</span><br><span class="line">    rt: rt,</span><br><span class="line">    vk: md5(rt + <span class="string">"r5*^5;&#125;2#$&#123;XF[h+;'./.Q'1;,-]f'p["</span> + devID),</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> payload = getPayload(obj)</span><br><span class="line">  ws.send(payload)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">ws.on(<span class="string">"message"</span>, payload =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> data = decode(payload.slice(<span class="number">12</span>).toString())</span><br><span class="line">  <span class="keyword">if</span>(data.type === <span class="string">"followed_count"</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data.type)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></div></figure>
+<p>成功了！</p>
+
+        <h3 id="ocr">
+          <span class="heading-link">OCR</span>
+        </h3>
+      
+<p>获取到字体 ID 和假数据以后，接下来我们要做的就是使用字体渲染一张图片，然后调用 OCR 工具识别图片。</p>
+<p>我们先使用字体 ID 将字体下载下来，字体的下载 URL 是固定的 <code>https://shark.douyucdn.cn/app/douyu/res/font/FONT_ID.woff</code>。</p>
+<p>怎样渲染字体到图片呢？这个问题方案有很多，上文中我们利用了浏览器，这里我选择使用 SDL。</p>
+<figure class="highlight c"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;SDL2/SDL.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;SDL2/SDL_ttf.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;SDL2/SDL_image.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span></span><br><span class="line">main(<span class="keyword">void</span>)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">if</span>(TTF_Init() == <span class="number">-1</span>) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"error: %s\n"</span>, TTF_GetError());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  TTF_Font *font = TTF_OpenFont(<span class="string">"test.woff"</span>, <span class="number">50</span>);</span><br><span class="line">  <span class="keyword">if</span>(font == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"error: %s\n"</span>, TTF_GetError());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  SDL_Color black = &#123; <span class="number">0x00</span>, <span class="number">0x00</span>, <span class="number">0x00</span> &#125;;</span><br><span class="line">  SDL_Surface *surface = TTF_RenderText_Solid(font, <span class="string">"0123456789"</span>, black);</span><br><span class="line">  <span class="keyword">if</span>(surface == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"error: %s\n"</span>, TTF_GetError());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  IMG_SavePNG(surface, <span class="string">"test.png"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+<p>SDL 渲染速度非常快，结果也很清楚，用来 OCR 应该足够了。</p>
+<p>图形识别这一块我并没有什么太多经验，但是没关系，感谢开源世界。我们 Google OCR，很容易就会找到一个看起来很厉害的库 <span class="exturl"><a class="exturl__link" href="https://github.com/tesseract-ocr/tesseract" target="_blank" rel="external nofollow noopener noreferrer">tesseract</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>。</p>
+<p>先安装它 <code>brew install tesseract</code>。</p>
+<p>项目本身是 C++ 的，我们可以直接用 C++ 调用。但是因为后面我打算使用 Go 写一个完整的关注人数爬虫，所以这里我们使用 Go 来调用。</p>
+<p>安装 Go 的绑定 <span class="exturl"><a class="exturl__link" href="https://github.com/otiai10/gosseract" target="_blank" rel="external nofollow noopener noreferrer">gosseract</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>，然后使用如下代码来试试：</p>
+<figure class="highlight go"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">  <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line">  <span class="string">"github.com/otiai10/gosseract/v2"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  client := gosseract.NewClient()</span><br><span class="line">  <span class="keyword">defer</span> client.Close()</span><br><span class="line"></span><br><span class="line">  client.SetImage(<span class="string">"test.png"</span>)</span><br><span class="line">  client.SetWhitelist(<span class="string">"0123456789"</span>)</span><br><span class="line">  text, _ := client.Text()</span><br><span class="line">  fmt.Println(text)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+<p>然后我们很顺利地就得到了结果，开源万岁！🎉</p>
+
+        <h3 id="最终实现">
+          <span class="heading-link">最终实现</span>
+        </h3>
+      
+<p>最后，我们把上面的各个步骤整合一下，使用 Go 来实现一个完整的斗鱼关注人数爬虫，最终的代码在这里 <span class="exturl"><a class="exturl__link" href="https://github.com/cj1128/douyu-crawler-demo" target="_blank" rel="external nofollow noopener noreferrer">douyu-crawler-demo</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>。</p>
+<p>代码的大致流程如下：</p>
+<ul>
+<li>启动一定数量的 worker</li>
+<li>通过 channel 发送 roomID 给到 worker</li>
+<li>worker 爬取关注人数
+<ul>
+<li>首先通过 WebSocket 获取字体信息和假数据</li>
+<li>下载字体到缓存目录中</li>
+<li>调用 SDL 渲染字体为图片到缓存目录中</li>
+<li>使用 OCR 识别图片得到映射关系</li>
+<li>存储映射关系（生产肯定是写入数据库，这里是 demo，我们使用文件）</li>
+<li>输出结果（同样，生产是写入数据库，这里我们写入到结果文件）</li>
+</ul>
+</li>
+</ul>
+<p>当然，如果要做一个生产级别的爬虫，还有很多问题要处理：</p>
+<ul>
+<li>日志：详细的日志可以帮助分析问题，改进不足以及恢复数据等。</li>
+<li>错误处理：爬虫的天然属性就是随时可能无法工作，完善的错误处理和报警机制是必须的。</li>
+<li>重试机制：很多接口会报错，需要有一定的重试机制。</li>
+<li>数据校验：每一步获取到的数据都需要校验有效性，否则很容易在数据库中写入无效数据。</li>
+<li>人工干预：有些环节比如 OCR 的准确率是无法做到 100% 的，要考虑到失败的情况，一旦 OCR 识别失败，需要引入人工干预流程。</li>
+<li>IP 池：很多接口会限制 IP 的访问频率，这个时候要挂 IP 池。</li>
+</ul>
+<p>最后，我们来测试一下我们的程序效果。<span class="exturl"><a class="exturl__link" href="https://github.com/cj1128/douyu-crawler-demo/blob/master/roomids.txt" target="_blank" rel="external nofollow noopener noreferrer">roomids.txt</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 中含有 120 个斗鱼主播的 roomID，我们使用爬虫来爬取这 120 个主播的关注人数。</p>
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ douyu-crawler-demo -f roomids.txt</span><br><span class="line">....</span><br><span class="line">2020/07/02 13:28:41 all <span class="keyword">done</span> <span class="keyword">in</span> 36.313598957s</span><br><span class="line">2020/07/02 13:28:41   total: 120</span><br><span class="line">2020/07/02 13:28:41   success: 86</span><br><span class="line">2020/07/02 13:28:41   error: 34</span><br><span class="line">2020/07/02 13:28:41   ocr failed: 0</span><br></pre></td></tr></table></div></figure>
+<p>120 个主播，一共花费了 36s，这个速度还是非常理想的，使用 Headless Browser 是不可能有这个速度的。</p>
+<p>但是我们会发现，其中有一些失败了，看日志主要是 WebSocket 没有返回值或者超时了，这在爬虫中很正常，直接重试一下就行了。</p>
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ douyu-crawler-demo -f roomids.txt</span><br><span class="line">...</span><br><span class="line">2020/07/02 13:29:42 all <span class="keyword">done</span> <span class="keyword">in</span> 23.660793712s</span><br><span class="line">2020/07/02 13:29:42   total: 120</span><br><span class="line">2020/07/02 13:29:42   success: 120</span><br><span class="line">2020/07/02 13:29:42   error: 0</span><br><span class="line">2020/07/02 13:29:42   ocr failed: 0</span><br></pre></td></tr></table></div></figure>
+<p>这次全部成功了，结果文件在 <code>result/result.txt</code> 中。</p>
+<p>Tip: 可以发现 OCR 没有一次失败，tesseract 太赞了👍</p>
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ head result/result.txt</span><br><span class="line">5324388,b72iyfidmi,5538567,1169154</span><br><span class="line">582074,yzs37nb5ik,447330,116880</span><br><span class="line">6937618,21lwetbnlg,579241,128374</span><br><span class="line">5632185,flecd9ycbg,495291,327621</span><br><span class="line">6794440,21lwetbnlg,80850,90910</span><br><span class="line">52319,tcmpj93mbl,452436,576593</span><br><span class="line">820795,n1kril0e2r,80063,40025</span><br><span class="line">5168755,5n5pkb33y,861526,689528</span><br><span class="line">8546776,84c209m14f,9869,3783</span><br><span class="line">5747228,svk3del36j,319692,127978</span><br></pre></td></tr></table></div></figure>
+<p>每个字段分别是房间号、字体 ID、假数据以及真数据。</p>
+
+        <h2 id="防守">
+          <span class="heading-link">防守</span>
+        </h2>
+      
+<p>讲完了进攻，现在我们来看看如果我们站在防守方，需要使用这种技巧来反爬，该怎么做？</p>
+<p>字体反爬的核心是随机生成一个映射，根据映射生成字体，然后返回字体和假数据给到前端。</p>
+<p>这个时候我们就需要了解一下字体的文件格式了。常见的字体格式有 <code>ttf</code>, <code>otf</code>, <code>woff</code>。其中 <code>woff</code> 是一个包装格式，里面的字体不是 <code>ttf</code> 就是 <code>otf</code> 的，所以真正的存储格式只有两种，<code>ttf</code> 和 <code>otf</code>。</p>
+<p>这两种格式很明显都是二进制格式，没法直接打开看。但是，幸运的是，字体有一个格式叫做 <code>ttx</code>，是一个 XML 的可读格式。</p>
+<p>我们的基本思路是：</p>
+<ul>
+<li>裁剪字体：根据一个基础字体裁剪掉我们不需要的字符，比如斗鱼这种情况，我们只需要数字即可</li>
+<li>将字体转换成 <code>ttx</code> 格式打开</li>
+<li>找到字符和图形的映射</li>
+<li>修改这个映射</li>
+<li>再导出字体为 <code>ttf</code></li>
+</ul>
+<p>这里我们使用 <span class="exturl"><a class="exturl__link" href="https://github.com/fonttools/fonttools" target="_blank" rel="external nofollow noopener noreferrer">fonttools</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 这个强大的 Python 库来进行后续的操作。</p>
+<p>我们以开源字体 <span class="exturl"><a class="exturl__link" href="https://sourcefoundry.org/hack/" target="_blank" rel="external nofollow noopener noreferrer">Hack</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 为例。</p>
+<p>我们先来裁剪字体。安装好 <code>fonttools</code> 以后会默认安装几个工具，其中之一是 <span class="exturl"><a class="exturl__link" href="https://fonttools.readthedocs.io/en/latest/subset/index.html?highlight=pyftsubset" target="_blank" rel="external nofollow noopener noreferrer">pyftsubset</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>，这个工具就可以用来裁剪字体。</p>
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pyftsubset hack.ttf --text=<span class="string">"0123456789"</span></span><br><span class="line">WARNING: TTFA NOT subset; don<span class="string">'t know how to subset; dropped</span></span><br></pre></td></tr></table></div></figure>
+<p>上面的 warning 不用介意，运行完毕之后我们得到了 <code>hack.subset.ttf</code>，这个便是裁剪后的字体，只支持渲染 0 ~ 9。</p>
+<p>接下来转换字体为可读的 ttx 格式。同样，fonttools 自带了一个工具叫做 <code>ttx</code>，直接使用即可。</p>
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ ttx hack.subset.ttf</span><br><span class="line">Dumping <span class="string">"hack.subset.ttf"</span> to <span class="string">"hack.subset.ttx"</span>...</span><br><span class="line">Dumping <span class="string">'GlyphOrder'</span> table...</span><br><span class="line">Dumping <span class="string">'head'</span> table...</span><br><span class="line">Dumping <span class="string">'hhea'</span> table...</span><br><span class="line">Dumping <span class="string">'maxp'</span> table...</span><br><span class="line">Dumping <span class="string">'OS/2'</span> table...</span><br><span class="line">Dumping <span class="string">'hmtx'</span> table...</span><br><span class="line">Dumping <span class="string">'cmap'</span> table...</span><br><span class="line">Dumping <span class="string">'fpgm'</span> table...</span><br><span class="line">Dumping <span class="string">'prep'</span> table...</span><br><span class="line">Dumping <span class="string">'cvt '</span> table...</span><br><span class="line">Dumping <span class="string">'loca'</span> table...</span><br><span class="line">Dumping <span class="string">'glyf'</span> table...</span><br><span class="line">Dumping <span class="string">'name'</span> table...</span><br><span class="line">Dumping <span class="string">'post'</span> table...</span><br><span class="line">Dumping <span class="string">'gasp'</span> table...</span><br><span class="line">Dumping <span class="string">'GSUB'</span> table...</span><br></pre></td></tr></table></div></figure>
+<p>我们会发现目录下多了一个 <code>hack.subset.ttx</code> 文件，打开观察一下。</p>
+<p>很容易就可以发现，<code>cmap</code> 标签中定义了字符和图形的映射。</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">cmap</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tableVersion</span> <span class="attr">version</span>=<span class="string">"0"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">cmap_format_4</span> <span class="attr">platformID</span>=<span class="string">"0"</span> <span class="attr">platEncID</span>=<span class="string">"3"</span> <span class="attr">language</span>=<span class="string">"0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">map</span> <span class="attr">code</span>=<span class="string">"0x30"</span> <span class="attr">name</span>=<span class="string">"zero"</span>/&gt;</span><span class="comment">&lt;!-- DIGIT ZERO --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">map</span> <span class="attr">code</span>=<span class="string">"0x31"</span> <span class="attr">name</span>=<span class="string">"one"</span>/&gt;</span><span class="comment">&lt;!-- DIGIT ONE --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">map</span> <span class="attr">code</span>=<span class="string">"0x32"</span> <span class="attr">name</span>=<span class="string">"two"</span>/&gt;</span><span class="comment">&lt;!-- DIGIT TWO --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">map</span> <span class="attr">code</span>=<span class="string">"0x33"</span> <span class="attr">name</span>=<span class="string">"three"</span>/&gt;</span><span class="comment">&lt;!-- DIGIT THREE --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">map</span> <span class="attr">code</span>=<span class="string">"0x34"</span> <span class="attr">name</span>=<span class="string">"four"</span>/&gt;</span><span class="comment">&lt;!-- DIGIT FOUR --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">map</span> <span class="attr">code</span>=<span class="string">"0x35"</span> <span class="attr">name</span>=<span class="string">"five"</span>/&gt;</span><span class="comment">&lt;!-- DIGIT FIVE --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">map</span> <span class="attr">code</span>=<span class="string">"0x36"</span> <span class="attr">name</span>=<span class="string">"six"</span>/&gt;</span><span class="comment">&lt;!-- DIGIT SIX --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">map</span> <span class="attr">code</span>=<span class="string">"0x37"</span> <span class="attr">name</span>=<span class="string">"seven"</span>/&gt;</span><span class="comment">&lt;!-- DIGIT SEVEN --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">map</span> <span class="attr">code</span>=<span class="string">"0x38"</span> <span class="attr">name</span>=<span class="string">"eight"</span>/&gt;</span><span class="comment">&lt;!-- DIGIT EIGHT --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">map</span> <span class="attr">code</span>=<span class="string">"0x39"</span> <span class="attr">name</span>=<span class="string">"nine"</span>/&gt;</span><span class="comment">&lt;!-- DIGIT NINE --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">cmap_format_4</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">cmap</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+<p><code>0x30</code> 也就是字符 0 对应 <code>name=&quot;zero&quot;</code> 的 <code>TTGlyph</code>，TTGlyph 中定义了渲染要用的数据，也就是一些坐标。</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TTGlyph</span> <span class="attr">name</span>=<span class="string">"zero"</span> <span class="attr">xMin</span>=<span class="string">"123"</span> <span class="attr">yMin</span>=<span class="string">"-29"</span> <span class="attr">xMax</span>=<span class="string">"1110"</span> <span class="attr">yMax</span>=<span class="string">"1520"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">contour</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pt</span> <span class="attr">x</span>=<span class="string">"617"</span> <span class="attr">y</span>=<span class="string">"-29"</span> <span class="attr">on</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pt</span> <span class="attr">x</span>=<span class="string">"369"</span> <span class="attr">y</span>=<span class="string">"-29"</span> <span class="attr">on</span>=<span class="string">"0"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pt</span> <span class="attr">x</span>=<span class="string">"246"</span> <span class="attr">y</span>=<span class="string">"165"</span> <span class="attr">on</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pt</span> <span class="attr">x</span>=<span class="string">"123"</span> <span class="attr">y</span>=<span class="string">"358"</span> <span class="attr">on</span>=<span class="string">"0"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pt</span> <span class="attr">x</span>=<span class="string">"123"</span> <span class="attr">y</span>=<span class="string">"745"</span> <span class="attr">on</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pt</span> <span class="attr">x</span>=<span class="string">"123"</span> <span class="attr">y</span>=<span class="string">"1134"</span> <span class="attr">on</span>=<span class="string">"0"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pt</span> <span class="attr">x</span>=<span class="string">"246"</span> <span class="attr">y</span>=<span class="string">"1327"</span> <span class="attr">on</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pt</span> <span class="attr">x</span>=<span class="string">"369"</span> <span class="attr">y</span>=<span class="string">"1520"</span> <span class="attr">on</span>=<span class="string">"0"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pt</span> <span class="attr">x</span>=<span class="string">"616"</span> <span class="attr">y</span>=<span class="string">"1520"</span> <span class="attr">on</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pt</span> <span class="attr">x</span>=<span class="string">"864"</span> <span class="attr">y</span>=<span class="string">"1520"</span> <span class="attr">on</span>=<span class="string">"0"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pt</span> <span class="attr">x</span>=<span class="string">"987"</span> <span class="attr">y</span>=<span class="string">"1327"</span> <span class="attr">on</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pt</span> <span class="attr">x</span>=<span class="string">"1110"</span> <span class="attr">y</span>=<span class="string">"1134"</span> <span class="attr">on</span>=<span class="string">"0"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pt</span> <span class="attr">x</span>=<span class="string">"1110"</span> <span class="attr">y</span>=<span class="string">"745"</span> <span class="attr">on</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">pt</span> <span class="attr">x</span>=<span class="string">"1110"</span> <span class="attr">y</span>=<span class="string">"-29"</span> <span class="attr">on</span>=<span class="string">"0"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">contour</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">TTGlyph</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+<p>那么怎么制作混淆字体的方法就不言而喻了，我们修改一下这个 XML，把 <code>TTGlyph(name=&quot;zero&quot;)</code> 标签的 <code>zero</code> 换成 <code>eight</code> 然后把 <code>TTGlyph(name=&quot;eight&quot;)</code> 标签的 <code>eight</code> 换成 <code>zero</code>，保存文件为 <code>fake.ttx</code>。</p>
+<p>导出 ttx 到 ttf 依然是使用 <code>ttx</code> 工具。</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ ttx -o fake.ttf fake.ttx</span><br><span class="line">Compiling &quot;fake.ttx&quot; to &quot;fake.ttf&quot;...</span><br><span class="line">Parsing &#39;GlyphOrder&#39; table...</span><br><span class="line">Parsing &#39;head&#39; table...</span><br><span class="line">Parsing &#39;hhea&#39; table...</span><br><span class="line">Parsing &#39;maxp&#39; table...</span><br><span class="line">Parsing &#39;OS&#x2F;2&#39; table...</span><br><span class="line">Parsing &#39;hmtx&#39; table...</span><br><span class="line">Parsing &#39;cmap&#39; table...</span><br><span class="line">Parsing &#39;fpgm&#39; table...</span><br><span class="line">Parsing &#39;prep&#39; table...</span><br><span class="line">Parsing &#39;cvt &#39; table...</span><br><span class="line">Parsing &#39;loca&#39; table...</span><br><span class="line">Parsing &#39;glyf&#39; table...</span><br><span class="line">Parsing &#39;name&#39; table...</span><br><span class="line">Parsing &#39;post&#39; table...</span><br><span class="line">Parsing &#39;gasp&#39; table...</span><br><span class="line">Parsing &#39;GSUB&#39; table...</span><br></pre></td></tr></table></div></figure>
+<p>使用上文提到的 HTML 使用 <code>fake.ttf</code> 渲染 0 ~ 9，可以看到，我们成功地制作了一个混淆字体。</p>
+<p><span class="exturl"><a class="exturl__link" href="https://github.com/cj1128/douyu-crawler-demo/blob/master/genfont.py" target="_blank" rel="external nofollow noopener noreferrer">genfont.py</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 是我使用 Python 编写的脚本，可以自动生成任意数量的混淆字体。</p>
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 hack.subset.ttf 为基础生成 20 个混淆字体</span></span><br><span class="line">$ ./genfont.py hack.subset.ttf 20</span><br><span class="line">....</span><br><span class="line">$ ls result/generated <span class="comment"># 结果存储在这个目录中</span></span><br><span class="line">0018fb8365.7149586203.ttf  267ccb0e95.8402759136.ttf</span><br><span class="line">08a9457ab9.3958406712.ttf  281ef45f09.2154786390.ttf</span><br><span class="line">1bbdd405ca.9147328650.ttf  788e0c7651.8790526413.ttf</span><br><span class="line">1f985cd725.6417320895.ttf  5433d36fde.1326570894.ttf</span><br><span class="line">2d56def315.8962135047.ttf  6844549191.3597082416.ttf</span><br><span class="line">6bd27a4bac.0658392147.ttf  a422833064.8416930752.ttf</span><br><span class="line">6e337094a4.0754261839.ttf  c7f0591c38.5761804329.ttf</span><br><span class="line">9a0e22d6ad.9173452860.ttf  d3269bd2ce.0384976152.ttf</span><br><span class="line">9a407f17c1.8379426105.ttf  f97691cc25.1587964230.ttf</span><br><span class="line">44a428c37d.3602974581.ttf  ffe2c54286.6894312057.ttf</span><br></pre></td></tr></table></div></figure>
+<p>文件名的形式为 <code>fontID.mapping.ttf</code>。比如 <code>0018fb8365.7149586203.ttf</code> 这个字体会将 <code>0</code> 渲染为 <code>7</code>。</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="https://cjh0613.com">峡州仙士</a></span></div><div class="copyright-link"><span class="copyright-link__name">原文链接: </span><span class="copyright-link__value"><a href="https://cjh0613.com/20200710anti-anti-spider.html">https://cjh0613.com/20200710anti-anti-spider.html</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">声明: </span><span class="copyright-notice__value">如文章有更新，将先在本网站（峡州仙士之页）发布！（可百度）| 本网站所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-share"><div class="social-share" data-sites="qzone, qq, weibo, wechat, douban, linkedin, facebook, twitter, google">分享本文到: </div></div><div class="post-reward reward"><div class="reward-button">请我喝一杯凉虾~</div><div class="reward-qrcode"><a class="exturl__link" href="https://www.cjh0613.com/RedEnvelope" target="_blank" rel="external nofollow noopener noreferrer">（推荐）【免费打赏】手机用户点此一键领红包，您通过使用红包来支持站长</a><p>BTC地址（建议使用ETH）：3F7hk94nnBHrL4LuHZdtP4soPCefCV6CbU</p><p>ETH收款地址：0x2AdDE524665af970acE4CB3D50dE70136c88f90F</p><span class="reward-qrcode-alipay"><img class="reward-qrcode-alipay__img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/pasted-5.png"><div class="reward-qrcode-alipay__text">支付宝打赏</div></span><span class="reward-qrcode-wechat"><img class="reward-qrcode-wechat__img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/pasted-6.png"><div class="reward-qrcode-wechat__text">微信打赏</div></span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/20200729DealWithHexoHosts.html"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">多域名 hexo 静态网站处理</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/20200603HexoSubmitUrlsToSearchEngine.html"><span class="paginator-prev__text">hexo-submit-urls-to-search-engine 中文文档</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div><div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-3992225808017393" data-ad-slot="7938361938"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#进攻"><span class="toc-number">1.</span> <span class="toc-text">
+          进攻
+        </span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分析"><span class="toc-number">1.1.</span> <span class="toc-text">
+          分析
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据源"><span class="toc-number">1.2.</span> <span class="toc-text">
+          数据源
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协议"><span class="toc-number">1.3.</span> <span class="toc-text">
+          协议
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ocr"><span class="toc-number">1.4.</span> <span class="toc-text">
+          OCR
+        </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最终实现"><span class="toc-number">1.5.</span> <span class="toc-text">
+          最终实现
+        </span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防守"><span class="toc-number">2.</span> <span class="toc-text">
+          防守
+        </span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/icons/CJHicon.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">这里也有我的痕迹(按排序)：</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="/20200402RSS.html" target="_blank" rel="noopener" data-popover="RSS订阅" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-rss"></i></span></a><a class="sidebar-ov-social-item" href="https://github.com/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.thingiverse.com/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Thingiverse" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-cube"></i></span></a><a class="sidebar-ov-social-item" href="http://sighttp.qq.com/authd?IDKEY=4d5d36c19d4b64b91e4074144124b486759e276fa30b8abc" target="_blank" rel="external nofollow noopener noreferrer" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a><a class="sidebar-ov-social-item" href="https://t.me/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Telegram" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-telegram"></i></span></a><a class="sidebar-ov-social-item" href="https://www.quora.com/profile/Bruce-Chen-199" target="_blank" rel="external nofollow noopener noreferrer" data-popover="Quora" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-quora"></i></span></a><a class="sidebar-ov-social-item" href="https://www.zhihu.com/people/cjh0613" target="_blank" rel="external nofollow noopener noreferrer" data-popover="知乎" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-question"></i></span></a><a class="sidebar-ov-social-item" href="/about.html" target="_blank" rel="noopener" data-popover="更多" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fas fa-ellipsis-h"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/index.html"><div class="sidebar-ov-state-item__count">131</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/index.html"><div class="sidebar-ov-state-item__count">6</div><div class="sidebar-ov-state-item__name">分类</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/index.html"><div class="sidebar-ov-state-item__count">75</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="external nofollow noopener noreferrer" data-popover="知识共享" data-popover-pos="up"><img src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020~2021</span><span class="footer__icon"><i class="fas fa-code"></i></span><span>峡州仙士</span><span class="footer__devider">|</span><span>粤ICP备12009483号（Gitee站）</span></div><!----><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div>推荐使用电脑端访问本站</div><div class="webinfo-item"><span class="webinfo-runtime-name">本站持续运行时间 :</span><span class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="2020/2/26 00:00:00"></span></div><div style="display:none"><script type="text/javascript" src="https://js.users.51.la/20667167.js"></script><script src="https://s96.cnzz.com/z_stat.php?id=1277785770&amp;web_id=1277785770"></script></div><div><p><a class="exturl__link" href="/20200402RSS.html" target="_blank" rel="noopener">RSS</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://en.cjh0613.com/index.html" target="_blank" rel="noopener">English&emsp;I18N&emsp;国际站</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://status.cjh0613.com/" target="_blank" rel="external nofollow noopener noreferrer">峡州仙士之页状态监控</a><br><a class="exturl__link" href="https://suyin-blog.club/" target="_blank" rel="noopener">苏寅</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://www.avg.cx" target="_blank" rel="noopener">Yrh</a>&nbsp;|&nbsp;<a class="exturl__link" href="https://www.v6g.cn/" target="_blank" rel="noopener">微6g资源网</a><br><a class="exturl__link" href="https://cjh0613.com/archives/index.html" target="_blank" rel="noopener">归档页</a>&nbsp;|&nbsp;
+sitemap（<a class="exturl__link" href="https://cjh0613.com/sitemap.xml" target="_blank" rel="noopener">1</a><a class="exturl__link" href="https://cjh0613.com/google-sitemap.xml" target="_blank" rel="noopener">2</a>）
+&nbsp;|&nbsp;<a class="exturl__link" href="/friends/index.html" target="_blank" rel="noopener">更多友情链接</a></p></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><script>//var btn = document.getElementById("cjh_search");
+function cjh_search(){
+var $input = $('.search-input input');var q = $input.val().toLowerCase().trim();
+var url = "https://www.baidu.com/s";
+var url = url + '?wd='+q+' "峡州仙士之页"';
+if(q){
+var tempwindow=window.open('_blank');
+tempwindow.location=url;
+}}
+function cjh_g_search(){
+var $input = $('.search-input input');var q = $input.val().toLowerCase().trim();
+var url = "https://www.sanzhima.com/search";
+var url = url + '?q='+q+' site:cjh0613.com';
+if(q){
+var tempwindow=window.open('_blank');
+tempwindow.location=url;
+}}
+</script><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"><div class="cjh-btn__icon" style="font-size:1rem"><a class="cjh-btn-a" href="javascript:;" onclick="cjh_g_search();return false;">谷歌搜索</a>&emsp;<a class="cjh-btn-a" id="cjh_search" href="javascript:;" onclick="cjh_search();return false;">备用搜索</a></div><div style="text-align: center"><p>（您还可以在<a class="exturl__link" href="/blog/archives/" target="_blank" rel="noopener">归档页</a>搜索文章标题）</p></div></div><div class="search-results"></div></div><script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script><script src="//cdn.staticfile.org/velocity/1.5.2/velocity.min.js"></script><script src="//cdn.staticfile.org/velocity/1.5.2/velocity.ui.min.js"></script><script src="//cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script><script src="//cdn.staticfile.org/masonry/4.2.2/masonry.pkgd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script src="//cdn.staticfile.org/social-share.js/1.0.16/js/social-share.min.js"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keypress', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css('overflow', 'auto');
+  $('.search-popup')
+    .removeClass('show')
+    .velocity('stop')
+    .velocity('transition.expandOut', {
+      duration: 300
+    });
+  $('.search-mask')
+    .velocity('stop')
+    .velocity('transition.fadeOut', {
+      duration: 300
+    });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .addClass('show')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);</script><link href="https://cdn.staticfile.org/KaTeX/0.10.2/katex.min.css" rel="stylesheet" type="text/css"><link href="https://cdn.staticfile.org/KaTeX/0.10.2/contrib/copy-tex.css" rel="stylesheet" type="text/css"><script src="https://cdn.staticfile.org/KaTeX/0.10.2/contrib/copy-tex.min.js"></script><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="//cdn.staticfile.org/valine/1.4.14/Valine.min.js"></script><script>function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'GfE51gqBqbGNIbHPqoSHcPXD-MdYXbMMI',
+    appKey: 'JXCYM9TcWAOLRnxo2BWpEL8y',
+    notify: true,
+    verify: true,
+    placeholder: '点这里输入评论。如果您需要咨询，还可QQ联系。（请填写上方昵称与邮箱，邮箱不会公开显示。如果您有个人网站，也可以填写）【近期邮件提醒失效，回复较慢】',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: false,
+    recordIP: true,
+    lang: 'zh-cn' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+  
+if (false) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3992225808017393',
+  enable_page_level_ads: true
+});</script><script src="https://cjh0613.com/js/counttime.js"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/utils.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/stun-boot.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/scroll.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/header.js?v=1.7.0"></script><script src="https://cdn.jsdelivr.net/gh/cjh0613/blog@master/js/sidebar.js?v=1.7.0"></script></body></html>

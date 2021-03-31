@@ -1,0 +1,13 @@
+User-agent: Googlebot
+Disallow: /page/
+Disallow: /page/*.html
+Disallow: /suiji.html
+User-agent: *
+Disallow: /page/
+Disallow: /page/*.html
+Disallow: /suiji.html
+Disallow: /20200601.html
+Disallow: /20200316.html
+Disallow: /20200315Whistle.html
+Disallow: /20200418Pandownload.html
+Disallow: /20200512InvisibilityGame.html
